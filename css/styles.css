@@ -1,0 +1,348 @@
+/* Base */
+
+:root {
+  --color-1: #00c0ff; /* Please refer to Color Palette documentation */
+  --color-1-rgb: 0, 192, 255;
+  --color-2: #00a8df;
+  --color-3: #0090bf;
+  --color-4: #00789f;
+  --color-5: #006080;
+  --color-6: #004860;
+  --color-7: #003040;
+  --color-8: #001820;
+  --color-9: #f5f5f5; /* Body color */
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  background-color: var(--color-9);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 600;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.logoMuni {
+  margin-left: 20px;
+  width: 100%;
+  height: 88px;
+  background-position: 0 -200px;
+}
+
+.muniSprite {
+  background-image: url(../assets/Muni_Sprite.png);
+  background-color: transparent;
+  background-repeat: no-repeat;
+  display: block;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Header and Navbar */
+
+header {
+  width: 100%;
+  display: flex;
+  height: 100px;
+  background-color: white;
+  border-bottom: none;
+  border-image: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.5) 30%,
+      var(--color-1) 60%
+    )
+    1;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  background: -webkit-linear-gradient(315deg, white 30%, var(--color-1) 60%);
+  background: -moz-linear-gradient(315deg, white 30%, var(--color-1) 60%);
+  background: -o-linear-gradient(315deg, white 30%, var(--color-1) 60%);
+  background: -ms-linear-gradient(315deg, white 30%, var(--color-1) 60%);
+  background: linear-gradient(135deg, white 30%, var(--color-1) 60%);
+  box-shadow:
+    0 0 6px 0 rgba(0, 192, 255, 0.1),
+    0 0 4px 0 rgba(0, 192, 255, 0.06);
+}
+
+nav {
+  width: 100%;
+  align-content: center;
+}
+
+.navbar {
+  list-style: none;
+  width: 100%;
+  text-align: center;
+  display: inline-flex;
+  justify-content: flex-end;
+}
+
+.navListItem a {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 600;
+  margin-right: 30px;
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navListItem a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: var(--color-6);
+  transition: width 0.3s ease;
+}
+
+.navListItem a:hover {
+  color: var(--color-6);
+  text-shadow: 0 0 1px rgba(var(--color-1-rgb), 0.1);
+}
+
+.navListItem a:hover::after {
+  width: 100%;
+}
+
+.navListItem a:active {
+  transform: scale(0.98);
+  color: var(--color-7);
+}
+
+.navListItem a.active {
+  color: var(--color-7);
+  background: rgba(var(--color-7-rgb), 0.1);
+}
+
+.userPhotoContainer {
+  width: 100px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin: 20px 30px 20px 0px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(var(--color-1-rgb), 0.2);
+  transition: transform 0.3s ease;
+}
+
+.userProfilePhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.userPhotoContainer:hover {
+  transform: scale(1.2);
+}
+
+/* Main */
+
+main {
+  flex: 1;
+  width: 100%;
+  min-height: 200px;
+}
+
+/* Footer */
+
+footer {
+  width: 100%;
+  min-height: 200px;
+  padding: 40px 0 20px;
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--color-8);
+  color: white;
+  border-top: 2px solid var(--color-7);
+  box-shadow: 0 -6px 12px rgba(var(--color-1-rgb), 0.1);
+}
+
+.footerContainer {
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footerColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footerLogoMuni {
+  width: 37%;
+  height: 80px;
+
+  background-position: 0 -210px;
+  transition: transform 0.3s ease;
+}
+
+.footerLogoMuni:hover {
+  transform: scale(1.05);
+}
+
+.addressBlock {
+  margin-top: 20px;
+}
+
+.addressBlock strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--color-1);
+}
+
+.socialContainer {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.socialLogo {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+}
+
+.socialLogo:hover {
+  transform: translateY(-3px);
+  opacity: 1;
+}
+
+.socialLogoInstagram,
+.socialLogoFacebook,
+.socialLogoX {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  display: block;
+  width: 50px;
+  height: 50%;
+}
+
+.footerNav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footerNav a {
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 5px 0;
+}
+
+.footerNav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-1);
+  transition: width 0.3s ease;
+}
+
+.footerNav a:hover {
+  color: var(--color-1);
+}
+
+.footerNav a:hover::after {
+  width: 100%;
+}
+
+.footerCopyright {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid var(--color-7);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9em;
+}
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.columnTitle {
+  color: var(--color-1);
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.scheduleBlock,
+.phoneBlock,
+.faxBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contactInfo h4 {
+  color: var(--color-1);
+  font-size: 1em;
+  margin-bottom: 5px;
+}
+
+.contactInfo p {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  margin: 0;
+}
