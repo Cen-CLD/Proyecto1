@@ -1,0 +1,70 @@
+graph TD
+  Inicio --> Autenticacion
+  Autenticacion --> Contenido_Publico
+  Contenido_Publico --> Interaccion_Ciudadana
+  Interaccion_Ciudadana --> Gestion_Administrativa
+  Gestion_Administrativa --> Infraestructura_Tecnica
+
+  %% Módulos Detallados
+  subgraph Autenticacion
+    direction TB
+    Login["Inicio de Sesión (RF-01, RF-08)"]
+    Registro["Registro Usuarios (RF-04)"]
+    Recuperacion["Recuperar Contraseña (RF-02)"]
+    Verificacion["Verificación Email (RF-03)"]
+    Perfil["Perfil Usuario (RF-05, RF-06)"]
+  end
+
+  subgraph Contenido_Publico
+    direction TB
+    Noticias["Noticias Locales (RF-18)"]
+    Avisos["Avisos Municipales (RF-19)"]
+    Servicios["Servicios Municipales (RF-17, RF-31)"]
+    Guias["Guía de Denuncias (RF-20)"]
+    Proyectos["Proyectos Comunitarios (RF-28)"]
+  end
+
+  subgraph Interaccion_Ciudadana
+    direction TB
+    Denuncias["Gestión Denuncias (RF-15, RF-21)"]
+    Seguimiento["Seguimiento Denuncias (RF-23)"]
+    Iniciativas["Iniciativas Comunitarias (RF-24, RF-25)"]
+    Participacion["Participación Proyectos (RF-28)"]
+  end
+
+  subgraph Gestion_Administrativa
+    direction TB
+    subgraph Admin["Panel Administrativo (RF-10)"]
+      direction TB
+      GNoticias["Gestión Noticias (RF-14, RF-30)"]
+      GAvisos["Gestión Avisos (RF-27)"]
+      GDenuncias["Gestión Denuncias (RF-07, RF-16, RF-22)"]
+      GUsuarios["Gestión Usuarios (RF-13)"]
+      GProyectos["Gestión Proyectos (RF-26, RF-32)"]
+    end
+
+    subgraph Consejo["Panel Consejo Distrito (RF-12)"]
+      direction TB
+      RDenuncias["Revisión Denuncias (RF-12)"]
+      PIniciativas["Priorización Iniciativas (RF-26)"]
+    end
+  end
+
+  subgraph Infraestructura_Tecnica
+    direction TB
+    Frontend["Frontend (RF-33, RF-34, RF-35, RF-43)"]
+    Backend["Backend (RF-36, RF-37, RF-38, RF-39, RF-40)"]
+    Seguridad["Seguridad (RF-05, RF-45, RNF-04, RNF-05)"]
+    Hosting["Hosting (RNF-01, RNF-02, RNF-17)"]
+    BBDD["Base de Datos (RF-37, RNF-03)"]
+  end
+
+  Autenticacion -->|Acceso| Contenido_Publico
+  Contenido_Publico -->|Navegación| Interaccion_Ciudadana
+  Interaccion_Ciudadana -->|Gestión| Gestion_Administrativa
+  Gestion_Administrativa -->|Soporte| Infraestructura_Tecnica
+
+  Denuncias -->|Notificaciones| Seguridad
+  GProyectos -->|Publicación| Contenido_Publico
+  Frontend -->|Consume| Backend
+  Backend -->|Almacenamiento| BBDD
