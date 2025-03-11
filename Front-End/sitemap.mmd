@@ -1,7 +1,13 @@
 graph TD
-  %% Estructura Principal Vertical
   Inicio --> Autenticacion
   Autenticacion --> Contenido_Publico
   Contenido_Publico --> Interaccion_Ciudadana
   Interaccion_Ciudadana --> Gestion_Administrativa
   Gestion_Administrativa --> Infraestructura_Tecnica
+subgraph Interaccion_Ciudadana
+    direction TB
+    Denuncias["Gestión Denuncias (RF-15, RF-21)"]
+    Seguimiento["Seguimiento Denuncias (RF-23)"]
+    Iniciativas["Iniciativas Comunitarias (RF-24, RF-25)"]
+    Participacion["Participación Proyectos (RF-28)"]
+  end
