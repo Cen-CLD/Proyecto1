@@ -20,3 +20,13 @@ subgraph Interaccion_Ciudadana
     Guias["Guía de Denuncias (RF-20)"]
     Proyectos["Proyectos Comunitarios (RF-28)"]
   end
+subgraph Gestion_Administrativa
+    direction TB
+    subgraph Admin["Panel Administrativo (RF-10)"]
+      direction TB
+      GNoticias["Gestión Noticias (RF-14, RF-30)"]
+      GAvisos["Gestión Avisos (RF-27)"]
+      GDenuncias["Gestión Denuncias (RF-07, RF-16, RF-22)"]
+      GUsuarios["Gestión Usuarios (RF-13)"]
+      GProyectos["Gestión Proyectos (RF-26, RF-32)"]
+    end
