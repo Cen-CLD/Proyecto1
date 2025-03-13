@@ -23,8 +23,12 @@
 
             <nav>
                 <ul class="navbar">
-                    <li class="navListItem" id="home-page">
-                        <a href="#" class="active">Inicio</a>
+                    <li
+                        class="navListItem"
+                        id="home-page"
+                        data-target="welcome"
+                    >
+                        <a href="home.html">Inicio</a>
                     </li>
                     <li class="navListItem"><a href="#">Comunidad</a></li>
                     <li class="navListItem"><a href="#">Opcion 2</a></li>
@@ -44,9 +48,7 @@
                 <div class="left">
                     <h2>Menu de Acciones</h2>
                     <ul class="sidebar">
-                        <li>
-                            <a href="news.html">Noticias</a>
-                        </li>
+                        <li><a href="news.html">Noticias</a></li>
                         <li>
                             <a href="notices.html" data-target="avisos"
                                 >Avisos</a
@@ -58,31 +60,17 @@
                             >
                         </li>
                         <li>
-                            <a href="claims.html" data-target="denuncias"
+                            <a
+                                class="active"
+                                href="claims.html"
+                                data-target="denuncias"
                                 >Denuncias</a
                             >
                         </li>
                     </ul>
                 </div>
                 <div class="right">
-                    <section
-                        id="welcome"
-                        class="welcome-section"
-                        data-section="welcome"
-                    >
-                        <div class="welcome-content">
-                            <img
-                                src="../../assets/img/muniLogoSmall.png"
-                                alt="Logo"
-                                class="welcome-logo"
-                            />
-                            <h1 class="welcome-title">Bienvenido a Usuario</h1>
-                            <p class="welcome-subtitle">
-                                Municipalidad de Montes de Oca - Tu espacio de
-                                información y participación
-                            </p>
-                        </div>
-                    </section>
+                    <h1>Claims</h1>
                 </div>
             </div>
         </main>
@@ -103,9 +91,7 @@
                         <strong class="columnTitle">Navegación</strong>
 
                         <ul class="footerNav">
-                            <li class="navListItem">
-                                <a href="home.html">Inicio</a>
-                            </li>
+                            <li class="navListItem"><a href="#">Inicio</a></li>
                             <li class="navListItem">
                                 <a href="#">Comunidad</a>
                             </li>

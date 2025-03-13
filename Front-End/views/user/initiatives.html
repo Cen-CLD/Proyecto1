@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home | User</title>
+
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../assets/css/user/styles.css" />
+    </head>
+
+    <body>
+        <header>
+            <a
+                href="home.html"
+                class="logoMuni muniSprite"
+                id="logoInicio"
+                data-target="welcome"
+            ></a>
+
+            <nav>
+                <ul class="navbar">
+                    <li
+                        class="navListItem"
+                        id="home-page"
+                        data-target="welcome"
+                    >
+                        <a href="home.html">Inicio</a>
+                    </li>
+                    <li class="navListItem"><a href="#">Comunidad</a></li>
+                    <li class="navListItem"><a href="#">Opcion 2</a></li>
+                </ul>
+            </nav>
+
+            <a href="userProfile.html" class="userPhotoContainer">
+                <img
+                    class="userProfilePhoto"
+                    src="../../assets/img/user_profile.jpg"
+                />
+            </a>
+        </header>
+
+        <main>
+            <div class="row">
+                <div class="left">
+                    <h2>Menu de Acciones</h2>
+                    <ul class="sidebar">
+                        <li><a href="news.html">Noticias</a></li>
+                        <li>
+                            <a href="notices.html" data-target="avisos"
+                                >Avisos</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                class="active"
+                                href="initiatives.html"
+                                data-target="iniciativas"
+                                >Iniciativas</a
+                            >
+                        </li>
+                        <li>
+                            <a href="claims.html" data-target="denuncias"
+                                >Denuncias</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <section
+                        id="initiatives"
+                        class="controls-section"
+                        data-section="iniciativas"
+                    >
+                        <div class="content-header">
+                            <h1>Iniciativas</h1>
+                            <div class="news-controls">
+                                <div class="search-filter">
+                                    <input
+                                        type="text"
+                                        placeholder="Buscar iniciativas..."
+                                    />
+                                    <select class="custom-select">
+                                        <option>
+                                            Ordenar por: Más recientes
+                                        </option>
+                                        <option>Más populares</option>
+                                        <option>Por categoría</option>
+                                    </select>
+                                </div>
+                                <button
+                                    id="btn-create-initiative"
+                                    class="btn-create"
+                                >
+                                    Crear Iniciativa
+                                </button>
+                            </div>
+                        </div>
+
+                        <div id="initiatives-container" class="content-grid">
+                            <article class="content-card">
+                                <div class="content-image">
+                                    <img
+                                        src="../../assets/img/iniciatives/img5.jpg"
+                                        alt="Iniciativa 1"
+                                    />
+                                    <span class="content-category"
+                                        >Actualidad</span
+                                    >
+                                </div>
+                                <div class="content">
+                                    <div class="content-meta">
+                                        <span class="content-date"
+                                            ><i class="far fa-calendar"></i> 10
+                                            Mar 2025</span
+                                        >
+                                        <span class="content-comments"
+                                            ><i class="far fa-comment"></i>
+                                            15</span
+                                        >
+                                    </div>
+                                    <h3 class="content-title">
+                                        Mejoras en el Parque de San Pedro
+                                    </h3>
+                                    <p class="content-excerpt">
+                                        Lorem ipsum dolor sit amet, consectetur
+                                        adipiscing elit. Sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna
+                                        aliqua.
+                                    </p>
+                                    <div class="content-actions">
+                                        <a
+                                            href="#"
+                                            class="btn-link"
+                                            data-initiatives-id="1"
+                                            data-section="iniciatives-detail"
+                                            >Leer más
+                                            <i class="fas fa-arrow-right"></i
+                                        ></a>
+                                        <div class="content-tags">
+                                            <span class="tag"
+                                                >#Iniciativas</span
+                                            >
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                            <article class="content-card">
+                                <div class="content-image">
+                                    <img
+                                        src="../../assets/img/iniciatives/img6.jpg"
+                                        alt="Noticia 2"
+                                    />
+                                    <span class="content-category"
+                                        >Eventos</span
+                                    >
+                                </div>
+                                <div class="content">
+                                    <div class="content-meta">
+                                        <span class="content-date"
+                                            ><i class="far fa-calendar"></i> 9
+                                            Mar 2025</span
+                                        >
+                                        <span class="content-comments"
+                                            ><i class="far fa-comment"></i>
+                                            8</span
+                                        >
+                                    </div>
+                                    <h3 class="content-title">
+                                        Impulsemos el deporte!
+                                    </h3>
+                                    <p class="content-excerpt">
+                                        Esta idea busca mejorar la frecuencia
+                                        con la que nuestros vecinos hacen
+                                        deporte.
+                                    </p>
+                                    <div class="content-actions">
+                                        <a href="#" class="btn-link"
+                                            >Leer más
+                                            <i class="fas fa-arrow-right"></i
+                                        ></a>
+                                        <div class="content-tags">
+                                            <span class="tag">#Eventos</span>
+                                            <span class="tag">#Comunidad</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="pagination">
+                            <a href="#" class="page-item active">1</a>
+                            <a href="#" class="page-item">2</a>
+                            <a href="#" class="page-item">3</a>
+                            <span class="page-item disabled">...</span>
+                            <a href="#" class="page-item">10</a>
+                        </div>
+                    </section>
+
+                    <section
+                        id="initiatives-detail"
+                        class="news-detail-section"
+                        style="display: none"
+                    >
+                        <div class="content-header">
+                            <img
+                                id="initiative-detail-image"
+                                src=""
+                                alt=""
+                                class="detail-image"
+                            />
+                            <span
+                                id="initiative-detail-category"
+                                class="detail-category"
+                            ></span>
+                            <span
+                                id="initiative-detail-date"
+                                class="detail-date"
+                            ></span>
+                        </div>
+
+                        <div class="news-detail-content">
+                            <h1
+                                id="initiative-detail-title"
+                                class="detail-title"
+                            ></h1>
+                            <div
+                                id="initiative-detail-body"
+                                class="detail-body"
+                            ></div>
+
+                            <div class="news-navigation">
+                                <button
+                                    id="initiative-prev-news"
+                                    class="btn-link"
+                                >
+                                    ← Anterior
+                                </button>
+                                <button
+                                    id="initiative-back-to-news"
+                                    class="btn-primary"
+                                    onclick="window.location.href='initiatives.html'"
+                                >
+                                    Volver a Iniciativas
+                                </button>
+                                <button
+                                    id="initiative-next-news"
+                                    class="btn-link"
+                                >
+                                    Siguiente →
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="comments-section">
+                            <h2>Comentarios</h2>
+
+                            <form
+                                id="initiative-comment-form"
+                                class="comment-form"
+                            >
+                                <textarea
+                                    name="comment-text"
+                                    id="initiative-comment-text"
+                                    placeholder="Escribe tu comentario..."
+                                    required
+                                ></textarea>
+                                <button type="submit" class="btn-primary">
+                                    Publicar comentario
+                                </button>
+                            </form>
+
+                            <div
+                                id="initiative-comments-list"
+                                class="comments-list"
+                            >
+                                <!-- Comentarios se cargarán dinámicamente -->
+                            </div>
+                        </div>
+                    </section>
+
+                    <section
+                        id="initiatives-form"
+                        class="news-detail-section"
+                        style="display: none"
+                    >
+                        <div class="content-header">
+                            <button id="back-to-initiatives" class="btn-back">
+                                Volver a Iniciativas
+                            </button>
+                        </div>
+                        <div class="form-container">
+                            <form class="new-content-form" id="initiativeForm">
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="initiative-title"
+                                        name="initiative-title"
+                                        placeholder="Título de la Iniciativa"
+                                        required
+                                    />
+                                </div>
+
+                                <div>
+                                    <select
+                                        id="initiative-category"
+                                        name="initiative-category"
+                                        required
+                                    >
+                                        <option value="">
+                                            Selecciona una categoría
+                                        </option>
+                                        <option value="Iniciativa Ciudadana">
+                                            Iniciativa Ciudadana
+                                        </option>
+                                        <option value="Eventos">Eventos</option>
+                                        <!-- Agrega más opciones según sea necesario -->
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <textarea
+                                        id="initiative-content"
+                                        name="initiative-content"
+                                        placeholder="Detalla aquí tu iniciativa"
+                                        rows="10"
+                                        required
+                                    ></textarea>
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="file"
+                                        id="initiative-image"
+                                        name="initiative-image"
+                                        accept="image/*"
+                                    />
+                                    <label for="initiative-image"
+                                        >Subir Imagen</label
+                                    >
+                                </div>
+
+                                <div>
+                                    <button type="submit">Enviar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footerContainer">
+                <div class="footerContent">
+                    <div class="footerColumn">
+                        <a href="#" class="footerLogoMuni muniSprite"></a>
+
+                        <div class="addressBlock">
+                            <strong>Dirección</strong>
+                            <p>Costa Rica</p>
+                        </div>
+                    </div>
+
+                    <div class="footerColumn">
+                        <strong class="columnTitle">Navegación</strong>
+
+                        <ul class="footerNav">
+                            <li class="navListItem">
+                                <a href="home.html">Inicio</a>
+                            </li>
+                            <li class="navListItem">
+                                <a href="#">Comunidad</a>
+                            </li>
+                            <li class="navListItem">
+                                <a href="#">Opcion 2</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footerColumn">
+                        <strong class="columnTitle">Nuestras Redes</strong>
+
+                        <div class="socialContainer">
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                    </div>
+
+                    <div class="footerColumn">
+                        <strong class="columnTitle">Contacto</strong>
+
+                        <div class="contactInfo">
+                            <div class="scheduleBlock">
+                                <h4>Horario de atención</h4>
+                                <p>Lunes a viernes</p>
+                                <p>8:00 AM - 4:00 PM</p>
+                            </div>
+
+                            <div class="phoneBlock">
+                                <h4>Central telefónica</h4>
+                                <p>2222-2222 / 8888-0000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footerCopyright">
+                <p>Todos los derechos reservados © 2025</p>
+            </div>
+        </footer>
+
+        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+        <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+        <script type="module" src="../../assets/js/main.js"></script>
+    </body>
+</html>
