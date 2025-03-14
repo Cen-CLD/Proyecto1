@@ -1,7 +1,7 @@
 :root {
-    --color-1: #00c0ff;
+    --color-1: rgb(0, 192, 255);
     --color-1-rgb: 0, 192, 255;
-    --color-2: #00a8df;
+    --color-2: rgb(0, 168, 224);
     --color-3: #0090bf;
     --color-4: #00789f;
     --color-5: #006080;
@@ -171,11 +171,71 @@ main {
     padding: 15px;
 }
 
-.sidebar {
+.sidebar li{    
     list-style-type: none;
-    padding: 0;
-    margin: 0;
+    display: flex;
+    padding-top: 7%;
+
+    
 }
+.chart-container {
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 8px;
+    color: white;
+}
+
+.chart-container:hover{
+
+    cursor: pointer;
+    color: rgb(0, 192, 255);
+    border-color: rgb(0, 192, 255)
+}
+
+.chart-item {
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    transition: border-color 0.3s ease;
+} 
+
+.right {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-items: center;
+    align-items: start;
+    padding-bottom: 100px;
+}
+
+.right h1 {
+    grid-column: span 3;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.right h3{
+    width: 300px;
+    height: 300px;
+    margin: 0;
+    padding: 10px;
+    border: 5px solid white;
+    border-radius: 10px;
+    text-align: center; 
+    transition: border-color 0.3s ease;
+}
+
+.right h3:hover {
+    cursor: pointer;
+    color: rgb(0, 192, 255);
+    border-color: rgb(0, 192, 255)
+
+}
+
+
 
 .sidebar li a {
     padding: 12px;
