@@ -4,10 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Admin</title>
+    <title>Home | Administrar Denuncias</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
     <link rel="stylesheet" href="../../assets/css/admin/styles.css">
+    <style>
+        .chart-container {
+        background-image: url('../../assets/img/notices/img4.jpg');
+        }
+    </style>
 </head>
 
 <body>
@@ -19,13 +24,11 @@
                 <li class="navListItem"><a href="#">Inicio</a></li>
                 <li class="navListItem"><a href="#">Noticias</a></li>
                 <li class="navListItem"><a href="#">Denuncias</a></li>
-                <li class="navListItem"><a href="#">Iniciativas</a></li>
-                <li class="navListItem"><a href="#">Avisos</a></li>
             </ul>
         </nav>
 
         <a href="#" class="userPhotoContainer">
-            <img class="userProfilePhoto" src="../../assets/img/admin_profile.jpg" />
+            <img class="userProfilePhoto" src="../../assets/img/user_profile.jpg" />
         </a>
     </header>
 
@@ -37,15 +40,41 @@
                     <li><a href="#">Administrar Avisos</a></li>
                     <li><a href="#">Administrar Iniciativas</a></li>
                     <li><a href="./adminDenuncias.html">Administrar Denuncias</a></li>
+                    <li><a href="./home.html">Volver</a></li>
+                    
                 </ul>
             </div>
+            
+            <div class="right chart-container" style="background-color:#f5f5f5;">
+                <h1>Administrador</h1>
+                <div class="chart-item">
+                    <h3>Denuncia 28/2/2025</h3>
+                    <p class="status">Estado: <span class="status-text">En revisión</span></p>
+                    <button class="change-status-btn approve-btn" onclick="changeStatus(this, 'Aprobada')">Aprobar</button>
+                    <button class="change-status-btn deny-btn" onclick="changeStatus(this, 'Denegada')">Denegar</button>
+                    <button class="change-status-btn">Ver denuncia completa</button>
+                </div>
+                <div class="chart-item">
+                    <h3>Denuncia 28/2/2025</h3>
+                    <p class="status">Estado: <span class="status-text">En revisión</span></p>
+                    <button class="change-status-btn approve-btn" onclick="changeStatus(this, 'Aprobada')">Aprobar</button>
+                    <button class="change-status-btn deny-btn" onclick="changeStatus(this, 'Denegada')">Denegar</button>
+                    <button class="change-status-btn">Ver denuncia completa</button>
+                </div>
 
-            <div class="right" style="background-color:#f5f5f5;">
-                <p>Este el homepage del administrador de la página</p>
+                <div class="chart-item">
+                    <h3>Denuncia 28/2/2025</h3>
+                    <p class="status">Estado: <span class="status-text">En revisión</span></p>
+                    <button class="change-status-btn approve-btn" onclick="changeStatus(this, 'Aprobada')">Aprobar</button>
+                    <button class="change-status-btn deny-btn" onclick="changeStatus(this, 'Denegada')">Denegar</button>
+                    <button class="change-status-btn">Ver denuncia completa</button>
+                </div>
+                
+                
             </div>
         </div>
     </main>
-
+ 
     <footer>
         <div class="footerContainer">
             <div class="footerContent">
@@ -54,7 +83,7 @@
 
                     <div class="addressBlock">
                         <strong>Dirección</strong>
-                        <p>Costa Rica</p>
+                        <p>Calle 57, San Pedro, San José</p>
                     </div>
                 </div>
 
@@ -65,8 +94,6 @@
                         <li class="navListItem"><a href="#">Inicio</a></li>
                         <li class="navListItem"><a href="#">Noticias</a></li>
                         <li class="navListItem"><a href="#">Denuncias</a></li>
-                        <li class="navListItem"><a href="#">Iniciativas</a></li>
-                        <li class="navListItem"><a href="#">Avisos</a></li>
                     </ul>
                 </div>
 
@@ -103,6 +130,24 @@
             <p>Todos los derechos reservados © 2025</p>
         </div>
     </footer>
+<script>
+
+function changeStatus(button, status) {
+    // Encontramos el elemento de texto que muestra el estado
+    let statusText = button.parentElement.querySelector(".status-text");
+
+    // Verificamos que el elemento 'statusText' exista antes de actualizarlo
+    if (statusText) {
+        statusText.innerText = status; // Actualizamos el texto del estado
+    }
+}
+
+
+
+
+</script>
+</body>
+</html>
 
     <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
     <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
