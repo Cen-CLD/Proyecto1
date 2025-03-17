@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home | User</title>
+
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../assets/css/user/styles.css" />
+    </head>
+
+    <body>
+        <header>
+            <a
+                href="home.html"
+                class="logoMuni muniSprite"
+                id="logoInicio"
+                data-target="welcome"
+            ></a>
+
+            <nav>
+                <ul class="navbar">
+                    <li
+                        class="navListItem"
+                        id="home-page"
+                        data-target="welcome"
+                    >
+                        <a href="home.html">Inicio</a>
+                    </li>
+                    <li class="navListItem"><a href="#">Comunidad</a></li>
+                    <li class="navListItem"><a href="#">Opcion 2</a></li>
+                </ul>
+            </nav>
+
+            <a href="userProfile.html" class="userPhotoContainer">
+                <img
+                    class="userProfilePhoto"
+                    src="../../assets/img/user_profile.jpg"
+                />
+            </a>
+        </header>
+
+        <main>
+            <div class="row">
+                <div class="left">
+                    <h2>Menu de Acciones</h2>
+                    <ul class="sidebar">
+                        <li><a href="news.html">Noticias</a></li>
+                        <li>
+                            <a
+                                class="active"
+                                href="notices.html"
+                                data-target="avisos"
+                                >Avisos</a
+                            >
+                        </li>
+                        <li>
+                            <a href="initiatives.html" data-target="iniciativas"
+                                >Iniciativas</a
+                            >
+                        </li>
+                        <li>
+                            <a href="claims.html" data-target="denuncias"
+                                >Denuncias</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <section
+                        id="notices"
+                        class="controls-section"
+                        data-section="avisos"
+                    >
+                        <div class="content-header">
+                            <h1>Avisos Recientes</h1>
+                            <div class="content-controls">
+                                <div class="search-filter">
+                                    <input
+                                        type="text"
+                                        placeholder="Buscar avisos..."
+                                    />
+                                    <select class="custom-select">
+                                        <option>
+                                            Ordenar por: Más recientes
+                                        </option>
+                                        <option>Más populares</option>
+                                        <option>Por categoría</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="content-grid">
+                            <article class="content-card">
+                                <div class="content-image">
+                                    <img
+                                        src="../../assets/img/notices/img3.jpg"
+                                        alt="Noticia 1"
+                                    />
+                                    <span
+                                        class="content-category"
+                                        style="background-color: red"
+                                        >Urgente</span
+                                    >
+                                </div>
+                                <div class="content">
+                                    <div class="content-meta">
+                                        <span class="content-date"
+                                            ><i class="far fa-calendar"></i> 10
+                                            Mar 2025</span
+                                        >
+                                    </div>
+                                    <h3 class="content-title">
+                                        Corte electrico
+                                    </h3>
+                                    <p class="content-excerpt">
+                                        Debido a accidente, se ha cortado el
+                                        suministro electrico en las siguientes
+                                        localidades: X, Y, Z...
+                                    </p>
+                                    <div class="content-actions">
+                                        <div class="content-tags">
+                                            <span class="tag"
+                                                >#Servicios Publicos</span
+                                            >
+                                            <span class="tag">#Urgente</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="content-card">
+                                <div class="content-image">
+                                    <img
+                                        src="../../assets/img/notices/img4.jpg"
+                                        alt="Noticia 2"
+                                    />
+                                    <span
+                                        class="content-category"
+                                        style="
+                                            background-color: yellow;
+                                            color: black;
+                                        "
+                                        >Atencion</span
+                                    >
+                                </div>
+                                <div class="content">
+                                    <div class="content-meta">
+                                        <span class="content-date"
+                                            ><i class="far fa-calendar"></i> 9
+                                            Mar 2025</span
+                                        >
+                                    </div>
+                                    <h3 class="content-title">
+                                        Rotonda de la Bandera Cerrada!
+                                    </h3>
+                                    <p class="content-excerpt">
+                                        La rotonda se mantendra cerrada este 18
+                                        de Marzo hasta el 25 de Marzo.
+                                    </p>
+                                    <div class="content-actions">
+                                        <div class="content-tags">
+                                            <span class="tag">#Calles</span>
+                                            <span class="tag">#Comunidad</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="pagination">
+                            <a href="#" class="page-item active">1</a>
+                            <a href="#" class="page-item">2</a>
+                            <a href="#" class="page-item">3</a>
+                            <span class="page-item disabled">...</span>
+                            <a href="#" class="page-item">10</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footerContainer">
+                <div class="footerContent">
+                    <div class="footerColumn">
+                        <a href="#" class="footerLogoMuni muniSprite"></a>
+
+                        <div class="addressBlock">
+                            <strong>Dirección</strong>
+                            <p>Costa Rica</p>
+                        </div>
+                    </div>
+
+                    <div class="footerColumn">
+                        <strong class="columnTitle">Navegación</strong>
+
+                        <ul class="footerNav">
+                            <li class="navListItem"><a href="#">Inicio</a></li>
+                            <li class="navListItem">
+                                <a href="#">Comunidad</a>
+                            </li>
+                            <li class="navListItem">
+                                <a href="#">Opcion 2</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footerColumn">
+                        <strong class="columnTitle">Nuestras Redes</strong>
+
+                        <div class="socialContainer">
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                    </div>
+
+                    <div class="footerColumn">
+                        <strong class="columnTitle">Contacto</strong>
+
+                        <div class="contactInfo">
+                            <div class="scheduleBlock">
+                                <h4>Horario de atención</h4>
+                                <p>Lunes a viernes</p>
+                                <p>8:00 AM - 4:00 PM</p>
+                            </div>
+
+                            <div class="phoneBlock">
+                                <h4>Central telefónica</h4>
+                                <p>2222-2222 / 8888-0000</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footerCopyright">
+                <p>Todos los derechos reservados © 2025</p>
+            </div>
+        </footer>
+
+        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+        <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+        <script type="module" src="../../assets/js/main.js"></script>
+    </body>
+</html>
