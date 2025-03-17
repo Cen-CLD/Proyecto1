@@ -55,15 +55,15 @@
                             >
                         </li>
                         <li>
-                            <a
-                                class="active"
-                                href="initiatives.html"
-                                data-target="iniciativas"
+                            <a href="initiatives.html" data-target="iniciativas"
                                 >Iniciativas</a
                             >
                         </li>
                         <li>
-                            <a href="complaints.html" data-target="denuncias"
+                            <a
+                                class="active"
+                                href="complaints.html"
+                                data-target="denuncias"
                                 >Denuncias</a
                             >
                         </li>
@@ -71,17 +71,17 @@
                 </div>
                 <div class="right">
                     <section
-                        id="initiatives"
+                        id="complaints"
                         class="controls-section"
-                        data-section="iniciativas"
+                        data-section="denuncias"
                     >
                         <div class="content-header">
-                            <h1>Iniciativas</h1>
+                            <h1>Denuncias</h1>
                             <div class="news-controls">
                                 <div class="search-filter">
                                     <input
                                         type="text"
-                                        placeholder="Buscar iniciativas..."
+                                        placeholder="Buscar denuncias..."
                                     />
                                     <select class="custom-select">
                                         <option>
@@ -91,17 +91,17 @@
                                         <option>Por categoría</option>
                                     </select>
                                 </div>
-                                <button
-                                    id="btn-create-initiative"
-                                    class="btn-create"
-                                >
-                                    Crear Iniciativa
-                                </button>
                             </div>
+                            <button
+                                id="btn-create-complaint"
+                                class="btn-create"
+                            >
+                                Crear Denuncia
+                            </button>
                         </div>
 
                         <div
-                            id="initiatives-container"
+                            id="complaints-container"
                             class="content-grid"
                         ></div>
 
@@ -113,58 +113,50 @@
                             <a href="#" class="page-item">10</a>
                         </div>
                     </section>
-
                     <section
-                        id="initiatives-detail"
+                        id="complaints-detail"
                         class="news-detail-section"
                         style="display: none"
                     >
                         <div class="content-header">
                             <img
-                                id="initiative-detail-image"
+                                id="complaint-detail-image"
                                 src=""
                                 alt=""
                                 class="detail-image"
                             />
                             <span
-                                id="initiative-detail-category"
+                                id="complaint-detail-category"
                                 class="detail-category"
                             ></span>
                             <span
-                                id="initiative-detail-date"
+                                id="complaint-detail-date"
                                 class="detail-date"
                             ></span>
                         </div>
-
                         <div class="news-detail-content">
                             <h1
-                                id="initiative-detail-title"
+                                id="complaint-detail-title"
                                 class="detail-title"
                             ></h1>
                             <div
-                                id="initiative-detail-body"
+                                id="complaint-detail-body"
                                 class="detail-body"
                             ></div>
 
                             <div class="news-navigation">
-                                <button
-                                    id="initiative-prev-news"
-                                    class="btn-link"
-                                >
+                                <button id="prev-complaint" class="btn-link">
                                     ← Anterior
                                 </button>
                                 <button
-                                    id="initiative-back-to-news"
+                                    id="back-to-complaint"
                                     class="btn-primary"
-                                    onclick="window.location.href='initiatives.html'"
+                                    onclick="window.location.href='complaints.html'"
                                 >
-                                    Volver a Iniciativas
+                                    Volver a Denuncias
                                 </button>
-                                <button
-                                    id="initiative-next-news"
-                                    class="btn-link"
-                                >
-                                    Siguiente →
+                                <button id="next-complaint" class="btn-link">
+                                    Siguiente Denuncia →
                                 </button>
                             </div>
                         </div>
@@ -173,12 +165,12 @@
                             <h2>Comentarios</h2>
 
                             <form
-                                id="initiative-comment-form"
+                                id="complaint-comment-form"
                                 class="comment-form"
                             >
                                 <textarea
                                     name="comment-text"
-                                    id="initiative-comment-text"
+                                    id="complaint-comment-text"
                                     placeholder="Escribe tu comentario..."
                                     required
                                 ></textarea>
@@ -188,62 +180,61 @@
                             </form>
 
                             <div
-                                id="initiative-comments-list"
+                                id="complaint-comments-list"
                                 class="comments-list"
-                            >
-                                <!-- Comentarios se cargarán dinámicamente -->
-                            </div>
+                            ></div>
                         </div>
                     </section>
-
                     <section
-                        id="initiatives-form"
+                        id="complaints-form"
                         class="news-detail-section"
                         style="display: none"
                     >
                         <div class="content-header">
                             <button
-                                id="back-to-initiatives"
+                                id="back-to-complaints"
                                 class="btn-back"
-                                onclick="window.location.href='initiatives.html'"
+                                onclick="window.location.href='complaints.html'"
                             >
-                                Volver a Iniciativas
+                                Volver a Denuncias
                             </button>
                         </div>
                         <div class="form-container">
-                            <form class="new-content-form" id="initiativeForm">
+                            <form class="new-content-form" id="complaintForm">
                                 <div>
                                     <input
                                         type="text"
-                                        id="initiative-title"
-                                        name="initiative-title"
-                                        placeholder="Título de la Iniciativa"
+                                        id="complaint-title"
+                                        name="complaint-title"
+                                        placeholder="Título de la Denuncia"
                                         required
                                     />
                                 </div>
 
                                 <div>
                                     <select
-                                        id="initiative-category"
-                                        name="initiative-category"
+                                        id="complaint-category"
+                                        name="complaint-category"
                                         required
                                     >
                                         <option value="">
                                             Selecciona una categoría
                                         </option>
-                                        <option value="Iniciativa Ciudadana">
-                                            Iniciativa Ciudadana
+                                        <option value="Denuncia Ciudadana">
+                                            Denuncia Ciudadana
                                         </option>
-                                        <option value="Eventos">Eventos</option>
+                                        <option value="Denuncia">
+                                            Denuncia
+                                        </option>
                                         <!-- Agrega más opciones según sea necesario -->
                                     </select>
                                 </div>
 
                                 <div>
                                     <textarea
-                                        id="initiative-content"
-                                        name="initiative-content"
-                                        placeholder="Detalla aquí tu iniciativa"
+                                        id="complaint-content"
+                                        name="complaint-content"
+                                        placeholder="Detalla aquí tu denuncia"
                                         rows="10"
                                         required
                                     ></textarea>
@@ -252,11 +243,11 @@
                                 <div>
                                     <input
                                         type="file"
-                                        id="initiative-image"
-                                        name="initiative-image"
+                                        id="complaint-image"
+                                        name="complaint-image"
                                         accept="image/*"
                                     />
-                                    <label for="initiative-image"
+                                    <label for="complaint-image"
                                         >Subir Imagen</label
                                     >
                                 </div>
@@ -287,9 +278,7 @@
                         <strong class="columnTitle">Navegación</strong>
 
                         <ul class="footerNav">
-                            <li class="navListItem">
-                                <a href="home.html">Inicio</a>
-                            </li>
+                            <li class="navListItem"><a href="#">Inicio</a></li>
                             <li class="navListItem">
                                 <a href="#">Comunidad</a>
                             </li>

@@ -63,7 +63,7 @@
                             >
                         </li>
                         <li>
-                            <a href="claims.html" data-target="denuncias"
+                            <a href="complaints.html" data-target="denuncias"
                                 >Denuncias</a
                             >
                         </li>
@@ -94,83 +94,7 @@
                             </div>
                         </div>
 
-                        <div class="content-grid">
-                            <article class="content-card">
-                                <div class="content-image">
-                                    <img
-                                        src="../../assets/img/notices/img3.jpg"
-                                        alt="Noticia 1"
-                                    />
-                                    <span
-                                        class="content-category"
-                                        style="background-color: red"
-                                        >Urgente</span
-                                    >
-                                </div>
-                                <div class="content">
-                                    <div class="content-meta">
-                                        <span class="content-date"
-                                            ><i class="far fa-calendar"></i> 10
-                                            Mar 2025</span
-                                        >
-                                    </div>
-                                    <h3 class="content-title">
-                                        Corte electrico
-                                    </h3>
-                                    <p class="content-excerpt">
-                                        Debido a accidente, se ha cortado el
-                                        suministro electrico en las siguientes
-                                        localidades: X, Y, Z...
-                                    </p>
-                                    <div class="content-actions">
-                                        <div class="content-tags">
-                                            <span class="tag"
-                                                >#Servicios Publicos</span
-                                            >
-                                            <span class="tag">#Urgente</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-
-                            <article class="content-card">
-                                <div class="content-image">
-                                    <img
-                                        src="../../assets/img/notices/img4.jpg"
-                                        alt="Noticia 2"
-                                    />
-                                    <span
-                                        class="content-category"
-                                        style="
-                                            background-color: yellow;
-                                            color: black;
-                                        "
-                                        >Atencion</span
-                                    >
-                                </div>
-                                <div class="content">
-                                    <div class="content-meta">
-                                        <span class="content-date"
-                                            ><i class="far fa-calendar"></i> 9
-                                            Mar 2025</span
-                                        >
-                                    </div>
-                                    <h3 class="content-title">
-                                        Rotonda de la Bandera Cerrada!
-                                    </h3>
-                                    <p class="content-excerpt">
-                                        La rotonda se mantendra cerrada este 18
-                                        de Marzo hasta el 25 de Marzo.
-                                    </p>
-                                    <div class="content-actions">
-                                        <div class="content-tags">
-                                            <span class="tag">#Calles</span>
-                                            <span class="tag">#Comunidad</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
+                        <div id="notices-container" class="content-grid"></div>
 
                         <div class="pagination">
                             <a href="#" class="page-item active">1</a>
@@ -178,6 +102,73 @@
                             <a href="#" class="page-item">3</a>
                             <span class="page-item disabled">...</span>
                             <a href="#" class="page-item">10</a>
+                        </div>
+                    </section>
+                    <section
+                        id="notices-detail"
+                        class="news-detail-section"
+                        style="display: none"
+                    >
+                        <div class="content-header">
+                            <img
+                                id="notice-detail-image"
+                                src=""
+                                alt=""
+                                class="detail-image"
+                            />
+                            <span
+                                id="notice-detail-category"
+                                class="detail-category"
+                            ></span>
+                            <span
+                                id="notice-detail-date"
+                                class="detail-date"
+                            ></span>
+                        </div>
+                        <div class="news-detail-content">
+                            <h1
+                                id="notice-detail-title"
+                                class="detail-title"
+                            ></h1>
+                            <div
+                                id="notice-detail-body"
+                                class="detail-body"
+                            ></div>
+
+                            <div class="news-navigation">
+                                <button id="notice-prev-news" class="btn-link">
+                                    ← Avisos anterior
+                                </button>
+
+                                <button
+                                    id="back-to-notices"
+                                    class="btn-primary"
+                                    onclick="window.location.href='notices.html'"
+                                >
+                                    Volver a Avisos
+                                </button>
+                                <button id="next-notices" class="btn-link">
+                                    Siguiente aviso →
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="comments-section">
+                            <h2>Comentarios</h2>
+
+                            <form id="comment-form" class="comment-form">
+                                <textarea
+                                    name="comment-text"
+                                    id="comment-text"
+                                    placeholder="Escribe tu comentario..."
+                                    required
+                                ></textarea>
+                                <button type="submit" class="btn-primary">
+                                    Publicar comentario
+                                </button>
+                            </form>
+
+                            <div id="comments-list" class="comments-list"></div>
                         </div>
                     </section>
                 </div>

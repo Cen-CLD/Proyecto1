@@ -17,7 +17,7 @@ export class FormManager {
     handleSubmit(event) {
         event.preventDefault();
 
-        const formData = this.getFormData();
+        const formata = this.getFormData();
         if (this.validateForm(formData)) {
             this.showConfirmationDialog(formData);
         }
