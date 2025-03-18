@@ -48,7 +48,7 @@
                 <div class="left">
                     <h2>Menu de Acciones</h2>
                     <ul class="sidebar">
-                        <li><a class="active" href="news.html">Noticias</a></li>
+                        <li><a href="news.html">Noticias</a></li>
                         <li>
                             <a href="notices.html" data-target="avisos"
                                 >Avisos</a
@@ -60,7 +60,10 @@
                             >
                         </li>
                         <li>
-                            <a href="complaints.html" data-target="denuncias"
+                            <a
+                                class="active"
+                                href="complaints.html"
+                                data-target="denuncias"
                                 >Denuncias</a
                             >
                         </li>
@@ -68,17 +71,17 @@
                 </div>
                 <div class="right">
                     <section
-                        id="news"
+                        id="complaints"
                         class="controls-section"
-                        data-section="noticias"
+                        data-section="denuncias"
                     >
                         <div class="content-header">
-                            <h1>Noticias</h1>
+                            <h1>Denuncias</h1>
                             <div class="news-controls">
                                 <div class="search-filter">
                                     <input
                                         type="text"
-                                        placeholder="Buscar noticias..."
+                                        placeholder="Buscar denuncias..."
                                     />
                                     <select class="custom-select">
                                         <option>
@@ -89,9 +92,18 @@
                                     </select>
                                 </div>
                             </div>
+                            <button
+                                id="btn-create-complaint"
+                                class="btn-create"
+                            >
+                                Crear Denuncia
+                            </button>
                         </div>
 
-                        <div id="news-container" class="content-grid"></div>
+                        <div
+                            id="complaints-container"
+                            class="content-grid"
+                        ></div>
 
                         <div class="pagination">
                             <a href="#" class="page-item active">1</a>
@@ -102,41 +114,49 @@
                         </div>
                     </section>
                     <section
-                        id="news-detail"
+                        id="complaints-detail"
                         class="news-detail-section"
                         style="display: none"
                     >
                         <div class="content-header">
                             <img
-                                id="detail-image"
+                                id="complaint-detail-image"
                                 src=""
                                 alt=""
                                 class="detail-image"
                             />
                             <span
-                                id="detail-category"
+                                id="complaint-detail-category"
                                 class="detail-category"
                             ></span>
-                            <span id="detail-date" class="detail-date"></span>
+                            <span
+                                id="complaint-detail-date"
+                                class="detail-date"
+                            ></span>
                         </div>
                         <div class="news-detail-content">
-                            <h1 id="detail-title" class="detail-title"></h1>
-                            <div id="detail-body" class="detail-body"></div>
+                            <h1
+                                id="complaint-detail-title"
+                                class="detail-title"
+                            ></h1>
+                            <div
+                                id="complaint-detail-body"
+                                class="detail-body"
+                            ></div>
 
                             <div class="news-navigation">
-                                <button id="prev-news" class="btn-link">
-                                    ← Noticia anterior
+                                <button id="prev-complaint" class="btn-link">
+                                    ← Anterior
                                 </button>
-
                                 <button
-                                    id="back-to-news"
+                                    id="back-to-complaint"
                                     class="btn-primary"
-                                    onclick="window.location.href='news.html'"
+                                    onclick="window.location.href='complaints.html'"
                                 >
-                                    Volver a Noticias
+                                    Volver a Denuncias
                                 </button>
-                                <button id="next-news" class="btn-link">
-                                    Siguiente noticia →
+                                <button id="next-complaint" class="btn-link">
+                                    Siguiente Denuncia →
                                 </button>
                             </div>
                         </div>
@@ -144,10 +164,13 @@
                         <div class="comments-section">
                             <h2>Comentarios</h2>
 
-                            <form id="comment-form" class="comment-form">
+                            <form
+                                id="complaint-comment-form"
+                                class="comment-form"
+                            >
                                 <textarea
                                     name="comment-text"
-                                    id="comment-text"
+                                    id="complaint-comment-text"
                                     placeholder="Escribe tu comentario..."
                                     required
                                 ></textarea>
@@ -156,7 +179,83 @@
                                 </button>
                             </form>
 
-                            <div id="comments-list" class="comments-list"></div>
+                            <div
+                                id="complaint-comments-list"
+                                class="comments-list"
+                            ></div>
+                        </div>
+                    </section>
+                    <section
+                        id="complaints-form"
+                        class="news-detail-section"
+                        style="display: none"
+                    >
+                        <div class="content-header">
+                            <button
+                                id="back-to-complaints"
+                                class="btn-back"
+                                onclick="window.location.href='complaints.html'"
+                            >
+                                Volver a Denuncias
+                            </button>
+                        </div>
+                        <div class="form-container">
+                            <form class="new-content-form" id="complaintForm">
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="complaint-title"
+                                        name="complaint-title"
+                                        placeholder="Título de la Denuncia"
+                                        required
+                                    />
+                                </div>
+
+                                <div>
+                                    <select
+                                        id="complaint-category"
+                                        name="complaint-category"
+                                        required
+                                    >
+                                        <option value="">
+                                            Selecciona una categoría
+                                        </option>
+                                        <option value="Denuncia Ciudadana">
+                                            Denuncia Ciudadana
+                                        </option>
+                                        <option value="Denuncia">
+                                            Denuncia
+                                        </option>
+                                        <!-- Agrega más opciones según sea necesario -->
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <textarea
+                                        id="complaint-content"
+                                        name="complaint-content"
+                                        placeholder="Detalla aquí tu denuncia"
+                                        rows="10"
+                                        required
+                                    ></textarea>
+                                </div>
+
+                                <div>
+                                    <input
+                                        type="file"
+                                        id="complaint-image"
+                                        name="complaint-image"
+                                        accept="image/*"
+                                    />
+                                    <label for="complaint-image"
+                                        >Subir Imagen</label
+                                    >
+                                </div>
+
+                                <div>
+                                    <button type="submit">Enviar</button>
+                                </div>
+                            </form>
                         </div>
                     </section>
                 </div>
@@ -225,7 +324,6 @@
 
         <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
         <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-
         <script type="module" src="../../assets/js/main.js"></script>
     </body>
 </html>
