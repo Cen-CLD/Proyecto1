@@ -1,39 +1,39 @@
 import { FormManager } from "../classes/FormManager.js";
-import { initiativeData } from "../constants.js";
+import { complaintData } from "../constants.js";
 
-export class InitiativeForm extends FormManager {
+export class ComplaintForm extends FormManager {
     constructor(formId) {
         const config = {
             fields: [
                 {
                     name: "title",
-                    selector: "#initiative-title",
+                    selector: "#complaint-title",
                     errorMessage:
-                        "Por favor, ingresa un título para la iniciativa.",
+                        "Por favor, ingresa un título para la denuncia.",
                 },
                 {
                     name: "category",
-                    selector: "#initiative-category",
+                    selector: "#complaint-category",
                     errorMessage: "Por favor, selecciona una categoría.",
                 },
                 {
                     name: "content",
-                    selector: "#initiative-content",
+                    selector: "#complaint-content",
                     errorMessage:
-                        "Por favor, ingresa el contenido de la iniciativa.",
+                        "Por favor, ingresa el contenido de la denuncia.",
                 },
             ],
             fileField: {
                 name: "image",
-                selector: "#initiative-image",
+                selector: "#complaint-image",
             },
-            confirmationText: "¿Deseas crear esta iniciativa?",
-            successTitle: "¡Iniciativa creada!",
-            successText: "La iniciativa se ha creado correctamente.",
+            confirmationText: "¿Deseas crear esta denuncia?",
+            successTitle: "¡Denuncia creada!",
+            successText: "La denuncia se ha creado correctamente.",
             onSuccess: (formData) => {
-                const addInitiative = (imageSrc) => {
-                    const initiative = {
-                        id: initiativeData.length + 1,
+                const addComplaint = (imageSrc) => {
+                    const complaint = {
+                        id: complaintData.length + 1,
                         title: formData.title,
                         date: new Date().toLocaleDateString("es-ES", {
                             day: "numeric",
@@ -45,7 +45,7 @@ export class InitiativeForm extends FormManager {
                         content: formData.content,
                         comments: [],
                     };
-                    initiativeData.push(initiative);
+                    complaintData.push(complaint);
                 };
 
                 if (formData.image) {
@@ -56,7 +56,7 @@ export class InitiativeForm extends FormManager {
                     };
                     reader.readAsDataURL(formData.image);
                 } else {
-                    const imageSrc = "../../assets/img/iniciatives/default.jpg";
+                    const imageSrc = "../../assets/img/claims/default.jpg";
                     addComplaint(imageSrc);
                 }
             },
