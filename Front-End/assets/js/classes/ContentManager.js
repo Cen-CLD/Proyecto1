@@ -18,33 +18,25 @@ export class ContentManager {
                 data: newsData,
                 containerId: "news-container",
                 detailSectionId: "news-detail",
-                selectors: {
-                    ...newsSelectors,
-                },
+                selectors: newsSelectors,
             },
             initiatives: {
                 data: initiativeData,
                 containerId: "initiatives-container",
                 detailSectionId: "initiatives-detail",
-                selectors: {
-                    ...initiativeSelectors,
-                },
+                selectors: initiativeSelectors,
             },
             complaints: {
                 data: complaintData,
                 containerId: "complaints-container",
                 detailSectionId: "complaints-detail",
-                selectors: {
-                    ...complaintSelectors,
-                },
+                selectors: complaintSelectors,
             },
             notices: {
                 data: noticiesData,
                 containerId: "notices-container",
                 detailSectionId: "notices-detail",
-                selectors: {
-                    ...noticeSelectors,
-                },
+                selectors: noticeSelectors,
             },
         };
 
@@ -62,7 +54,6 @@ export class ContentManager {
                 e.preventDefault();
                 const sectionType = btnLink.dataset.section;
                 const contentType = sectionType.replace("-detail", "");
-
                 const contentId =
                     parseInt(btnLink.dataset.newId) ||
                     parseInt(btnLink.dataset.initiativeId) ||
@@ -91,14 +82,12 @@ export class ContentManager {
             this.contentTypes[contentType];
         const content = data.find((item) => item.id === contentId);
 
-        console.log(selectors);
         if (content) {
             selectors.image.src = content.image;
             selectors.date.textContent = content.date;
             selectors.category.textContent = content.category;
             selectors.title.textContent = content.title;
             selectors.body.innerHTML = prettifyText(content.content);
-
             this.sectionManager.showSection(detailSectionId);
         } else {
             console.error(`Contenido con ID ${contentId} no encontrado.`);
@@ -107,7 +96,6 @@ export class ContentManager {
 
     renderContentCards(contentType) {
         const contentTypeConfig = this.contentTypes[contentType];
-
         if (!contentTypeConfig) {
             console.error(`Tipo de contenido "${contentType}" no encontrado.`);
             return;
@@ -115,47 +103,46 @@ export class ContentManager {
 
         const { data, containerId } = contentTypeConfig;
         const container = document.getElementById(containerId);
-
         if (!container) {
-            console.error(
-                `Contenedor con ID "${contentTypeConfig.containerId}" no encontrado.`,
-            );
             return;
         }
 
         container.innerHTML = data
             .map(
                 (content) => `
-        <article class="content-card">
+          <article class="content-card">
             <div class="content-image">
-                <img src="${content.image}" alt="${content.title}" />
-                <span class="content-category">${content.category}</span>
+              <img src="${content.image}" alt="${content.title}" />
+              <span class="content-category">${content.category}</span>
             </div>
             <div class="content">
-                <div class="content-meta">
-                    <span class="content-date">
-                        <i class="far fa-calendar"></i> ${content.date}
-                    </span>
-                    <span class="content-comments">
-                        <i class="far fa-comment"></i> ${content.comments.length}
-                    </span>
+              <div class="content-meta">
+                <span class="content-date">
+                  <i class="far fa-calendar"></i> ${content.date}
+                </span>
+                <span class="content-comments">
+                  <i class="far fa-comment"></i> ${content.comments.length}
+                </span>
+              </div>
+              <h3 class="content-title">${content.title}</h3>
+              <p class="content-excerpt">${content.content.substring(
+                  0,
+                  100,
+              )}...</p>
+              <div class="content-actions">
+                <a href="#"
+                   class="btn-link"
+                   data-${contentType.slice(0, -1)}-id="${content.id}"
+                   data-section="${contentType}">
+                  Leer más <i class="fas fa-arrow-right"></i>
+                </a>
+                <div class="content-tags">
+                  <span class="tag">#${content.category}</span>
                 </div>
-                <h3 class="content-title">${content.title}</h3>
-                <p class="content-excerpt">${content.content.substring(0, 100)}...</p>
-                <div class="content-actions">
-                    <a href="#" 
-                       class="btn-link" 
-                       data-${contentType.slice(0, -1)}-id="${content.id}" 
-                       data-section="${contentType}"> 
-                        Leer más <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <div class="content-tags">
-                        <span class="tag">#${content.category}</span>
-                    </div>
-                </div>
+              </div>
             </div>
-        </article>
-    `,
+          </article>
+        `,
             )
             .join("");
     }

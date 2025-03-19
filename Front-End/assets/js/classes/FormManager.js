@@ -10,10 +10,9 @@ export class FormManager {
         if (this.form) {
             this.form.setAttribute("novalidate", true);
             this.form.addEventListener("submit", (e) => this.handleSubmit(e));
-        } else {
-            console.error(`Form with ID "${this.formId}" not found.`);
         }
     }
+
     handleSubmit(event) {
         event.preventDefault();
 

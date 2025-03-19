@@ -150,33 +150,73 @@ export const noticiesData = [
 ];
 
 export const noticeSelectors = {
-    image: document.getElementById("notice-detail-image"),
-    date: document.getElementById("notice-detail-date"),
-    category: document.getElementById("notice-detail-category"),
-    title: document.getElementById("notice-detail-title"),
-    body: document.getElementById("notice-detail-body"),
+    get image() {
+        return document.getElementById("notice-detail-image");
+    },
+    get date() {
+        return document.getElementById("notice-detail-date");
+    },
+    get category() {
+        return document.getElementById("notice-detail-category");
+    },
+    get title() {
+        return document.getElementById("notice-detail-title");
+    },
+    get body() {
+        return document.getElementById("notice-detail-body");
+    },
 };
 
 export const initiativeSelectors = {
-    image: document.getElementById("initiative-detail-image"),
-    date: document.getElementById("initiative-detail-date"),
-    category: document.getElementById("initiative-detail-category"),
-    title: document.getElementById("initiative-detail-title"),
-    body: document.getElementById("initiative-detail-body"),
+    get image() {
+        return document.getElementById("initiative-detail-image");
+    },
+    get date() {
+        return document.getElementById("initiative-detail-date");
+    },
+    get category() {
+        return document.getElementById("initiative-detail-category");
+    },
+    get title() {
+        return document.getElementById("initiative-detail-title");
+    },
+    get body() {
+        return document.getElementById("initiative-detail-body");
+    },
 };
 
 export const newsSelectors = {
-    image: document.getElementById("detail-image"),
-    date: document.getElementById("detail-date"),
-    category: document.getElementById("detail-category"),
-    title: document.getElementById("detail-title"),
-    body: document.getElementById("detail-body"),
+    get image() {
+        return document.getElementById("detail-image");
+    },
+    get date() {
+        return document.getElementById("detail-date");
+    },
+    get category() {
+        return document.getElementById("detail-category");
+    },
+    get title() {
+        return document.getElementById("detail-title");
+    },
+    get body() {
+        return document.getElementById("detail-body");
+    },
 };
 
 export const complaintSelectors = {
-    image: document.getElementById("complaint-detail-image"),
-    date: document.getElementById("complaint-detail-date"),
-    category: document.getElementById("complaint-detail-category"),
-    title: document.getElementById("complaint-detail-title"),
-    body: document.getElementById("complaint-detail-body"),
+    get image() {
+        return document.getElementById("complaint-detail-image");
+    },
+    get date() {
+        return document.getElementById("complaint-detail-date");
+    },
+    get category() {
+        return document.getElementById("complaint-detail-category");
+    },
+    get title() {
+        return document.getElementById("complaint-detail-title");
+    },
+    get body() {
+        return document.getElementById("complaint-detail-body");
+    },
 };
