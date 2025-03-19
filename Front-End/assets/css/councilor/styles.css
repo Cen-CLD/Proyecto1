@@ -227,8 +227,9 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
-    color: #ffffff;
+    color: #000000;
     padding-bottom: 40px;
+    grid-auto-rows: minmax(300px, auto);
 }
 
 .notices-grid a {
@@ -236,7 +237,22 @@ main {
     color: rgb(0, 192, 255);
     transition: color 0.3s ease, transform 0.3s ease, width 0.3s ease;
     position: relative;
-    align-self: flex-end;
+}
+
+.notices-grid button {
+    font-size: 15px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    transition: 0.3s ease;
+    color: gray;
+    display: grid;
+
+}
+
+.notices-grid button:hover{
+    cursor: pointer;
+    color: red;
 }
 
 .notices-grid a::after {
@@ -260,30 +276,10 @@ main {
     border: 1px solid #ddd;
     border-radius: 5px;
     background-size: cover;
-    background-position: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
-#notice1 {
-    background-image: url(../../img/notices/img4.jpg);
-}
-
-#notice2 {
-    background-image: url(../../img/notices/img4.jpg);
-}
-#notice3 {
-    background-image: url(../../img/notices/img4.jpg);
-}
-#notice4 {
-    background-image: url(../../img/notices/img4.jpg);
-}
-#notice5 {
-    background-image: url(../../img/notices/img4.jpg);
-}
-#notice6 {
-    background-image: url(../../img/notices/img4.jpg);
+.complaint {
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 footer {
@@ -421,15 +417,67 @@ footer {
     margin: 0;
 }
 
+/* visualizar la denuncia */
 
-/* notices section */
-
-#notice {
-    background-image: url('../../../assets/img/notices/img4.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 20px;
-    color: #fff;
+#complaintForm {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  #complaintForm input,
+  #complaintForm textarea {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  #text {
+    height: 500px;
+  }
+  
+  .complaintBox {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  
+  .complaintBox button {
+    margin-right: 0.5rem;
+  }
+  
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modalContent {
+    background: #fff;
+    padding: 2rem;
     border-radius: 10px;
-    font-size: 24px;
-}
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  button {
+    background-color: purple;
+    border-color: transparent;
+    color: white;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 14px;
+    
+  }
+  button:hover{
+    cursor: pointer;
+  }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Councilor</title>
+    <title>Notices | Councilor</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
     <link rel="stylesheet" href="../../assets/css/councilor/styles.css">
@@ -32,45 +32,31 @@
             <div class="left" style="background-color:#bbb;">
                 <ul class="sidebar">
                     <h1>Menú de Opciones</h1>
-                    <li><a href="create_iniciative.html">1. Crear Iniciativa de Proyecto</a></li>
-                    <li><a href="admin_iniciatives.html">2. Administrar Iniciativas de Proyecto</a></li>
-                    <li><a href="admin_notices.html">3. Administrar Denuncias</a></li>
+                    <li class="option1"><a href="create_iniciative.html">Crear Iniciativa de Proyecto</a></li>
+                    <li class="option2"><a href="admin_iniciatives.html">Administrar Iniciativas de Proyecto</a></li>
+                    <li class="option3"><a href="admin_notices.html">Administrar Denuncias</a></li>
                     
                 </ul>
             </div>
             
             <div class="right" style="background-color:#f5f5f5;">
-                <h1>Concejal de Distrito</h1>
-                <div class="notices-grid">
-                    <div id="notice1">
-                        <h3>16/3/2025</h3>
-                        <p>a pesar de haber hecho ciertos avances, tuve que volver a hacer esta lista. que dolor...</p>
-                        <a href="./notices/notice1.html">Leer</a>
+                
+                <section class="panel">
+                    <h2>Administrar Denuncias Concejal de Distrito</h2>
+              
+                    <form id="complaintForm">
+                        <input type="date" id="date" required>
+                        <textarea id="text" placeholder="Escriba la denuncia" required></textarea>
+                        <input type="file" id="image" accept="image/*">
+                        <button type="submit">Guardar</button>
+                      </form>
+              
+                    <div id="complaintList"></div>
+                  </section>
+                </main>
+                        
                     </div>
-                    <div id="notice2">
-                        <h3>17/3/2025</h3>
-                        <p>esto es un DOLOR</p>
-                        <a href="">Leer</a>
-                    </div>
-                    <div id="notice3">
-                        <h3>?/3/2025</h3>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, ab!</p>
-                        <a href="">Leer</a>
-                    </div>
-                    <div id="notice4">
-                        <h3>?/3/2025</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis saepe esse vitae magnam atque tempora distinctio perspiciatis dolore, placeat, iure laborum labore voluptatibus optio nam nihil fuga porro corporis officiis rerum libero soluta obcaecati fugiat quam praesentium! Earum officiis asperiores tempora ut dolore? Sunt, suscipit pariatur? Hic dicta ullam iste eveniet magnam mollitia corrupti doloribus esse tenetur iusto vel omnis nisi tempore quas, totam aut vitae id voluptate voluptatum, minima sed illum dolorum harum placeat! Ipsa, excepturi eveniet. Aspernatur obcaecati voluptate ipsum rerum repudiandae repellat asperiores autem numquam consequuntur natus dicta tempore facilis, porro dolorum possimus aperiam? Doloribus, exercitationem fuga!</p>
-                        <a href="">Leer</a>
-                    </div>
-                    <div id="notice5">
-                        <h3>?/3/2025</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis doloremque quam odit magnam eius voluptatem libero expedita quasi eligendi eos, minima ratione repellendus, dignissimos ducimus itaque ad animi. Eum, labore obcaecati vitae explicabo asperiores praesentium officiis est repellat aliquam recusandae totam architecto facilis. Ullam veniam sint pariatur maxime, ipsam alias.</p>
-                        <a href="">Leer</a>
-                    </div>
-                    <div id="notice6">
-                        <h3>?/3/2025</h3>
-                        <p>haiiiiii :D</p>
-                        <a href="">Leer</a>
+                    
                     </div>
                 </div>
             </div>
@@ -135,6 +121,7 @@
     <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
     <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
     <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/complaintsCouncilor.js"></script>
 </body>
 
 </html>
