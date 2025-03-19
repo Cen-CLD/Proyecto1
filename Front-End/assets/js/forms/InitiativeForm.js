@@ -52,12 +52,12 @@ export class InitiativeForm extends FormManager {
                     const reader = new FileReader();
                     reader.onload = (e) => {
                         const imageSrc = e.target.result;
-                        addComplaint(imageSrc);
+                        addInitiative(imageSrc);
                     };
                     reader.readAsDataURL(formData.image);
                 } else {
                     const imageSrc = "../../assets/img/iniciatives/default.jpg";
-                    addComplaint(imageSrc);
+                    addInitiative(imageSrc);
                 }
             },
         };
