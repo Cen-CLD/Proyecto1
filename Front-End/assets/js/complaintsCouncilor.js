@@ -16,12 +16,20 @@ form.addEventListener('submit', e => {
   const image = imageInput.files[0] ? URL.createObjectURL(imageInput.files[0]) : null
 
   if (!/\d{4}-\d{2}-\d{2}/.test(date)) {
-    alert('Por favor ingrese una fecha válida (aaaa-mm-dd)')
+    Swal.fire({
+      icon: "warning",
+      title: "Error",
+      text: "Asegúrese de ingresar una fecha válida. (dd/mm/aaaa)",
+    });
     return
   }
 
   if (text.length < 5) {
-    alert('El texto debe tener al menos 5 caracteres')
+    Swal.fire({
+      icon: "warning",
+      title: "Error",
+      text: "Por favor, ingrese al menos cinco caracteres.",
+    });
     return
   }
 
@@ -74,5 +82,9 @@ function renderList() {
     }
 
     function viewPublishedNews(index) {
-      alert('Esta función mostrará la noticia publicada asociada a esta denuncia (función en desarrollo)')
+      Swal.fire({
+      icon: "warning",
+      title: "Error",
+      text: "Esta opción muestra la noticia asociada con la denuncia. (en desarrollo)",
+    });
     }

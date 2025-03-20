@@ -434,6 +434,7 @@ footer {
   }
   #text {
     height: 500px;
+    font-size: 25px;
   }
   
   .complaintBox {
