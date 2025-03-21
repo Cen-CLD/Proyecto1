@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Usuarios | Admin</title>
+    <title>Noticias | Admin</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
     <link rel="stylesheet" href="../../assets/css/admin/styles.css" />
@@ -56,51 +56,64 @@
             </div>
 
             <div class="right">
-                <section id="users" class="controls-section" data-section="users">
-                    <h1>Listado de Usuarios</h1>
+                <section id="news" class="controls-section" data-section="news">
+                    <h1>Listado de Noticias</h1>
                     <hr><br>
 
                     <table class="table table-bordered text-center">
                         <thead>
                             <tr>
-                                <th>Acciones</th>
-                                <th>Nombre</th>
-                                <th>Cedula</th>
-                                <th>Correo</th>
+                                <th>Detalle</th>
+                                <th>Creador</th>
+                                <th>Titulo</th>
+                                <th>Publicacion</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
                                 <td>
-                                    <button class="btn-create"><i class="fa fa-edit"></i></button>
-                                    <button class="btn-create"><i class="fa fa-trash"></i></button>
+                                    <button class="btn-create" onclick="openModal()"><i
+                                            class="fa-solid fa-magnifying-glass"></i></button>
                                 </td>
                                 <td>John</td>
-                                <td>123</td>
-                                <td>john@example.com</td>
+                                <td>Nuevo Servicio</td>
+                                <td>2025-03-20</td>
                             </tr>
                             <tr>
                                 <td>
-                                    <button class="btn-create"><i class="fa fa-edit"></i></button>
-                                    <button class="btn-create"><i class="fa fa-trash"></i></button>
+                                    <button class="btn-create" onclick="openModal()"><i
+                                            class="fa-solid fa-magnifying-glass"></i></button>
                                 </td>
                                 <td>John</td>
-                                <td>123</td>
-                                <td>john@example.com</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button class="btn-create"><i class="fa fa-edit"></i></button>
-                                    <button class="btn-create"><i class="fa fa-trash"></i></button>
-                                </td>
-                                <td>John</td>
-                                <td>123</td>
-                                <td>john@example.com</td>
+                                <td>Nuevo Servicio</td>
+                                <td>2025-03-20</td>
                             </tr>
                         </tbody>
                     </table>
                 </section>
+            </div>
+        </div>
+
+        <div id="modalNews" class="modal">
+            <div class="modal-content">
+                <section id="news" class="controls-section" data-section="news">
+                    <span class="text-end close" onclick="closeModal()">&times;</span>
+
+                    <h1>Titulo de Noticia</h1>
+                    <hr><br>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore voluptatem voluptate tenetur
+                        autem porro in praesentium consequuntur doloribus mollitia!
+                        Quisquam accusamus consequatur quas nobis. Autem similique dolore deserunt deleniti nobis!
+                    </p>
+                </section>
+
+                <div class="text-end">
+                    <button class="btn-red" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+                    <button class="btn-create" onclick="closeModal()"><i class="fa-solid fa-check"></i></button>
+                </div>
             </div>
         </div>
     </main>
