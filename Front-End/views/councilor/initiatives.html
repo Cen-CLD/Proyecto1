@@ -1,18 +1,18 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Councilor</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciativas | Concejal</title>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/councilor/styles.css">
+    <link rel="stylesheet" href="../../assets/css/councilor/styles.css" />
 </head>
 
 <body>
     <header>
-        <a href="#" class="logoMuni muniSprite"></a>
+        <a href="./home.html" class="logoMuni muniSprite" id="logoInicio" data-target="welcome"></a>
 
         <nav>
             <ul class="navbar">
@@ -20,7 +20,7 @@
             </ul>
         </nav>
 
-        <a href="#" class="userPhotoContainer">
+        <a href="userProfile.html" class="userPhotoContainer">
             <img class="userProfilePhoto" src="../../assets/img/user_profile.jpg" />
         </a>
     </header>
@@ -46,16 +46,62 @@
             </div>
 
             <div class="right">
-                <section id="welcome" class="welcome-section" data-section="welcome">
-                    <div class="welcome-content">
-                        <img src="../../assets/img/muniLogoSmall.png" alt="Logo" class="welcome-logo"/>
+                <section id="news" class="controls-section" data-section="news">
+                    <h1>Listado de Iniciativas</h1>
+                    <hr><br>
 
-                        <h1 class="welcome-title">Bienvenido Concejal</h1>
-                        <p class="welcome-subtitle">
-                            Municipalidad de Montes de Oca - Tu espacio de información y participación
-                        </p>
-                    </div>
+                    <table class="table table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>Acciones</th>
+                                <th>Creador</th>
+                                <th>Iniciativa</th>
+                                <th>Publicacion</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <button class="btn-create" onclick="openModal()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </td>
+                                <td>John</td>
+                                <td>Nuevo Reciclaje</td>
+                                <td>2025-03-20</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button class="btn-create" onclick="openModal()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                                </td>
+                                <td>John</td>
+                                <td>Nuevo Parque</td>
+                                <td>2025-03-20</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </section>
+            </div>
+        </div>
+
+        <div id="modalInitiatives" class="modal">
+            <div class="modal-content">
+                <section id="news" class="controls-section" data-section="news">
+                    <span class="text-end close" onclick="closeModal()">&times;</span>
+
+                    <h1>Nuevo Reciclaje</h1>
+                    <hr><br>
+
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore voluptatem voluptate tenetur
+                        autem porro in praesentium consequuntur doloribus mollitia!
+                        Quisquam accusamus consequatur quas nobis. Autem similique dolore deserunt deleniti nobis!
+                    </p>
+                </section>
+
+                <div class="text-end">
+                    <button class="btn-red" onclick="closeModal()"><i class="fa-trash"></i></button>
+                    <button class="btn-create" onclick="closeModal()"><i class="fa-edit"></i></button>
+                </div>
             </div>
         </div>
     </main>
@@ -76,7 +122,7 @@
                     <strong class="columnTitle">Navegación</strong>
 
                     <ul class="footerNav">
-                        <li class="navListItem"><a href="#">Inicio</a></li>
+                        <li class="navListItem"><a href="home.html">Inicio</a></li>
                         <li class="navListItem"><a href="#">Comunidad</a></li>
                         <li class="navListItem"><a href="#">Opcion 2</a></li>
                     </ul>
@@ -118,7 +164,7 @@
 
     <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
     <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/councilor/main.js"></script>
 </body>
 
 </html>
