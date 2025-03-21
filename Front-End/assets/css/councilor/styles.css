@@ -477,8 +477,31 @@ footer {
     border-radius: 5px;
     font-family: sans-serif;
     font-size: 14px;
+    transition: 0.3s ease;
     
   }
   button:hover{
     cursor: pointer;
+    background-color: green;
+  }
+
+/* notices section */
+
+#noticesForm {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#noticesForm input,
+  #noticesForm textarea {
+    padding: 0.5rem;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+  }
+
+  #textNotices {
+    height: 200px;
+    font-size: 18px;
   }

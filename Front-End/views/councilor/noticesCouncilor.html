@@ -32,9 +32,9 @@
             <div class="left" style="background-color:#bbb;">
                 <ul class="sidebar">
                     <h1>Menú de Opciones</h1>
-                    <li class="option1"><a href="create_iniciative.html">Crear Iniciativa de Proyecto</a></li>
+                    <li class="option1"><a href="./noticesCouncilor.html">Administrar Avisos</a></li>
                     <li class="option2"><a href="admin_iniciatives.html">Administrar Iniciativas de Proyecto</a></li>
-                    <li class="option3"><a href="admin_notices.html">Administrar Denuncias</a></li>
+                    <li class="option3"><a href="./complaintsCouncilor.html">Administrar Denuncias</a></li>
                     
                 </ul>
             </div>
@@ -42,11 +42,11 @@
             <div class="right" style="background-color:#f5f5f5;">
                 
                 <section class="panel">
-                    <h2>Administrar Denuncias Concejal de Distrito</h2>
+                    <h2>Administrar Avisos Concejal de Distrito</h2>
               
-                    <form id="complaintForm">
+                    <form id="noticesForm">
                         <input type="date" id="date" required>
-                        <textarea id="text" placeholder="Escriba la denuncia" required></textarea>
+                        <textarea id="textNotices" placeholder="Escriba el Aviso" required></textarea>
                         <input type="file" id="image" accept="image/*">
                         <button type="submit">Publicar</button>
                       </form>
@@ -121,7 +121,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
     <script src="../../assets/js/main.js"></script>
-    <script src="../../assets/js/complaintsCouncilor.js"></script>
+    <script src="../../assets/js/councilor/noticesCouncilor.js"></script>
 </body>
 
 </html>
