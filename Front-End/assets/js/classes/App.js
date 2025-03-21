@@ -11,14 +11,8 @@ export class App {
         this.initiativeForm = new InitiativeForm("initiativeForm");
         this.complaintForm = new ComplaintForm("complaintForm");
         this.commentForm = new CommentForm("comment-form", "comments-list");
-        this.initiativeCommentForm = new CommentForm(
-            "initiative-comment-form",
-            "initiative-comments-list",
-        );
-        this.complaintCommentForm = new CommentForm(
-            "complaint-comment-form",
-            "complaint-comments-list",
-        );
+        this.initiativeCommentForm = new CommentForm("initiative-comment-form", "initiative-comments-list");
+        this.complaintCommentForm = new CommentForm("complaint-comment-form", "complaint-comments-list");
     }
 
     init() {

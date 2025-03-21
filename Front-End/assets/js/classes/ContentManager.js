@@ -126,9 +126,9 @@ export class ContentManager {
               </div>
               <h3 class="content-title">${content.title}</h3>
               <p class="content-excerpt">${content.content.substring(
-                  0,
-                  100,
-              )}...</p>
+                    0,
+                    100,
+                )}...</p>
               <div class="content-actions">
                 <a href="#"
                    class="btn-link"
