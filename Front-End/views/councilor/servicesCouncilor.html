@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Servicios Municipales</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/councilor/styles.css">
+    
+</head>
+
+<body>
+    <header>
+        <a href="#" class="logoMuni muniSprite"></a>
+
+        <nav>
+            <ul class="navbar">
+                <li class="navListItem"><a href="#">Inicio</a></li>
+                <li class="navListItem"><a href="#">Noticias</a></li>
+                <li class="navListItem"><a href="#">Denuncias</a></li>
+            </ul>
+        </nav>
+
+        <a href="#" class="userPhotoContainer">
+            <img class="userProfilePhoto" src="../../assets/img/user_profile.jpg" />
+        </a>
+    </header>
+
+    <main>
+        <section class="services-container">
+            <h1>Administración de Servicios Municipales</h1>
+
+            <input type="text" id="searchService" placeholder="Buscar servicio...">
+            <button id="addServiceBtn">Agregar Nuevo Servicio</button>
+
+            <ul id="serviceList">
+                <li class="service-item">
+                    <h3>Pago de Impuestos</h3>
+                    <p>Información sobre cómo realizar el pago de impuestos municipales.</p>
+                    <button class="editService">Editar</button>
+                    <button class="deleteService">Eliminar</button>
+                </li>
+                <li class="service-item">
+                    <h3>Permisos de Construcción</h3>
+                    <p>Detalles sobre los requisitos y trámites para obtener permisos de construcción.</p>
+                    <button class="editService">Editar</button>
+                    <button class="deleteService">Eliminar</button>
+                </li>
+                <li class="service-item">
+                    <h3>Recolección de Residuos</h3>
+                    <p>Horarios y zonas de recolección de basura y desechos.</p>
+                    <button class="editService">Editar</button>
+                    <button class="deleteService">Eliminar</button>
+                </li>
+            </ul>
+        </section>
+      
+    </main>
+
+    
+        <footer>
+            <div class="footerContainer">
+                <div class="footerContent">
+                    <div class="footerColumn">
+                        <a href="#" class="footerLogoMuni muniSprite"></a>
+    
+                        <div class="addressBlock">
+                            <strong>Dirección</strong>
+                            <p>Costa Rica</p>
+                        </div>
+                    </div>
+    
+                    <div class="footerColumn">
+                        <strong class="columnTitle">Navegación</strong>
+    
+                        <ul class="footerNav">
+                            <li class="navListItem"><a href="#">Inicio</a></li>
+                            <li class="navListItem"><a href="#">Comunidad</a></li>
+                            <li class="navListItem"><a href="#">Opcion 2</a></li>
+                        </ul>
+                    </div>
+    
+                    <div class="footerColumn">
+                        <strong class="columnTitle">Nuestras Redes</strong>
+    
+                        <div class="socialContainer">
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                    </div>
+    
+                    <div class="footerColumn">
+                        <strong class="columnTitle">Contacto</strong>
+    
+                        <div class="contactInfo">
+                            <div class="scheduleBlock">
+                                <h4>Horario de atención</h4>
+                                <p>Lunes a viernes</p>
+                                <p>8:00 AM - 4:00 PM</p>
+                            </div>
+    
+                            <div class="phoneBlock">
+                                <h4>Central telefónica</h4>
+                                <p>2222-2222 / 8888-0000</p>
+                            </div>
+    </footer>
+
+    <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+    <script src="../../assets/js/servicios.js"></script>
+</body>
+
+</html>
