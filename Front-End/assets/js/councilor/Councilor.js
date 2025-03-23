@@ -8,7 +8,7 @@ form.addEventListener('submit', e => {
   e.preventDefault()
 
   const dateInput = document.getElementById('date')
-  const textInput = document.getElementById('text')
+  const textInput = document.getElementById('textComplaints')
   const imageInput = document.getElementById('image')
 
   const date = dateInput.value
@@ -35,6 +35,12 @@ form.addEventListener('submit', e => {
 
   complaints.push({ date, text, image })
   renderList()
+
+  Swal.fire({
+    icon: "success",
+    title: "Éxito",
+    text: "El aviso ha sido enviado, un administrador se encargará de revisar su solicitud.",
+  });
   form.reset()
 })
 
@@ -49,7 +55,7 @@ function renderList() {
       <button onclick="previewComplaint(${index})">Ver</button>
       <button onclick="editComplaint(${index})">Editar</button>
       <button onclick="deleteComplaint(${index})">Borrar</button>
-      <button onclick="viewPublishedNews(${index})">Ver noticia publicada</button>
+      <button onclick="viewPublishedNews(${index})">Estado</button>
     `
     list.appendChild(div)
   })
@@ -62,7 +68,7 @@ function renderList() {
     function editComplaint(index) {
       const item = complaints[index]
       document.getElementById('date').value = item.date
-      document.getElementById('text').value = item.text
+      document.getElementById('textComplaints').value = item.text
       deleteComplaint(index)
     }
 
@@ -84,7 +90,7 @@ function renderList() {
     function viewPublishedNews(index) {
       Swal.fire({
       icon: "warning",
-      title: "Error",
-      text: "Esta opción muestra la noticia asociada con el aviso."
+      title: "",
+      text: "Su solicitud aún no ha sido revisada."
     });
     }

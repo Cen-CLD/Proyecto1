@@ -32,9 +32,10 @@
             <div class="left" style="background-color:#bbb;">
                 <ul class="sidebar">
                     <h1>Menú de Opciones</h1>
-                    <li class="option1"><a href="./noticesCouncilor.html">Administrar Noticias</a></li>
-                    <li class="option2"><a href="admin_iniciatives.html">Administrar Iniciativas de Proyecto</a></li>
+                    <li class="option1"><a href="./noticesCouncilor.html">Administrar Avisos</a></li>
+                    <li class="option2"><a href="#">Administrar Iniciativas de Proyecto</a></li>
                     <li class="option3"><a href="./complaintsCouncilor.html">Administrar Denuncias</a></li>
+                    <li class="option4"><a href="#">Administrar Noticias</a></li>
                     
                 </ul>
             </div>
@@ -46,7 +47,8 @@
               
                     <form id="complaintForm">
                         <input type="date" id="date" required>
-                        <textarea id="text" placeholder="Escriba la denuncia" required></textarea>
+                        <textarea id="textComplaints" placeholder="Escriba la Denuncia" required></textarea>
+                        <label for="image" class="imageUpload">Seleccione una Imagen</label>
                         <input type="file" id="image" accept="image/*">
                         <button type="submit">Publicar</button>
                       </form>
