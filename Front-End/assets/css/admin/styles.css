@@ -186,11 +186,13 @@ section {
     overflow-y: auto;
 
     /* Gradiente profesional */
-    background: linear-gradient(180deg,
-            #ffffff 0%,
-            var(--color-1) 10%,
-            rgba(var(--color-1-rgb), 0.9) 30%,
-            var(--color-2) 100%);
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        var(--color-1) 10%,
+        rgba(var(--color-1-rgb), 0.9) 30%,
+        var(--color-2) 100%
+    );
 
     /* Efectos sutiles */
     border-top: var(--color-1);
@@ -260,32 +262,33 @@ section {
     display: block;
 }
 
-
 /*estilos botón admin denucnias*/
 .change-status-btn {
-    background-color: #5d97aa; 
+    background-color: #5d97aa;
     color: white;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 25px; 
-    transition: background 0.3s ease, transform 0.2s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+    border-radius: 25px;
+    transition:
+        background 0.3s ease,
+        transform 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .change-status-btn:hover {
     background-color: #4553a0;
-    transform: scale(1.05); 
+    transform: scale(1.05);
 }
 
 .change-status-btn:active {
-    transform: scale(0.95); 
+    transform: scale(0.95);
 }
 
 .deny-btn {
-    background-color:  #5d97aa; /* Rojo */
+    background-color: #5d97aa; /* Rojo */
     color: white;
 }
 
@@ -294,11 +297,7 @@ section {
     transform: scale(1.05);
 }
 
-
 /**/
-
-
-
 
 .sidebar a.active {
     background: rgba(var(--color-1-rgb), 0.7);
@@ -356,7 +355,6 @@ section {
 /* News */
 /* Users */
 
-
 .content-header {
     margin-bottom: 2rem;
     padding: 1.5rem;
@@ -376,7 +374,7 @@ section {
 .search-filter {
     display: flex;
     gap: 1.5rem;
-    flex-grow: 1;F
+    flex-grow: 1;
     max-width: 600px;
     margin-bottom: 2rem;
 }
@@ -466,6 +464,11 @@ section {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+}
+
+.content button {
+    margin-right: 10px;
+    margin-top: 20px;
 }
 
 .content-meta {
@@ -1030,7 +1033,6 @@ footer {
     transform: translateY(1px);
 }
 
-
 .table {
     width: 100%;
     margin-bottom: 1rem;
@@ -1058,7 +1060,7 @@ footer {
     border-bottom-width: 2px;
 }
 
-.table-bordered tbody+tbody {
+.table-bordered tbody + tbody {
     border-top: 2px solid #dee2e6;
 }
 

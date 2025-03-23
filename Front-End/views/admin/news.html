@@ -1,180 +1,236 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Noticias | Admin</title>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Noticias | Admin</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../assets/css/admin/styles.css" />
+    </head>
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/admin/styles.css" />
-</head>
+    <body>
+        <header>
+            <a
+                href="home.html"
+                class="logoMuni muniSprite"
+                id="logoInicio"
+                data-target="welcome"
+            ></a>
 
-<body>
-    <header>
-        <a href="./home.html" class="logoMuni muniSprite" id="logoInicio" data-target="welcome"></a>
-
-        <nav>
-            <ul class="navbar">
-
-            </ul>
-        </nav>
-
-        <a href="userProfile.html" class="userPhotoContainer">
-            <img class="userProfilePhoto" src="../../assets/img/user_profile.jpg" />
-        </a>
-    </header>
-
-    <main>
-        <div class="row">
-            <div class="left">
-                <h2>Menu de Acciones</h2>
-
-                <ul class="sidebar">
-                    <li>
-                        <a href="users.html" data-target="denuncias">Modulo Usuarios</a>
-                    </li>
-
-                    <li>
-                        <a href="news.html">Modulo Noticias</a>
-                    </li>
-
-                    <li>
-                        <a href="#" data-target="avisos">Modulo Avisos</a>
-                    </li>
-
-                    <li>
-                        <a href="#" data-target="iniciativas">Modulo Iniciativas</a>
-                    </li>
-
-                    <li>
-                        <a href="#" data-target="denuncias">Modulo Denuncias</a>
+            <nav>
+                <ul class="navbar">
+                    <li class="navListItem" id="home-page">
+                        <a href="home.html">Inicio</a>
                     </li>
                 </ul>
-            </div>
+            </nav>
 
-            <div class="right">
-                <section id="news" class="controls-section" data-section="news">
-                    <h1>Listado de Noticias</h1>
-                    <hr><br>
+            <a href="userProfile.html" class="userPhotoContainer">
+                <img
+                    class="userProfilePhoto"
+                    src="../../assets/img/user_profile.jpg"
+                />
+            </a>
+        </header>
 
-                    <table class="table table-bordered text-center">
-                        <thead>
-                            <tr>
-                                <th>Detalle</th>
-                                <th>Creador</th>
-                                <th>Titulo</th>
-                                <th>Publicacion</th>
-                            </tr>
-                        </thead>
+        <main>
+            <div class="row">
+                <div class="left">
+                    <h2>Menu de Acciones</h2>
 
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <button class="btn-create" onclick="openModal()"><i
-                                            class="fa-solid fa-magnifying-glass"></i></button>
-                                </td>
-                                <td>John</td>
-                                <td>Nuevo Servicio</td>
-                                <td>2025-03-20</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button class="btn-create" onclick="openModal()"><i
-                                            class="fa-solid fa-magnifying-glass"></i></button>
-                                </td>
-                                <td>John</td>
-                                <td>Nuevo Servicio</td>
-                                <td>2025-03-20</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-            </div>
-        </div>
+                    <ul class="sidebar">
+                        <li>
+                            <a href="users.html">Modulo Usuarios</a>
+                        </li>
 
-        <div id="modalNews" class="modal">
-            <div class="modal-content">
-                <section id="news" class="controls-section" data-section="news">
-                    <span class="text-end close" onclick="closeModal()">&times;</span>
+                        <li>
+                            <a href="news.html" class="active"
+                                >Modulo Noticias</a
+                            >
+                        </li>
 
-                    <h1>Titulo de Noticia</h1>
-                    <hr><br>
+                        <li>
+                            <a href="notices.html" data-target="avisos"
+                                >Modulo Avisos</a
+                            >
+                        </li>
 
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore voluptatem voluptate tenetur
-                        autem porro in praesentium consequuntur doloribus mollitia!
-                        Quisquam accusamus consequatur quas nobis. Autem similique dolore deserunt deleniti nobis!
-                    </p>
-                </section>
+                        <li>
+                            <a href="initiatives.html" data-target="iniciativas"
+                                >Modulo Iniciativas</a
+                            >
+                        </li>
 
-                <div class="text-end">
-                    <button class="btn-red" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
-                    <button class="btn-create" onclick="closeModal()"><i class="fa-solid fa-check"></i></button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footerContainer">
-            <div class="footerContent">
-                <div class="footerColumn">
-                    <a href="#" class="footerLogoMuni muniSprite"></a>
-
-                    <div class="addressBlock">
-                        <strong>Dirección</strong>
-                        <p>Costa Rica</p>
-                    </div>
-                </div>
-
-                <div class="footerColumn">
-                    <strong class="columnTitle">Navegación</strong>
-
-                    <ul class="footerNav">
-                        <li class="navListItem"><a href="home.html">Inicio</a></li>
-                        <li class="navListItem"><a href="#">Comunidad</a></li>
-                        <li class="navListItem"><a href="#">Opcion 2</a></li>
+                        <li>
+                            <a href="complaints.html" data-target="denuncias"
+                                >Modulo Denuncias</a
+                            >
+                        </li>
                     </ul>
                 </div>
 
-                <div class="footerColumn">
-                    <strong class="columnTitle">Nuestras Redes</strong>
+                <div class="right">
+                    <section
+                        id="news"
+                        class="controls-section"
+                        data-section="news"
+                    >
+                        <h1>Listado de Noticias</h1>
+                        <hr />
+                        <br />
 
-                    <div class="socialContainer">
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-facebook"></i>
-                        <i class="fa-solid fa-x"></i>
+                        <table class="table table-bordered text-center">
+                            <thead>
+                                <tr>
+                                    <th>Detalle</th>
+                                    <th>Creador</th>
+                                    <th>Titulo</th>
+                                    <th>Publicacion</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-create"
+                                            onclick="openModal()"
+                                        >
+                                            <i
+                                                class="fa-solid fa-magnifying-glass"
+                                            ></i>
+                                        </button>
+                                    </td>
+                                    <td>John</td>
+                                    <td>Nuevo Servicio</td>
+                                    <td>2025-03-20</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button
+                                            class="btn-create"
+                                            onclick="openModal()"
+                                        >
+                                            <i
+                                                class="fa-solid fa-magnifying-glass"
+                                            ></i>
+                                        </button>
+                                    </td>
+                                    <td>John</td>
+                                    <td>Nuevo Servicio</td>
+                                    <td>2025-03-20</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+
+            <div id="modalNews" class="modal">
+                <div class="modal-content">
+                    <section
+                        id="news"
+                        class="controls-section"
+                        data-section="news"
+                    >
+                        <span class="text-end close" onclick="closeModal()"
+                            >&times;</span
+                        >
+
+                        <h1>Titulo de Noticia</h1>
+                        <hr />
+                        <br />
+
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Labore voluptatem voluptate tenetur autem
+                            porro in praesentium consequuntur doloribus
+                            mollitia! Quisquam accusamus consequatur quas nobis.
+                            Autem similique dolore deserunt deleniti nobis!
+                        </p>
+                    </section>
+
+                    <div class="text-end">
+                        <button class="btn-red" onclick="closeModal()">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                        <button class="btn-create" onclick="closeModal()">
+                            <i class="fa-solid fa-check"></i>
+                        </button>
                     </div>
                 </div>
+            </div>
+        </main>
 
-                <div class="footerColumn">
-                    <strong class="columnTitle">Contacto</strong>
+        <footer>
+            <div class="footerContainer">
+                <div class="footerContent">
+                    <div class="footerColumn">
+                        <a href="#" class="footerLogoMuni muniSprite"></a>
 
-                    <div class="contactInfo">
-                        <div class="scheduleBlock">
-                            <h4>Horario de atención</h4>
-                            <p>Lunes a viernes</p>
-                            <p>8:00 AM - 4:00 PM</p>
+                        <div class="addressBlock">
+                            <strong>Dirección</strong>
+                            <p>Costa Rica</p>
                         </div>
+                    </div>
 
-                        <div class="phoneBlock">
-                            <h4>Central telefónica</h4>
-                            <p>2222-2222 / 8888-0000</p>
+                    <div class="footerColumn">
+                        <strong class="columnTitle">Navegación</strong>
+
+                        <ul class="footerNav">
+                            <li class="navListItem">
+                                <a href="home.html">Inicio</a>
+                            </li>
+                            <li class="navListItem">
+                                <a href="#">Comunidad</a>
+                            </li>
+                            <li class="navListItem">
+                                <a href="#">Opcion 2</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="footerColumn">
+                        <strong class="columnTitle">Nuestras Redes</strong>
+
+                        <div class="socialContainer">
+                            <i class="fa-brands fa-instagram"></i>
+                            <i class="fa-brands fa-facebook"></i>
+                            <i class="fa-solid fa-x"></i>
+                        </div>
+                    </div>
+
+                    <div class="footerColumn">
+                        <strong class="columnTitle">Contacto</strong>
+
+                        <div class="contactInfo">
+                            <div class="scheduleBlock">
+                                <h4>Horario de atención</h4>
+                                <p>Lunes a viernes</p>
+                                <p>8:00 AM - 4:00 PM</p>
+                            </div>
+
+                            <div class="phoneBlock">
+                                <h4>Central telefónica</h4>
+                                <p>2222-2222 / 8888-0000</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="footerCopyright">
-            <p>Todos los derechos reservados © 2025</p>
-        </div>
-    </footer>
+            <div class="footerCopyright">
+                <p>Todos los derechos reservados © 2025</p>
+            </div>
+        </footer>
 
-    <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
-    <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-    <script src="../../assets/js/admin/main.js"></script>
-</body>
-
+        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+        <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+        <script src="../../assets/js/admin/main.js"></script>
+    </body>
 </html>
+
