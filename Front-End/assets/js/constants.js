@@ -19,7 +19,17 @@ Te invitamos a participar activamente aportando ideas, manos voluntarias o donac
 ¡Juntos podemos transformar nuestro parque! 🌱✨
 `;
 
-export const claimText = `
+export const initiativeText2 = ` 
+Queremos invitarte a participar en nuestra iniciativa ciudadana para darle nueva vida al Parque en Montes de Oca.
+
+¡Tu creatividad, tiempo o apoyo económico harán una gran diferencia!
+
+👉 Déjanos tus ideas, comentarios o interés en unirte al proyecto.
+
+¡Hagamos del parque un lugar hermoso y lleno de vida para todos! 🌸🌿✨
+`;
+
+export const complaintText = `
 
 Vecinos y visitantes del Parque Central de Montes de Oca queremos expresar nuestra preocupación por el estado actual del parque, el cual presenta señales evidentes de descuido.
 
@@ -73,32 +83,140 @@ export const initiativeData = [
         content: initiativeText,
         comments: [],
     },
+    {
+        id: 2,
+        title: "🌿 ¡Unidos por la renovación del Parque! 🌼",
+        date: "15 Mar 2025",
+        category: "Iniciativa Ciudadana",
+        image: "../../assets/img/iniciatives/img6.jpg",
+        content: initiativeText,
+        comments: [],
+    },
 ];
 
-export const claimData = [
+export const complaintData = [
     {
         id: 1,
         title: "Denuncia sobre el estado del Parque Central de Montes de Oca",
         date: "12 Mar 2025",
         category: "Denuncia Ciudadana",
-        image: "../../assets/img/claims/img1.jpg",
-        content: claimText,
+        image: "../../assets/img/complaints/img8.jpg",
+        content: complaintText,
+        comments: [],
+    },
+    {
+        id: 2,
+        title: "Denuncia por acumulación de basura en Calle 5, Montes de Oca",
+        date: "15 Mar 2025",
+        category: "Denuncia Ciudadana",
+        image: "../../assets/img/complaints/img7.jpg",
+        content:
+            "Se denuncia la acumulación excesiva de basura en Calle 5, específicamente cerca del supermercado local, lo cual atrae roedores e insectos, afectando la calidad de vida de los vecinos y generando malos olores. Solicitamos la intervención inmediata de la Municipalidad para solucionar este problema.",
+        comments: [],
+    },
+    {
+        id: 3,
+        title: "Denuncia por alumbrado público defectuoso en Barrio Los Yoses",
+        date: "17 Mar 2025",
+        category: "Denuncia Ciudadana",
+        image: "../../assets/img/complaints/default.jpg",
+        content:
+            "Los vecinos del Barrio Los Yoses denunciamos que varias luminarias públicas llevan semanas sin funcionar correctamente, dejando áreas oscuras que comprometen la seguridad de los peatones durante la noche. Solicitamos atención urgente para la reparación del alumbrado público en esta zona.",
         comments: [],
     },
 ];
 
+export const noticiesData = [
+    {
+        id: 1,
+        title: "Corte electrico",
+        date: "10 Mar 2025",
+        category: "Urgente",
+        image: "../../assets/img/notices/img3.jpg",
+        content:
+            "Debido a accidente, se ha cortado el suministro electrico en las siguientes localidades: X, Y, Z... ",
+        comments: [],
+    },
+    {
+        id: 2,
+        title: "Rotonda de la Bandera Cerrada!",
+        date: "10 Mar 2025",
+        category: "Atencion",
+        image: "../../assets/img/notices/img4.jpg",
+        content:
+            "La rotonda se mantendra cerrada este 18 de Marzo hasta el 25 de Marzo. ",
+        comments: [],
+    },
+];
+
+export const noticeSelectors = {
+    get image() {
+        return document.getElementById("notice-detail-image");
+    },
+    get date() {
+        return document.getElementById("notice-detail-date");
+    },
+    get category() {
+        return document.getElementById("notice-detail-category");
+    },
+    get title() {
+        return document.getElementById("notice-detail-title");
+    },
+    get body() {
+        return document.getElementById("notice-detail-body");
+    },
+};
+
 export const initiativeSelectors = {
-    image: document.getElementById("initiative-detail-image"),
-    date: document.getElementById("initiative-detail-date"),
-    category: document.getElementById("initiative-detail-category"),
-    title: document.getElementById("initiative-detail-title"),
-    body: document.getElementById("initiative-detail-body"),
+    get image() {
+        return document.getElementById("initiative-detail-image");
+    },
+    get date() {
+        return document.getElementById("initiative-detail-date");
+    },
+    get category() {
+        return document.getElementById("initiative-detail-category");
+    },
+    get title() {
+        return document.getElementById("initiative-detail-title");
+    },
+    get body() {
+        return document.getElementById("initiative-detail-body");
+    },
 };
 
 export const newsSelectors = {
-    image: document.getElementById("detail-image"),
-    date: document.getElementById("detail-date"),
-    category: document.getElementById("detail-category"),
-    title: document.getElementById("detail-title"),
-    body: document.getElementById("detail-body"),
+    get image() {
+        return document.getElementById("detail-image");
+    },
+    get date() {
+        return document.getElementById("detail-date");
+    },
+    get category() {
+        return document.getElementById("detail-category");
+    },
+    get title() {
+        return document.getElementById("detail-title");
+    },
+    get body() {
+        return document.getElementById("detail-body");
+    },
+};
+
+export const complaintSelectors = {
+    get image() {
+        return document.getElementById("complaint-detail-image");
+    },
+    get date() {
+        return document.getElementById("complaint-detail-date");
+    },
+    get category() {
+        return document.getElementById("complaint-detail-category");
+    },
+    get title() {
+        return document.getElementById("complaint-detail-title");
+    },
+    get body() {
+        return document.getElementById("complaint-detail-body");
+    },
 };
