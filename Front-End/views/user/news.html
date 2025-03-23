@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+    <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Home | User</title>
@@ -10,7 +10,7 @@
             rel="stylesheet"
         />
         <link rel="stylesheet" href="../../assets/css/user/styles.css" />
-  </head>
+    </head>
 
     <body>
         <header>
@@ -23,10 +23,14 @@
 
             <nav>
                 <ul class="navbar">
-                    <li class="navListItem" id="home-page">
-                        <a href="#" class="active">Inicio</a>
+                    <li
+                        class="navListItem"
+                        id="home-page"
+                        data-target="welcome"
+                    >
+                        <a href="home.html">Inicio</a>
                     </li>
-                    <li class="navListItem"><a href="community.html">Comunidad</a></li>
+                    <li class="navListItem"><a href="#">Comunidad</a></li>
                     <li class="navListItem"><a href="#">Opcion 2</a></li>
                 </ul>
             </nav>
@@ -44,9 +48,7 @@
                 <div class="left">
                     <h2>Menu de Acciones</h2>
                     <ul class="sidebar">
-                        <li>
-                            <a href="news.html">Noticias</a>
-                        </li>
+                        <li><a class="active" href="news.html">Noticias</a></li>
                         <li>
                             <a href="notices.html" data-target="avisos"
                                 >Avisos</a
@@ -66,21 +68,95 @@
                 </div>
                 <div class="right">
                     <section
-                        id="welcome"
-                        class="welcome-section"
-                        data-section="welcome"
+                        id="news"
+                        class="controls-section"
+                        data-section="noticias"
                     >
-                        <div class="welcome-content">
+                        <div class="content-header">
+                            <h1>Noticias</h1>
+                            <div class="news-controls">
+                                <div class="search-filter">
+                                    <input
+                                        type="text"
+                                        placeholder="Buscar noticias..."
+                                    />
+                                    <select class="custom-select">
+                                        <option>
+                                            Ordenar por: Más recientes
+                                        </option>
+                                        <option>Más populares</option>
+                                        <option>Por categoría</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="news-container" class="content-grid"></div>
+
+                        <div class="pagination">
+                            <a href="#" class="page-item active">1</a>
+                            <a href="#" class="page-item">2</a>
+                            <a href="#" class="page-item">3</a>
+                            <span class="page-item disabled">...</span>
+                            <a href="#" class="page-item">10</a>
+                        </div>
+                    </section>
+                    <section
+                        id="news-detail"
+                        class="news-detail-section"
+                        style="display: none"
+                    >
+                        <div class="content-header">
                             <img
-                                src="../../assets/img/muniLogoSmall.png"
-                                alt="Logo"
-                                class="welcome-logo"
+                                id="detail-image"
+                                src=""
+                                alt=""
+                                class="detail-image"
                             />
-                            <h1 class="welcome-title">Bienvenido a Usuario</h1>
-                            <p class="welcome-subtitle">
-                                Municipalidad de Montes de Oca - Tu espacio de
-                                información y participación
-                            </p>
+                            <span
+                                id="detail-category"
+                                class="detail-category"
+                            ></span>
+                            <span id="detail-date" class="detail-date"></span>
+                        </div>
+                        <div class="news-detail-content">
+                            <h1 id="detail-title" class="detail-title"></h1>
+                            <div id="detail-body" class="detail-body"></div>
+
+                            <div class="news-navigation">
+                                <button id="prev-news" class="btn-link">
+                                    ← Noticia anterior
+                                </button>
+
+                                <button
+                                    id="back-to-news"
+                                    class="btn-primary"
+                                    onclick="window.location.href='news.html'"
+                                >
+                                    Volver a Noticias
+                                </button>
+                                <button id="next-news" class="btn-link">
+                                    Siguiente noticia →
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="comments-section">
+                            <h2>Comentarios</h2>
+
+                            <form id="comment-form" class="comment-form">
+                                <textarea
+                                    name="comment-text"
+                                    id="comment-text"
+                                    placeholder="Escribe tu comentario..."
+                                    required
+                                ></textarea>
+                                <button type="submit" class="btn-primary">
+                                    Publicar comentario
+                                </button>
+                            </form>
+
+                            <div id="comments-list" class="comments-list"></div>
                         </div>
                     </section>
                 </div>
@@ -103,9 +179,7 @@
                         <strong class="columnTitle">Navegación</strong>
 
                         <ul class="footerNav">
-                            <li class="navListItem">
-                                <a href="home.html">Inicio</a>
-                            </li>
+                            <li class="navListItem"><a href="#">Inicio</a></li>
                             <li class="navListItem">
                                 <a href="#">Comunidad</a>
                             </li>
@@ -151,6 +225,7 @@
 
         <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
         <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+
         <script type="module" src="../../assets/js/main.js"></script>
     </body>
 </html>
