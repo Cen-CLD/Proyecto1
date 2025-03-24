@@ -93,47 +93,88 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="complaints-container" class="content-grid">
-                            <div class="content-card">
-                                <div class="content">
-                                    <div class="content-meta">
-                                        <h3 class="content-title">
-                                            Denuncia 28/2/2025
-                                        </h3>
-                                    </div>
-                                    <p class="content-excerpt">Lorem</p>
-                                    <p class="status">
-                                        Estado:
-                                        <span class="status-text"
-                                            >En revisión</span
-                                        >
-                                    </p>
-                                    <div class="content-actions">
-                                        <button
-                                            class="change-status-btn approve-btn"
-                                            onclick="changeStatus(this, 'Aprobada')"
-                                        >
-                                            Aprobar
-                                        </button>
-                                        <button
-                                            class="change-status-btn deny-btn"
-                                            onclick="changeStatus(this, 'Denegada')"
-                                        >
-                                            Denegar
-                                        </button>
-                                        <button class="change-status-btn">
-                                            Ver
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <div
+                            id="complaints-container"
+                            class="content-grid"
+                        ></div>
                         <div class="pagination">
                             <a href="#" class="page-item active">1</a>
                             <a href="#" class="page-item">2</a>
                             <a href="#" class="page-item">3</a>
                             <span class="page-item disabled">...</span>
                             <a href="#" class="page-item">10</a>
+                        </div>
+                    </section>
+                    <section
+                        id="complaints-detail"
+                        class="news-detail-section"
+                        style="display: none"
+                    >
+                        <div class="content-header">
+                            <img
+                                id="complaint-detail-image"
+                                src=""
+                                alt=""
+                                class="detail-image"
+                            />
+                            <span
+                                id="complaint-detail-category"
+                                class="detail-category"
+                            ></span>
+                            <span
+                                id="complaint-detail-date"
+                                class="detail-date"
+                            ></span>
+                        </div>
+                        <div class="news-detail-content">
+                            <h1
+                                id="complaint-detail-title"
+                                class="detail-title"
+                            ></h1>
+                            <div
+                                id="complaint-detail-body"
+                                class="detail-body"
+                            ></div>
+
+                            <div class="news-navigation">
+                                <button id="prev-complaint" class="btn-link">
+                                    ← Anterior
+                                </button>
+                                <button
+                                    id="back-to-complaint"
+                                    class="btn-primary"
+                                    onclick="window.location.href='complaints.html'"
+                                >
+                                    Volver a Denuncias
+                                </button>
+                                <button id="next-complaint" class="btn-link">
+                                    Siguiente Denuncia →
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="comments-section">
+                            <h2>Comentarios</h2>
+
+                            <form
+                                id="complaint-comment-form"
+                                class="comment-form"
+                            >
+                                <textarea
+                                    name="comment-text"
+                                    id="complaint-comment-text"
+                                    placeholder="Escribe tu comentario..."
+                                    required
+                                ></textarea>
+                                <button type="submit" class="btn-primary">
+                                    Publicar comentario
+                                </button>
+                            </form>
+
+                            <div
+                                id="complaint-comments-list"
+                                class="comments-list"
+                            ></div>
                         </div>
                     </section>
                 </div>
@@ -200,38 +241,9 @@
             </div>
         </footer>
 
-        <script>
-            function changeStatus(button, newStatus) {
-                const card = button.closest(".content-card");
-
-                if (!card) return;
-
-                const statusText = card.querySelector(".status-text");
-
-                if (statusText) {
-                    statusText.innerText = newStatus;
-
-                    if (newStatus === "Aprobada") {
-                        statusText.style.color = "green";
-                    } else if (newStatus === "Denegada") {
-                        statusText.style.color = "red";
-                    } else {
-                        statusText.style.color = "gray";
-                    }
-
-                    Swal.fire({
-                        icon: "success",
-                        title: "Estado actualizado",
-                        text: `La denuncia ha sido marcada como "${newStatus}".`,
-                        timer: 2000,
-                        showConfirmButton: false,
-                    });
-                }
-            }
-        </script>
         <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
         <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
 
-        <script src="../../assets/js/main.js"></script>
+        <script type="module" src="../../assets/js/main.js"></script>
     </body>
 </html>

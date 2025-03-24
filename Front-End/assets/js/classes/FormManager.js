@@ -81,8 +81,12 @@ export class FormManager {
             text:
                 this.config.successText ||
                 "El formulario se ha enviado correctamente.",
-        });
+        }).then(() => {
+            if (this.config.onAfterSuccess) {
+                this.config.onAfterSuccess();
+            }
 
-        this.form.reset();
+            this.form.reset();
+        });
     }
 }

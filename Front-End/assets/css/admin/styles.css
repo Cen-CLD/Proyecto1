@@ -1105,3 +1105,32 @@ footer {
     text-decoration: none;
     cursor: pointer;
 }
+
+.hidden-file-input {
+    display: none;
+}
+
+/* Swal custom styles */
+
+.swal-edit-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.swal-edit-form label {
+    text-align: left;
+    font-weight: 600;
+}
+
+.swal-edit-form input.swal2-input,
+.swal-edit-form textarea.swal2-textarea {
+    width: 80%;
+}
+
+.swal-edit-form textarea.swal2-textarea {
+    height: 300px;
+    resize: vertical;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}

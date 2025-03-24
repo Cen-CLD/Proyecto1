@@ -77,55 +77,170 @@
                     <section
                         id="news"
                         class="controls-section"
-                        data-section="news"
+                        data-section="noticias"
                     >
-                        <h1>Listado de Noticias</h1>
-                        <hr />
-                        <br />
+                        <div class="content-header">
+                            <h1>Noticias</h1>
+                            <div class="news-controls">
+                                <div class="search-filter">
+                                    <input
+                                        type="text"
+                                        placeholder="Buscar noticias..."
+                                    />
+                                    <select class="custom-select">
+                                        <option>
+                                            Ordenar por: Más recientes
+                                        </option>
+                                        <option>Más populares</option>
+                                        <option>Por categoría</option>
+                                    </select>
+                                </div>
+                                <button id="btn-create-new" class="btn-create">
+                                    Crear Noticias
+                                </button>
+                            </div>
+                        </div>
 
-                        <table class="table table-bordered text-center">
-                            <thead>
-                                <tr>
-                                    <th>Detalle</th>
-                                    <th>Creador</th>
-                                    <th>Titulo</th>
-                                    <th>Publicacion</th>
-                                </tr>
-                            </thead>
+                        <div id="news-container" class="content-grid"></div>
 
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <button
-                                            class="btn-create"
-                                            onclick="openModal()"
-                                        >
-                                            <i
-                                                class="fa-solid fa-magnifying-glass"
-                                            ></i>
-                                        </button>
-                                    </td>
-                                    <td>John</td>
-                                    <td>Nuevo Servicio</td>
-                                    <td>2025-03-20</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <button
-                                            class="btn-create"
-                                            onclick="openModal()"
-                                        >
-                                            <i
-                                                class="fa-solid fa-magnifying-glass"
-                                            ></i>
-                                        </button>
-                                    </td>
-                                    <td>John</td>
-                                    <td>Nuevo Servicio</td>
-                                    <td>2025-03-20</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="pagination">
+                            <a href="#" class="page-item active">1</a>
+                            <a href="#" class="page-item">2</a>
+                            <a href="#" class="page-item">3</a>
+                            <span class="page-item disabled">...</span>
+                            <a href="#" class="page-item">10</a>
+                        </div>
+                    </section>
+                    <section
+                        id="news-detail"
+                        class="news-detail-section"
+                        style="display: none"
+                    >
+                        <div class="content-header">
+                            <img
+                                id="detail-image"
+                                src=""
+                                alt=""
+                                class="detail-image"
+                            />
+                            <span
+                                id="detail-category"
+                                class="detail-category"
+                            ></span>
+                            <span id="detail-date" class="detail-date"></span>
+                        </div>
+                        <div class="news-detail-content">
+                            <h1 id="detail-title" class="detail-title"></h1>
+                            <div id="detail-body" class="detail-body"></div>
+
+                            <div class="news-navigation">
+                                <button id="prev-news" class="btn-link">
+                                    ← Noticia anterior
+                                </button>
+
+                                <button
+                                    id="back-to-news"
+                                    class="btn-primary"
+                                    onclick="window.location.href='news.html'"
+                                >
+                                    Volver a Noticias
+                                </button>
+                                <button id="next-news" class="btn-link">
+                                    Siguiente noticia →
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="comments-section">
+                            <h2>Comentarios</h2>
+
+                            <form id="comment-form" class="comment-form">
+                                <textarea
+                                    name="comment-text"
+                                    id="comment-text"
+                                    placeholder="Escribe tu comentario..."
+                                    required
+                                ></textarea>
+                                <button type="submit" class="btn-primary">
+                                    Publicar comentario
+                                </button>
+                            </form>
+
+                            <div id="comments-list" class="comments-list"></div>
+                        </div>
+                    </section>
+                    <section
+                        id="news-form"
+                        class="news-detail-section"
+                        style="display: none"
+                    >
+                        <div class="content-header">
+                            <button
+                                id="back-to-news"
+                                class="btn-back"
+                                onclick="window.location.href='news.html'"
+                            >
+                                Volver a Iniciativas
+                            </button>
+                        </div>
+                        <div class="form-container">
+                            <form class="new-content-form" id="newForm">
+                                <div>
+                                    <input
+                                        type="text"
+                                        id="new-title"
+                                        name="new-title"
+                                        placeholder="Título de la Noticia"
+                                        required
+                                    />
+                                </div>
+
+                                <div>
+                                    <select
+                                        id="new-category"
+                                        name="new-category"
+                                        class="custom-select"
+                                        required
+                                    >
+                                        <option value="">
+                                            Selecciona una categoría
+                                        </option>
+                                        <option value="Actualidad">
+                                            Actualidad
+                                        </option>
+                                        <option value="Eventos">Eventos</option>
+                                        <!-- Agrega más opciones según sea necesario -->
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <textarea
+                                        id="new-content"
+                                        name="new-content"
+                                        placeholder="Detalla aquí tu noticia"
+                                        rows="10"
+                                        required
+                                    ></textarea>
+                                </div>
+
+                                <div class="file-upload-wrapper">
+                                    <input
+                                        type="file"
+                                        id="new-image"
+                                        name="new-image"
+                                        accept="image/*"
+                                        class="hidden-file-input"
+                                    />
+                                    <label class="btn-primary" for="new-image"
+                                        >Subir Imagen</label
+                                    >
+                                </div>
+
+                                <div>
+                                    <button type="submit">Enviar</button>
+                                </div>
+                            </form>
+                        </div>
                     </section>
                 </div>
             </div>
@@ -231,6 +346,6 @@
         <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
         <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
         <script src="../../assets/js/admin/main.js"></script>
+        <script type="module" src="../../assets/js/main.js"></script>
     </body>
 </html>
-

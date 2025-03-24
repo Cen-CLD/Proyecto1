@@ -1,5 +1,6 @@
 import { FormManager } from "../classes/FormManager.js";
 import { initiativeData } from "../constants.js";
+import { appInstance } from "../globals.js";
 
 export class InitiativeForm extends FormManager {
     constructor(formId) {
@@ -51,14 +52,18 @@ export class InitiativeForm extends FormManager {
                 if (formData.image) {
                     const reader = new FileReader();
                     reader.onload = (e) => {
-                        const imageSrc = e.target.result;
-                        addInitiative(imageSrc);
+                        addInitiative(e.target.result);
                     };
                     reader.readAsDataURL(formData.image);
                 } else {
-                    const imageSrc = "../../assets/img/iniciatives/default.jpg";
-                    addInitiative(imageSrc);
+                    const defaultImage =
+                        "../../assets/img/iniciatives/default.jpg";
+                    addInitiative(defaultImage);
                 }
+            },
+            onAfterSuccess: () => {
+                appInstance.sectionManager.showSection("initiatives");
+                appInstance.contentManager.renderContentCards("initiatives");
             },
         };
 

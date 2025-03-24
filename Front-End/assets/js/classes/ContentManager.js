@@ -2,7 +2,7 @@ import {
     newsData,
     initiativeData,
     complaintData,
-    noticiesData,
+    noticesData,
     newsSelectors,
     initiativeSelectors,
     complaintSelectors,
@@ -11,7 +11,8 @@ import {
 import { prettifyText } from "../utils/prettify.js";
 
 export class ContentManager {
-    constructor(sectionManager) {
+    constructor(sectionManager, role) {
+        this.role = role;
         this.sectionManager = sectionManager;
         this.contentTypes = {
             news: {
@@ -33,7 +34,7 @@ export class ContentManager {
                 selectors: complaintSelectors,
             },
             notices: {
-                data: noticiesData,
+                data: noticesData,
                 containerId: "notices-container",
                 detailSectionId: "notices-detail",
                 selectors: noticeSelectors,
@@ -44,7 +45,30 @@ export class ContentManager {
     }
 
     setupEventListeners() {
-        document.addEventListener("click", (e) => this.handleLinkClick(e));
+        document.addEventListener("click", (e) => {
+            this.handleLinkClick(e);
+
+            const approveBtn = e.target.closest(".btn-approve");
+            const denyBtn = e.target.closest(".btn-deny");
+            const editBtn = e.target.closest(".btn-edit");
+            const deleteBtn = e.target.closest(".btn-delete");
+
+            if (approveBtn) {
+                e.preventDefault();
+                this.changeStatus(approveBtn, "Aprobada");
+            } else if (denyBtn) {
+                e.preventDefault();
+                this.changeStatus(denyBtn, "Denegada");
+            } else if (editBtn) {
+                e.preventDefault();
+                const id = editBtn.dataset.id;
+                this.editContent(editBtn, id);
+            } else if (deleteBtn) {
+                e.preventDefault();
+                const id = deleteBtn.dataset.id;
+                this.deleteContent(deleteBtn, id);
+            }
+        });
     }
 
     handleLinkClick(e) {
@@ -53,7 +77,9 @@ export class ContentManager {
             if (btnLink) {
                 e.preventDefault();
                 const sectionType = btnLink.dataset.section;
+                console.log(sectionType);
                 const contentType = sectionType.replace("-detail", "");
+                console.log(contentType);
                 const contentId =
                     parseInt(btnLink.dataset.newId) ||
                     parseInt(btnLink.dataset.initiativeId) ||
@@ -94,6 +120,165 @@ export class ContentManager {
         }
     }
 
+    detectContentTypeFromButton(button) {
+        const card = button.closest(".content-card");
+        if (!card) return null;
+
+        const link = card.querySelector(".btn-link");
+        if (!link) return null;
+
+        return link.dataset.section;
+    }
+
+    deleteContent(button, id) {
+        if (!id || isNaN(id)) return;
+        const card = button.closest(".content-card");
+        if (card) {
+            Swal.fire({
+                title: "¿Deseas eliminar esta tarjeta?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Sí, eliminar",
+                cancelButtonText: "Cancelar",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    card.style.display = "none";
+                    Swal.fire({
+                        icon: "success",
+                        title: "Contenido ocultado",
+                        timer: 1500,
+                        showConfirmButton: false,
+                    });
+                }
+            });
+        }
+    }
+
+    editContent(button, id) {
+        const contentType = this.detectContentTypeFromButton(button);
+        const contentList = this.contentTypes[contentType]?.data;
+        console.log(id);
+        if (!id || isNaN(id)) return;
+        console.log(contentList);
+        if (!contentList) return;
+
+        const content = contentList.find((item) => item.id === parseInt(id));
+
+        console.log(content);
+        if (!content) return;
+
+        Swal.fire({
+            title: "Editar contenido",
+            width: "1000px",
+            customClass: {
+                popup: "swal-wide-modal",
+            },
+            html: `
+                <div class="swal-edit-form">
+                    <label for="edit-title">Título:</label>
+                    <input id="edit-title" class="swal2-input" placeholder="Título" value="${content.title}">
+
+                    <label for="edit-category">Categoría:</label>
+                    <input id="edit-category" class="swal2-input" placeholder="Categoría" value="${content.category}">
+
+                    <label for="edit-content">Contenido:</label>
+                    <textarea id="edit-content" class="swal2-textarea" placeholder="Contenido completo">${content.content}</textarea>
+                </div>
+            `,
+            showCancelButton: true,
+            focusConfirm: false,
+            confirmButtonText: "Guardar cambios",
+            cancelButtonText: "Cancelar",
+            preConfirm: () => {
+                const title = document
+                    .getElementById("edit-title")
+                    .value.trim();
+                const category = document
+                    .getElementById("edit-category")
+                    .value.trim();
+                const fullContent = document
+                    .getElementById("edit-content")
+                    .value.trim();
+
+                if (!title || !category || !fullContent) {
+                    Swal.showValidationMessage(
+                        "Todos los campos son obligatorios",
+                    );
+                    return false;
+                }
+
+                return { title, category, content: fullContent };
+            },
+        }).then((result) => {
+            if (result.isConfirmed && result.value) {
+                const { title, category, content: fullContent } = result.value;
+                content.title = title;
+                content.category = category;
+                content.content = fullContent;
+
+                this.renderContentCards(contentType);
+
+                Swal.fire({
+                    icon: "success",
+                    title: "Actualizado",
+                    text: "El contenido se actualizó correctamente.",
+                    timer: 2000,
+                    showConfirmButton: false,
+                });
+            }
+        });
+    }
+
+    getAdminActionsHTML(content) {
+        if (this.role !== "admin") return "";
+
+        return `
+            <div class="content">
+            <h1 class="status">
+                Estado:
+                <span class="status-text">${content.status || "En revisión"}</span>
+            </h1>
+            <div class="content-actions">
+                <button data-id="${content.id}" class="change-status-btn approve-btn btn-approve">Aprobar</button>
+                <button data-id="${content.id}" class="change-status-btn deny-btn btn-deny">Denegar</button>
+                <button data-id="${content.id}" class="change-status-btn btn-edit">
+                    <i class="fa fa-edit"></i>
+                </button>
+                <button data-id="${content.id}" class="change-status-btn btn-delete">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </div>
+            <div class="content">
+        `;
+    }
+
+    changeStatus(button, newStatus) {
+        const card = button.closest(".content-card");
+        if (!card) return;
+
+        const statusText = card.querySelector(".status-text");
+
+        if (statusText) {
+            statusText.innerText = newStatus;
+
+            if (newStatus === "Aprobada") {
+                statusText.style.color = "green";
+            } else if (newStatus === "Denegada") {
+                statusText.style.color = "red";
+            } else {
+                statusText.style.color = "gray";
+            }
+
+            Swal.fire({
+                icon: "success",
+                title: "Estado actualizado",
+                text: `La denuncia ha sido marcada como "${newStatus}".`,
+                timer: 2000,
+                showConfirmButton: false,
+            });
+        }
+    }
+
     renderContentCards(contentType) {
         const contentTypeConfig = this.contentTypes[contentType];
         if (!contentTypeConfig) {
@@ -110,38 +295,37 @@ export class ContentManager {
         container.innerHTML = data
             .map(
                 (content) => `
-          <article class="content-card">
+        <article class="content-card">
             <div class="content-image">
-              <img src="${content.image}" alt="${content.title}" />
-              <span class="content-category">${content.category}</span>
+                <img src="${content.image}" alt="${content.title}" />
+                <span class="content-category">${content.category}</span>
             </div>
             <div class="content">
-              <div class="content-meta">
-                <span class="content-date">
-                  <i class="far fa-calendar"></i> ${content.date}
-                </span>
-                <span class="content-comments">
-                  <i class="far fa-comment"></i> ${content.comments.length}
-                </span>
-              </div>
-              <h3 class="content-title">${content.title}</h3>
-              <p class="content-excerpt">${content.content.substring(
-                    0,
-                    100,
-                )}...</p>
-              <div class="content-actions">
-                <a href="#"
-                   class="btn-link"
-                   data-${contentType.slice(0, -1)}-id="${content.id}"
-                   data-section="${contentType}">
-                  Leer más <i class="fas fa-arrow-right"></i>
-                </a>
-                <div class="content-tags">
-                  <span class="tag">#${content.category}</span>
+                <div class="content-meta">
+                    <span class="content-date">
+                        <i class="far fa-calendar"></i> ${content.date}
+                    </span>
+                    <span class="content-comments">
+                        <i class="far fa-comment"></i> ${content.comments.length}
+                    </span>
                 </div>
-              </div>
+                <h3 class="content-title">${content.title}</h3>
+                <p class="content-excerpt">${content.content.substring(0, 100)}...</p>
+
+                <div class="content-actions">
+                    <a href="#"
+                       class="btn-link"
+                       data-${contentType.slice(0, -1)}-id="${content.id}"
+                       data-section="${contentType}">
+                        Leer más <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <div class="content-tags">
+                        <span class="tag">#${content.category}</span>
+                    </div>
+                </div>
+                ${this.role === "admin" ? this.getAdminActionsHTML(content) : ""}
             </div>
-          </article>
+        </article>
         `,
             )
             .join("");
