@@ -224,6 +224,7 @@
 
                                 <div>
                                     <select
+                                        class="custom-select"
                                         id="initiative-category"
                                         name="initiative-category"
                                         required
@@ -249,14 +250,17 @@
                                     ></textarea>
                                 </div>
 
-                                <div>
+                                <div class="file-upload-wrapper">
                                     <input
                                         type="file"
                                         id="initiative-image"
                                         name="initiative-image"
                                         accept="image/*"
+                                        class="hidden-file-input"
                                     />
-                                    <label for="initiative-image"
+                                    <label
+                                        class="btn-primary"
+                                        for="initiative-image"
                                         >Subir Imagen</label
                                     >
                                 </div>

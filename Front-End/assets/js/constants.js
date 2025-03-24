@@ -126,7 +126,7 @@ export const complaintData = [
     },
 ];
 
-export const noticiesData = [
+export const noticesData = [
     {
         id: 1,
         title: "Corte electrico",

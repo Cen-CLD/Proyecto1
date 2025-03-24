@@ -213,6 +213,7 @@
 
                                 <div>
                                     <select
+                                        class="custom-select"
                                         id="complaint-category"
                                         name="complaint-category"
                                         required
@@ -240,14 +241,17 @@
                                     ></textarea>
                                 </div>
 
-                                <div>
+                                <div class="file-upload-wrapper">
                                     <input
                                         type="file"
                                         id="complaint-image"
                                         name="complaint-image"
                                         accept="image/*"
+                                        class="hidden-file-input"
                                     />
-                                    <label for="complaint-image"
+                                    <label
+                                        class="btn-primary"
+                                        for="complaint-image"
                                         >Subir Imagen</label
                                     >
                                 </div>

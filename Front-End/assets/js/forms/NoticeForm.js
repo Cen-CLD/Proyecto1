@@ -1,40 +1,39 @@
 import { FormManager } from "../classes/FormManager.js";
-import { complaintData } from "../constants.js";
+import { noticesData } from "../constants.js";
 import { appInstance } from "../globals.js";
 
-export class ComplaintForm extends FormManager {
+export class NoticeForm extends FormManager {
     constructor(formId) {
         const config = {
             fields: [
                 {
                     name: "title",
-                    selector: "#complaint-title",
-                    errorMessage:
-                        "Por favor, ingresa un título para la denuncia.",
+                    selector: "#notice-title",
+                    errorMessage: "Por favor, ingresa un título para la aviso.",
                 },
                 {
                     name: "category",
-                    selector: "#complaint-category",
+                    selector: "#notice-category",
                     errorMessage: "Por favor, selecciona una categoría.",
                 },
                 {
                     name: "content",
-                    selector: "#complaint-content",
+                    selector: "#notice-content",
                     errorMessage:
-                        "Por favor, ingresa el contenido de la denuncia.",
+                        "Por favor, ingresa el contenido de la aviso.",
                 },
             ],
             fileField: {
                 name: "image",
-                selector: "#complaint-image",
+                selector: "#notice-image",
             },
-            confirmationText: "¿Deseas crear esta denuncia?",
-            successTitle: "¡Denuncia creada!",
-            successText: "La denuncia se ha creado correctamente.",
+            confirmationText: "¿Deseas crear esta aviso?",
+            successTitle: "¡Aviso creado!",
+            successText: "El aviso se ha creado correctamente.",
             onSuccess: (formData) => {
-                const addComplaint = (imageSrc) => {
-                    const complaint = {
-                        id: complaintData.length + 1,
+                const addNews = (imageSrc) => {
+                    const notices = {
+                        id: noticesData.length + 1,
                         title: formData.title,
                         date: new Date().toLocaleDateString("es-ES", {
                             day: "numeric",
@@ -46,24 +45,23 @@ export class ComplaintForm extends FormManager {
                         content: formData.content,
                         comments: [],
                     };
-                    complaintData.push(complaint);
+                    noticesData.push(notices);
                 };
 
                 if (formData.image) {
                     const reader = new FileReader();
                     reader.onload = (e) => {
-                        const imageSrc = e.target.result;
-                        addComplaint(imageSrc);
+                        addNews(e.target.result);
                     };
                     reader.readAsDataURL(formData.image);
                 } else {
-                    const imageSrc = "../../assets/img/claims/default.jpg";
-                    addComplaint(imageSrc);
+                    const defaultImage = "../../assets/img/notices/default.jpg";
+                    addNews(defaultImage);
                 }
             },
             onAfterSuccess: () => {
-                appInstance.sectionManager.showSection("complaints");
-                appInstance.contentManager.renderContentCards("complaints");
+                appInstance.sectionManager.showSection("notices");
+                appInstance.contentManager.renderContentCards("notices");
             },
         };
 
