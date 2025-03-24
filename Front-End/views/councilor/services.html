@@ -1,34 +1,37 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home | Admin</title>
+        <title>Gestión de Servicios Municipales</title>
+
         <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="../../assets/css/admin/styles.css" />
+        <link rel="stylesheet" href="../../assets/css/councilor/styles.css" />
     </head>
 
     <body>
         <header>
-            <a
-                href="home.html"
-                class="logoMuni muniSprite"
-                id="logoInicio"
-                data-target="welcome"
-            ></a>
+            <a href="home.html" class="logoMuni muniSprite"></a>
 
             <nav>
                 <ul class="navbar">
-                    <li class="navListItem" id="home-page">
-                        <a href="home.html" class="active">Inicio</a>
+                    <li
+                        class="navListItem"
+                        id="home-page"
+                        data-target="welcome"
+                    >
+                        <a href="home.html">Inicio</a>
+                    </li>
+                    <li class="navListItem">
+                        <a href="community.html">Comunidad</a>
                     </li>
                 </ul>
             </nav>
 
-            <a href="userProfile.html" class="userPhotoContainer">
+            <a href="councilorProfile.html" class="userPhotoContainer">
                 <img
                     class="userProfilePhoto"
                     src="../../assets/img/user_profile.jpg"
@@ -40,57 +43,72 @@
             <div class="row">
                 <div class="left">
                     <h2>Menu de Acciones</h2>
-
                     <ul class="sidebar">
                         <li>
-                            <a href="users.html" data-target="denuncias"
-                                >Modulo Usuarios</a
-                            >
+                            <a href="complaints.html">Denuncias</a>
                         </li>
 
                         <li>
-                            <a href="news.html">Modulo Noticias</a>
+                            <a href="initiatives.html">Iniciativas</a>
                         </li>
-
                         <li>
-                            <a href="#" data-target="avisos">Modulo Avisos</a>
+                            <a href="news.html">Noticias</a>
                         </li>
-
                         <li>
-                            <a href="#" data-target="iniciativas"
-                                >Modulo Iniciativas</a
-                            >
+                            <a href="notices.html">Avisos</a>
                         </li>
-
                         <li>
-                            <a href="complaints.html" data-target="denuncias"
-                                >Modulo Denuncias</a
-                            >
+                            <a class="active" href="services.html">Servicios</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="right">
-                    <section
-                        id="welcome"
-                        class="welcome-section"
-                        data-section="welcome"
-                    >
-                        <div class="welcome-content">
-                            <img
-                                src="../../assets/img/muniLogoSmall.png"
-                                alt="Logo"
-                                class="welcome-logo"
-                            />
-
-                            <h1 class="welcome-title">
-                                Bienvenido Administrador
-                            </h1>
-                            <p class="welcome-subtitle">
-                                Municipalidad de Montes de Oca - Tu espacio de
-                                información y participación
-                            </p>
+                    <section class="services-container">
+                        <div class="content-header">
+                            <h1>Administración de Noticias</h1>
+                            <div class="news-controls">
+                                <div class="search-filter">
+                                    <input
+                                        type="text"
+                                        id="searchService"
+                                        placeholder="Buscar servicio..."
+                                    />
+                                </div>
+                                <button id="addServiceBtn">
+                                    Agregar Nuevo Servicio
+                                </button>
+                            </div>
                         </div>
+                        <ul id="serviceList">
+                            <li class="service-item">
+                                <h3>Pago de Impuestos</h3>
+                                <p>
+                                    Información sobre cómo realizar el pago de
+                                    impuestos municipales.
+                                </p>
+                                <button class="editService">Editar</button>
+                                <button class="deleteService">Eliminar</button>
+                            </li>
+                            <li class="service-item">
+                                <h3>Permisos de Construcción</h3>
+                                <p>
+                                    Detalles sobre los requisitos y trámites
+                                    para obtener permisos de construcción.
+                                </p>
+                                <button class="editService">Editar</button>
+                                <button class="deleteService">Eliminar</button>
+                            </li>
+                            <li class="service-item">
+                                <h3>Recolección de Residuos</h3>
+                                <p>
+                                    Horarios y zonas de recolección de basura y
+                                    desechos.
+                                </p>
+                                <button class="editService">Editar</button>
+                                <button class="deleteService">Eliminar</button>
+                            </li>
+                        </ul>
                     </section>
                 </div>
             </div>
@@ -112,9 +130,7 @@
                         <strong class="columnTitle">Navegación</strong>
 
                         <ul class="footerNav">
-                            <li class="navListItem">
-                                <a href="home.html">Inicio</a>
-                            </li>
+                            <li class="navListItem"><a href="#">Inicio</a></li>
                             <li class="navListItem">
                                 <a href="#">Comunidad</a>
                             </li>
@@ -158,8 +174,8 @@
             </div>
         </footer>
 
-        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
         <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-        <script src="../../assets/js/admin/main.js"></script>
+        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+        <script src="../../assets/js/servicios.js"></script>
     </body>
 </html>

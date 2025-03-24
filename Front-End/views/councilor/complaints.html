@@ -1,30 +1,29 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Perfil de Usuario - Montes de Oca</title>
+        <title>Notices | Councilor</title>
+
         <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="../../assets/css/user/userProfile.css" />
-        <link rel="stylesheet" href="../../assets/css/user/styles.css" />
+        <link rel="stylesheet" href="../../assets/css/councilor/styles.css" />
     </head>
+
     <body>
         <header>
-            <a
-                href="home.html"
-                class="logoMuni muniSprite"
-                id="logoInicio"
-                data-target="welcome"
-            ></a>
+            <a href="home.html" class="logoMuni muniSprite"></a>
 
             <nav>
                 <ul class="navbar">
-                    <li class="navListItem" id="home-page">
-                        <a href="home.html" class="active">Inicio</a>
+                    <li
+                        class="navListItem"
+                        id="home-page"
+                        data-target="welcome"
+                    >
+                        <a href="home.html">Inicio</a>
                     </li>
                     <li class="navListItem">
                         <a href="community.html">Comunidad</a>
@@ -32,7 +31,7 @@
                 </ul>
             </nav>
 
-            <a href="userProfile.html" class="userPhotoContainer">
+            <a href="councilorProfile.html" class="userPhotoContainer">
                 <img
                     class="userProfilePhoto"
                     src="../../assets/img/user_profile.jpg"
@@ -40,51 +39,60 @@
             </a>
         </header>
 
-        <main class="center-main">
-            <section class="content-meta">
-                
+        <main>
+            <div class="row">
+                <div class="left">
+                    <h2>Menu de Acciones</h2>
+                    <ul class="sidebar">
+                        <li>
+                            <a class="active" href="complaints.html"
+                                >Denuncias</a
+                            >
+                        </li>
 
-                <section class="profile-content">
-                    <div class="profile-user-data">
-                        <div class="profile-user-photo">
-                            <img
-                                src="../../assets/img/user_profile.jpg"
-                                alt="Foto de Usuario"
-                            />
-                        </div>
-                            <div class="content-grid">
-                                <h2>Nombre: </h2>
-                                <h2>Telefono:</h2>
-                                <h2>Distrito:</h2>
-                                <h2>Detalles:</h2>
+                        <li>
+                            <a href="initiatives.html">Iniciativas</a>
+                        </li>
+                        <li>
+                            <a href="news.html">Noticias</a>
+                        </li>
+                        <li>
+                            <a href="notices.html">Avisos</a>
+                        </li>
+                        <li>
+                            <a href="services.html">Servicios</a>
+                        </li>
+                    </ul>
+                </div>
 
-                                <button
-                                    id="btn-edit-content"
-                                    class="btn-create"
+                <div class="right">
+                    <section class="panel">
+                        <div class="content-header">
+                            <h2>Administrar Denuncias Concejal de Distrito</h2>
+
+                            <form id="complaintForm">
+                                <input type="date" id="date" required />
+                                <textarea
+                                    id="textComplaints"
+                                    placeholder="Escriba la Denuncia"
+                                    required
+                                ></textarea>
+                                <label for="image" class="imageUpload"
+                                    >Seleccione una Imagen</label
                                 >
-                                    <i class="fa fa-edit"></i>
-                                </button>
-                            </div>
+                                <input
+                                    type="file"
+                                    id="image"
+                                    accept="image/*"
+                                />
+                                <button type="submit">Publicar</button>
+                            </form>
                         </div>
-                    </div>
 
-                    <div class="profile-claims">
-                        <h3>Denuncias Realizadas</h3>
-                        <p>
-                            <strong>Denuncias Realizadas</strong> Lista de
-                            denuncias realizadas por este usuario.
-                        </p>
-                    </div>
-
-                    <div class="profile-initiatives">
-                        <h3>Iniciativas Apoyadas</h3>
-                        <p>
-                            <strong>Iniciativas Apoyadas</strong> Lista de
-                            iniciativas apoyadas por este usuario.
-                        </p>
-                    </div>
-                </section>
-            </section>
+                        <div id="complaintList"></div>
+                    </section>
+                </div>
+            </div>
         </main>
         <footer>
             <div class="footerContainer">
@@ -94,7 +102,7 @@
 
                         <div class="addressBlock">
                             <strong>Dirección</strong>
-                            <p>Costa Rica</p>
+                            <p>Calle 57, San Pedro, San José</p>
                         </div>
                     </div>
 
@@ -104,10 +112,10 @@
                         <ul class="footerNav">
                             <li class="navListItem"><a href="#">Inicio</a></li>
                             <li class="navListItem">
-                                <a href="#">Comunidad</a>
+                                <a href="#">Noticias</a>
                             </li>
                             <li class="navListItem">
-                                <a href="#">Opcion 2</a>
+                                <a href="#">Denuncias</a>
                             </li>
                         </ul>
                     </div>
@@ -131,6 +139,7 @@
                                 <p>Lunes a viernes</p>
                                 <p>8:00 AM - 4:00 PM</p>
                             </div>
+
                             <div class="phoneBlock">
                                 <h4>Central telefónica</h4>
                                 <p>2222-2222 / 8888-0000</p>
@@ -144,8 +153,10 @@
                 <p>Todos los derechos reservados © 2025</p>
             </div>
         </footer>
-        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
         <script src="../../assets/js/main.js"></script>
+        <script src="../../assets/js/councilor/Councilor.js"></script>
     </body>
 </html>

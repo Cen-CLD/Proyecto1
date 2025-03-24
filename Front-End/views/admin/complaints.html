@@ -3,35 +3,33 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Iniciativas | Concejal</title>
+        <title>Home | Administrar Denuncias</title>
 
         <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="../../assets/css/councilor/styles.css" />
+        <link rel="stylesheet" href="../../assets/css/admin/styles.css" />
     </head>
 
     <body>
         <header>
-            <a href="home.html" class="logoMuni muniSprite"></a>
+            <a
+                href="home.html"
+                class="logoMuni muniSprite"
+                id="logoInicio"
+                data-target="welcome"
+            ></a>
 
             <nav>
                 <ul class="navbar">
-                    <li
-                        class="navListItem"
-                        id="home-page"
-                        data-target="welcome"
-                    >
+                    <li class="navListItem" id="home-page">
                         <a href="home.html">Inicio</a>
-                    </li>
-                    <li class="navListItem">
-                        <a href="community.html">Comunidad</a>
                     </li>
                 </ul>
             </nav>
 
-            <a href="councilorProfile.html" class="userPhotoContainer">
+            <a href="userProfile.html" class="userPhotoContainer">
                 <img
                     class="userProfilePhoto"
                     src="../../assets/img/user_profile.jpg"
@@ -43,41 +41,47 @@
             <div class="row">
                 <div class="left">
                     <h2>Menu de Acciones</h2>
+
                     <ul class="sidebar">
                         <li>
-                            <a href="complaints.html">Denuncias</a>
+                            <a href="users.html" data-target="denuncias"
+                                >Modulo Usuarios</a
+                            >
                         </li>
 
                         <li>
-                            <a class="active" href="initiatives.html"
-                                >Iniciativas</a
+                            <a href="news.html">Modulo Noticias</a>
+                        </li>
+
+                        <li>
+                            <a href="notices.html">Modulo Avisos</a>
+                        </li>
+
+                        <li>
+                            <a href="initiatives.html">Modulo Iniciativas</a>
+                        </li>
+
+                        <li>
+                            <a class="active" href="complaints.html"
+                                >Modulo Denuncias</a
                             >
-                        </li>
-                        <li>
-                            <a href="news.html">Noticias</a>
-                        </li>
-                        <li>
-                            <a href="notices.html">Avisos</a>
-                        </li>
-                        <li>
-                            <a href="services.html">Servicios</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="right">
                     <section
-                        id="news"
+                        id="complaints"
                         class="controls-section"
-                        data-section="news"
+                        data-section="denuncias"
                     >
                         <div class="content-header">
-                            <h1>Listado de Iniciativas</h1>
+                            <h1>Administrador de Denuncias</h1>
                             <div class="news-controls">
                                 <div class="search-filter">
                                     <input
                                         type="text"
-                                        placeholder="Buscar iniciativas..."
+                                        placeholder="Buscar denuncias..."
                                     />
                                     <select class="custom-select">
                                         <option>
@@ -89,89 +93,49 @@
                                 </div>
                             </div>
                         </div>
-
-                        <hr />
-                        <br />
-
-                        <table class="table table-bordered text-center">
-                            <thead>
-                                <tr>
-                                    <th>Acciones</th>
-                                    <th>Creador</th>
-                                    <th>Iniciativa</th>
-                                    <th>Publicacion</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <button
-                                            class="btn-create"
-                                            onclick="openModal()"
+                        <div id="complaints-container" class="content-grid">
+                            <div class="content-card">
+                                <div class="content">
+                                    <div class="content-meta">
+                                        <h3 class="content-title">
+                                            Denuncia 28/2/2025
+                                        </h3>
+                                    </div>
+                                    <p class="content-excerpt">Lorem</p>
+                                    <p class="status">
+                                        Estado:
+                                        <span class="status-text"
+                                            >En revisión</span
                                         >
-                                            <i
-                                                class="fa-solid fa-magnifying-glass"
-                                            ></i>
-                                        </button>
-                                    </td>
-                                    <td>John</td>
-                                    <td>Nuevo Reciclaje</td>
-                                    <td>2025-03-20</td>
-                                </tr>
-                                <tr>
-                                    <td>
+                                    </p>
+                                    <div class="content-actions">
                                         <button
-                                            class="btn-create"
-                                            onclick="openModal()"
+                                            class="change-status-btn approve-btn"
+                                            onclick="changeStatus(this, 'Aprobada')"
                                         >
-                                            <i
-                                                class="fa-solid fa-magnifying-glass"
-                                            ></i>
+                                            Aprobar
                                         </button>
-                                    </td>
-                                    <td>John</td>
-                                    <td>Nuevo Parque</td>
-                                    <td>2025-03-20</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                                        <button
+                                            class="change-status-btn deny-btn"
+                                            onclick="changeStatus(this, 'Denegada')"
+                                        >
+                                            Denegar
+                                        </button>
+                                        <button class="change-status-btn">
+                                            Ver
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pagination">
+                            <a href="#" class="page-item active">1</a>
+                            <a href="#" class="page-item">2</a>
+                            <a href="#" class="page-item">3</a>
+                            <span class="page-item disabled">...</span>
+                            <a href="#" class="page-item">10</a>
+                        </div>
                     </section>
-                </div>
-            </div>
-
-            <div id="modalInitiatives" class="modal">
-                <div class="modal-content">
-                    <section
-                        id="news"
-                        class="controls-section"
-                        data-section="news"
-                    >
-                        <span class="text-end close" onclick="closeModal()"
-                            >&times;</span
-                        >
-
-                        <h1>Nuevo Reciclaje</h1>
-                        <hr />
-                        <br />
-
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Labore voluptatem voluptate tenetur autem
-                            porro in praesentium consequuntur doloribus
-                            mollitia! Quisquam accusamus consequatur quas nobis.
-                            Autem similique dolore deserunt deleniti nobis!
-                        </p>
-                    </section>
-
-                    <div class="text-end">
-                        <button class="btn-red" onclick="closeModal()">
-                            <i class="fa-trash"></i>
-                        </button>
-                        <button class="btn-create" onclick="closeModal()">
-                            <i class="fa-edit"></i>
-                        </button>
-                    </div>
                 </div>
             </div>
         </main>
@@ -184,7 +148,7 @@
 
                         <div class="addressBlock">
                             <strong>Dirección</strong>
-                            <p>Costa Rica</p>
+                            <p>Calle 57, San Pedro, San José</p>
                         </div>
                     </div>
 
@@ -192,14 +156,12 @@
                         <strong class="columnTitle">Navegación</strong>
 
                         <ul class="footerNav">
+                            <li class="navListItem"><a href="#">Inicio</a></li>
                             <li class="navListItem">
-                                <a href="home.html">Inicio</a>
+                                <a href="#">Noticias</a>
                             </li>
                             <li class="navListItem">
-                                <a href="#">Comunidad</a>
-                            </li>
-                            <li class="navListItem">
-                                <a href="#">Opcion 2</a>
+                                <a href="#">Denuncias</a>
                             </li>
                         </ul>
                     </div>
@@ -238,9 +200,38 @@
             </div>
         </footer>
 
+        <script>
+            function changeStatus(button, newStatus) {
+                const card = button.closest(".content-card");
+
+                if (!card) return;
+
+                const statusText = card.querySelector(".status-text");
+
+                if (statusText) {
+                    statusText.innerText = newStatus;
+
+                    if (newStatus === "Aprobada") {
+                        statusText.style.color = "green";
+                    } else if (newStatus === "Denegada") {
+                        statusText.style.color = "red";
+                    } else {
+                        statusText.style.color = "gray";
+                    }
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Estado actualizado",
+                        text: `La denuncia ha sido marcada como "${newStatus}".`,
+                        timer: 2000,
+                        showConfirmButton: false,
+                    });
+                }
+            }
+        </script>
         <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
         <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-        <script src="../../assets/js/councilor/main.js"></script>
+
+        <script src="../../assets/js/main.js"></script>
     </body>
 </html>
-
