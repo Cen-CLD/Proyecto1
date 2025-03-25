@@ -220,3 +220,49 @@ export const complaintSelectors = {
         return document.getElementById("complaint-detail-body");
     },
 };
+export const servicesData = [
+    {
+      id: 1,
+      title: "Recolección de basura",
+      date: "24 Mar 2025",
+      category: "Limpieza",
+      image: "../../assets/img/services/trash.jpg",
+      content: "El servicio de recolección se realiza los lunes y jueves en las zonas residenciales.",
+      comments: []
+    },
+    {
+      id: 2,
+      title: "Alumbrado público",
+      date: "15 Mar 2025",
+      category: "Infraestructura",
+      image: "../../assets/img/services/alumbrado.jpg",
+      content: "Mantenimiento y reparación de luminarias en zonas públicas para su seguridad nocturna.",
+      comments: []
+    },
+    {
+      id: 3,
+      title: "Mantenimiento de parques",
+      date: "10 Mar 2025",
+      category: "Espacios públicos",
+      image: "../../assets/img/services/mantenimiento.jpg",
+      content: "Brindamos mantenimiento regular a parques y zonas verdes del cantón.",
+      comments: []
+    }
+  ];
+  export const servicesSelectors = {
+    get image() {
+        return document.getElementById("service-detail-image");
+    },
+    get date() {
+        return document.getElementById("service-detail-date");
+    },
+    get category() {
+        return document.getElementById("service-detail-category");
+    },
+    get title() {
+        return document.getElementById("service-detail-title");
+    },
+    get body() {
+        return document.getElementById("service-detail-body");
+    }
+};

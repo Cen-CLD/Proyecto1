@@ -3,11 +3,14 @@ import {
     initiativeData,
     complaintData,
     noticesData,
+    servicesData,
     newsSelectors,
     initiativeSelectors,
     complaintSelectors,
     noticeSelectors,
+    servicesSelectors
 } from "../constants.js";
+
 import { prettifyText } from "../utils/prettify.js";
 
 export class ContentManager {
@@ -39,6 +42,12 @@ export class ContentManager {
                 detailSectionId: "notices-detail",
                 selectors: noticeSelectors,
             },
+            services: {
+                data: servicesData,
+                containerId: "services-container",
+                detailSectionId: "services-detail",
+                selectors: servicesSelectors
+            }
         };
 
         this.setupEventListeners();
@@ -84,7 +93,8 @@ export class ContentManager {
                     parseInt(btnLink.dataset.newId) ||
                     parseInt(btnLink.dataset.initiativeId) ||
                     parseInt(btnLink.dataset.complaintId) ||
-                    parseInt(btnLink.dataset.noticeId);
+                    parseInt(btnLink.dataset.noticeId) ||
+                    parseInt(btnLink.dataset.serviceId);
 
                 if (!isNaN(contentId)) {
                     if (this.contentTypes[contentType]) {

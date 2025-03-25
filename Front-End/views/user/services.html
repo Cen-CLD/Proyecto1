@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicios | User</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/user/styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <a href="home.html" class="logoMuni muniSprite" id="logoInicio" data-target="welcome"></a>
+
+      <nav>
+        <ul class="navbar">
+          <li class="navListItem" id="home-page" data-target="welcome">
+            <a href="home.html">Inicio</a>
+          </li>
+          <li class="navListItem"><a href="#">Comunidad</a></li>
+          <li class="navListItem"><a href="#">Opción 2</a></li>
+        </ul>
+      </nav>
+
+      <a href="userProfile.html" class="userPhotoContainer">
+        <img class="userProfilePhoto" src="../../assets/img/user_profile.jpg" alt="Foto de perfil" />
+      </a>
+    </header>
+
+    <main>
+      <div class="row">
+        <div class="left">
+          <h2>Menú de Acciones</h2>
+          <ul class="sidebar">
+            <li><a href="news.html">Noticias</a></li>
+            <li><a href="notices.html">Avisos</a></li>
+            <li><a href="initiatives.html">Iniciativas</a></li>
+            <li><a href="complaints.html">Denuncias</a></li>
+            <li><a class="active" href="services.html">Servicios</a></li>
+          </ul>
+        </div>
+
+        <div class="right">
+          
+          <section id="services" class="controls-section" data-section="services">
+            <div class="content-header">
+              <h1>Servicios Municipales</h1>
+              <div class="content-controls">
+                <div class="search-filter">
+                  <input type="text" placeholder="Buscar servicios..." />
+                  <select class="custom-select">
+                    <option>Ordenar por: Más recientes</option>
+                    <option>Más solicitados</option>
+                    <option>Por categoría</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div id="services-container" class="content-grid"></div>
+
+            <div class="pagination">
+              <a href="#" class="page-item active">1</a>
+              <a href="#" class="page-item">2</a>
+              <a href="#" class="page-item">3</a>
+              <span class="page-item disabled">...</span>
+              <a href="#" class="page-item">10</a>
+            </div>
+          </section>
+
+          
+          <section id="services-detail" class="news-detail-section" style="display: none">
+            <div class="content-header">
+              <img id="service-detail-image" src="" alt="Imagen del servicio" class="detail-image" />
+              <span id="service-detail-category" class="detail-category"></span>
+              <span id="service-detail-date" class="detail-date"></span>
+            </div>
+            <div class="news-detail-content">
+              <h1 id="service-detail-title" class="detail-title"></h1>
+              <div id="service-detail-body" class="detail-body"></div>
+
+              <div class="news-navigation">
+                <button id="service-prev" class="btn-link">← Servicio anterior</button>
+                <button id="back-to-services" class="btn-primary" onclick="window.location.href='services.html'">Volver a Servicios</button>
+                <button id="service-next" class="btn-link">Siguiente servicio →</button>
+              </div>
+            </div>
+
+            <div class="comments-section">
+              <h2>Comentarios</h2>
+              <form id="service-comment-form" class="comment-form">
+                <textarea name="comment-text" id="service-comment-text" placeholder="Escribe tu comentario..." required></textarea>
+                <button type="submit" class="btn-primary">Publicar comentario</button>
+              </form>
+              <div id="service-comments-list" class="comments-list"></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="footerContainer">
+        <div class="footerContent">
+          <div class="footerColumn">
+            <a href="#" class="footerLogoMuni muniSprite"></a>
+            <div class="addressBlock">
+              <strong>Dirección</strong>
+              <p>Costa Rica</p>
+            </div>
+          </div>
+
+          <div class="footerColumn">
+            <strong class="columnTitle">Navegación</strong>
+            <ul class="footerNav">
+              <li class="navListItem"><a href="#">Inicio</a></li>
+              <li class="navListItem"><a href="#">Comunidad</a></li>
+              <li class="navListItem"><a href="#">Opción 2</a></li>
+            </ul>
+          </div>
+
+          <div class="footerColumn">
+            <strong class="columnTitle">Nuestras Redes</strong>
+            <div class="socialContainer">
+              <i class="fa-brands fa-instagram"></i>
+              <i class="fa-brands fa-facebook"></i>
+              <i class="fa-solid fa-x"></i>
+            </div>
+          </div>
+
+          <div class="footerColumn">
+            <strong class="columnTitle">Contacto</strong>
+            <div class="contactInfo">
+              <div class="scheduleBlock">
+                <h4>Horario de atención</h4>
+                <p>Lunes a viernes</p>
+                <p>8:00 AM - 4:00 PM</p>
+              </div>
+              <div class="phoneBlock">
+                <h4>Central telefónica</h4>
+                <p>2222-2222 / 8888-0000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footerCopyright">
+        <p>Todos los derechos reservados © 2025</p>
+      </div>
+    </footer>
+
+    <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+    <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+    <script type="module" src="../../assets/js/main.js"></script>
+  </body>
+</html>
