@@ -4,6 +4,7 @@ import {
     complaintData,
     noticesData,
     servicesData,
+    communityData,
     newsSelectors,
     initiativeSelectors,
     complaintSelectors,
@@ -16,7 +17,7 @@ export class ContentManager {
     constructor(sectionManager, role) {
         this.role = role;
         this.sectionManager = sectionManager;
-        
+
         this.contentTypes = {
             news: {
                 data: newsData,
@@ -47,6 +48,10 @@ export class ContentManager {
                 containerId: "services-container",
                 detailSectionId: "services-detail",
                 selectors: servicesSelectors
+            },
+            community: {
+                data: communityData,
+                containerId: "community-container"
             }
         };
 
@@ -94,9 +99,9 @@ export class ContentManager {
                 const sectionType = btnLink.dataset.section;
 
                 const contentType = sectionType.replace("-detail", "");
-                
-                const contentId = parseInt(btnLink.dataset.newId) || parseInt(btnLink.dataset.initiativeId) || parseInt(btnLink.dataset.complaintId) 
-                || parseInt(btnLink.dataset.noticeId) || parseInt(btnLink.dataset.serviceId);
+
+                const contentId = parseInt(btnLink.dataset.newId) || parseInt(btnLink.dataset.initiativeId) || parseInt(btnLink.dataset.complaintId)
+                    || parseInt(btnLink.dataset.noticeId) || parseInt(btnLink.dataset.serviceId);
 
                 if (!isNaN(contentId)) {
                     if (this.contentTypes[contentType]) {
@@ -204,7 +209,7 @@ export class ContentManager {
                 const fullContent = document.getElementById("edit-content").value.trim();
 
                 if (!title || !category || !fullContent) {
-                    Swal.showValidationMessage( "Todos los campos son obligatorios");
+                    Swal.showValidationMessage("Todos los campos son obligatorios");
                     return false;
                 }
 
