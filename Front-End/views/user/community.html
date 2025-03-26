@@ -1,126 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community | User</title>
+    <title>Comunidad | Usuario</title>
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/user/communityStyles.css">
+    <link rel="stylesheet" href="../../assets/css/user/styles.css" />
 </head>
+
 <body>
-    <header>
-        <a href="#" class="logoMuni muniSprite"></a>
+    <header-component></header-component>
 
-        <nav>
-            <ul class="navbar">
-                <li class="navListItem"><a href="home.html">Inicio</a></li>
-                <li class="navListItem"><a href="community.html">Comunidad</a></li>
-                <li class="navListItem"><a href="#">Opcion 2</a></li>
-            </ul>
-        </nav>
+    <sidebar-component>
+        <div slot="content">
 
-        <a href="#" class="userPhotoContainer">
-            <img class="userProfilePhoto" src="../../assets/img/user_profile.jpg" />
-        </a>
-    </header>
-    <main>
-        <h1 class="titulo-seccion">Miembros de la Comunidad</h1>
-
-
-        <div class="search-container">
-          <input type="text" class="search-input" placeholder="Buscar miembro...">
-          <button class="search-button">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
-        <section class="usuarios-grid">
-            <a href="userProfile.html" class="usuario-link">
-              <article class="usuario-card">
-                <img src="../../assets/img/usuario.avif" alt="Administrador" class="usuario-img">
-                <h3 class="usuario-nombre">Carlos Rodríguez</h3>
-                <p class="usuario-rol">Administrador Municipal</p>
-                <p class="usuario-desc">Encargado de gestionar las operaciones diarias y coordinar el trabajo de la municipalidad.</p>
-              </article>
-            </a>
-            <a href="userProfile.html" class="usuario-link">
-                <article class="usuario-card">
-                  <img src="../../assets/img/usuario.avif" alt="Concejal de Distrito" class="usuario-img">
-                  <h3 class="usuario-nombre">María Fernández</h3>
-                  <p class="usuario-rol">Concejal de Distrito</p>
-                  <p class="usuario-desc">Representante electa que trabaja en la toma de decisiones locales para la comunidad.</p>
-                </article>
-              </a>
-    
-              <a href="userProfile.html" class="usuario-link">
-                <article class="usuario-card">
-                  <img src="../../assets/img/usuario.avif" alt="Ciudadano" class="usuario-img">
-                  <h3 class="usuario-nombre">Juan Pérez</h3>
-                  <p class="usuario-rol">Ciudadano Activo</p>
-                  <p class="usuario-desc">Participa en iniciativas comunitarias y colabora con la municipalidad para mejorar el distrito.</p>
-                </article>
-              </a>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footerContainer">
-            <div class="footerContent">
-                <div class="footerColumn">
-                    <a href="#" class="footerLogoMuni muniSprite"></a>
-
-                    <div class="addressBlock">
-                        <strong>Dirección</strong>
-                        <p>Costa Rica</p>
-                    </div>
-                </div>
-
-                <div class="footerColumn">
-                    <strong class="columnTitle">Navegación</strong>
-
-                    <ul class="footerNav">
-                        <li class="navListItem"><a href="#">Inicio</a></li>
-                        <li class="navListItem"><a href="#">Opcion 1</a></li>
-                        <li class="navListItem"><a href="#">Opcion 2</a></li>
-                    </ul>
-                </div>
-
-                <div class="footerColumn">
-                    <strong class="columnTitle">Nuestras Redes</strong>
-
-                    <div class="socialContainer">
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-facebook"></i>
-                        <i class="fa-solid fa-x"></i>
-                    </div>
-                </div>
-
-                <div class="footerColumn">
-                    <strong class="columnTitle">Contacto</strong>
-
-                    <div class="contactInfo">
-                        <div class="scheduleBlock">
-                            <h4>Horario de atención</h4>
-                            <p>Lunes a viernes</p>
-                            <p>8:00 AM - 4:00 PM</p>
-                        </div>
-
-                        <div class="phoneBlock">
-                            <h4>Central telefónica</h4>
-                            <p>2222-2222 / 8888-0000</p>
+            <section id="community" class="content-section">
+                <div class="content-header">
+                    <h1>Miembros de la Comunidad</h1>
+            
+                    <div>
+                        <div class="search-filter">
+                            <input type="text" placeholder="Buscar miembro..."/>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            
+                <div id="community-container" class="content-body"></div>
+            
+                <div class="pagination">
+                    <a href="#" class="page-item active">1</a>
+                    <a href="#" class="page-item">2</a>
+                    <span class="page-item">...</span>
+                    <span class="page-item">...</span>
+                    <a href="#" class="page-item">10</a>
+                </div>
+            </section>
 
-        <div class="footerCopyright">
-            <p>Todos los derechos reservados © 2025</p>
         </div>
-    </footer>
-    
+    </sidebar-component>
+
+    <footer-component></footer-component>
+
     <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
     <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-    <script src="../../assets/js/main.js"></script>
-    
+    <script type="module" src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/components/user/header.js"></script>
+    <script src="../../assets/js/components/user/sidebar.js"></script>
+    <script src="../../assets/js/components/user/footer.js"></script>
 </body>
+
 </html>

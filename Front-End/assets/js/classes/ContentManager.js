@@ -3,10 +3,12 @@ import {
     initiativeData,
     complaintData,
     noticesData,
+    servicesData,
     newsSelectors,
     initiativeSelectors,
     complaintSelectors,
     noticeSelectors,
+    servicesSelectors
 } from "../constants.js";
 import { prettifyText } from "../utils/prettify.js";
 
@@ -14,6 +16,7 @@ export class ContentManager {
     constructor(sectionManager, role) {
         this.role = role;
         this.sectionManager = sectionManager;
+        
         this.contentTypes = {
             news: {
                 data: newsData,
@@ -39,6 +42,12 @@ export class ContentManager {
                 detailSectionId: "notices-detail",
                 selectors: noticeSelectors,
             },
+            services: {
+                data: servicesData,
+                containerId: "services-container",
+                detailSectionId: "services-detail",
+                selectors: servicesSelectors
+            }
         };
 
         this.setupEventListeners();
@@ -55,16 +64,20 @@ export class ContentManager {
 
             if (approveBtn) {
                 e.preventDefault();
+
                 this.changeStatus(approveBtn, "Aprobada");
             } else if (denyBtn) {
                 e.preventDefault();
+
                 this.changeStatus(denyBtn, "Denegada");
             } else if (editBtn) {
                 e.preventDefault();
+
                 const id = editBtn.dataset.id;
                 this.editContent(editBtn, id);
             } else if (deleteBtn) {
                 e.preventDefault();
+
                 const id = deleteBtn.dataset.id;
                 this.deleteContent(deleteBtn, id);
             }
@@ -74,25 +87,22 @@ export class ContentManager {
     handleLinkClick(e) {
         try {
             const btnLink = e.target.closest(".btn-link");
+
             if (btnLink) {
                 e.preventDefault();
+
                 const sectionType = btnLink.dataset.section;
-                console.log(sectionType);
+
                 const contentType = sectionType.replace("-detail", "");
-                console.log(contentType);
-                const contentId =
-                    parseInt(btnLink.dataset.newId) ||
-                    parseInt(btnLink.dataset.initiativeId) ||
-                    parseInt(btnLink.dataset.complaintId) ||
-                    parseInt(btnLink.dataset.noticeId);
+                
+                const contentId = parseInt(btnLink.dataset.newId) || parseInt(btnLink.dataset.initiativeId) || parseInt(btnLink.dataset.complaintId) 
+                || parseInt(btnLink.dataset.noticeId) || parseInt(btnLink.dataset.serviceId);
 
                 if (!isNaN(contentId)) {
                     if (this.contentTypes[contentType]) {
                         this.showContentDetail(contentId, contentType);
                     } else {
-                        console.error(
-                            `Tipo de contenido "${contentType}" no válido.`,
-                        );
+                        console.error(`Tipo de contenido "${contentType}" no válido.`);
                     }
                 } else {
                     console.error("ID de contenido no válido.");
@@ -104,8 +114,7 @@ export class ContentManager {
     }
 
     showContentDetail(contentId, contentType) {
-        const { data, selectors, detailSectionId } =
-            this.contentTypes[contentType];
+        const { data, selectors, detailSectionId } = this.contentTypes[contentType];
         const content = data.find((item) => item.id === contentId);
 
         if (content) {
@@ -132,7 +141,9 @@ export class ContentManager {
 
     deleteContent(button, id) {
         if (!id || isNaN(id)) return;
+
         const card = button.closest(".content-card");
+
         if (card) {
             Swal.fire({
                 title: "¿Deseas eliminar esta tarjeta?",
@@ -143,6 +154,7 @@ export class ContentManager {
             }).then((result) => {
                 if (result.isConfirmed) {
                     card.style.display = "none";
+
                     Swal.fire({
                         icon: "success",
                         title: "Contenido ocultado",
@@ -157,14 +169,11 @@ export class ContentManager {
     editContent(button, id) {
         const contentType = this.detectContentTypeFromButton(button);
         const contentList = this.contentTypes[contentType]?.data;
-        console.log(id);
+
         if (!id || isNaN(id)) return;
-        console.log(contentList);
         if (!contentList) return;
 
         const content = contentList.find((item) => item.id === parseInt(id));
-
-        console.log(content);
         if (!content) return;
 
         Swal.fire({
@@ -190,20 +199,12 @@ export class ContentManager {
             confirmButtonText: "Guardar cambios",
             cancelButtonText: "Cancelar",
             preConfirm: () => {
-                const title = document
-                    .getElementById("edit-title")
-                    .value.trim();
-                const category = document
-                    .getElementById("edit-category")
-                    .value.trim();
-                const fullContent = document
-                    .getElementById("edit-content")
-                    .value.trim();
+                const title = document.getElementById("edit-title").value.trim();
+                const category = document.getElementById("edit-category").value.trim();
+                const fullContent = document.getElementById("edit-content").value.trim();
 
                 if (!title || !category || !fullContent) {
-                    Swal.showValidationMessage(
-                        "Todos los campos son obligatorios",
-                    );
+                    Swal.showValidationMessage( "Todos los campos son obligatorios");
                     return false;
                 }
 
@@ -281,6 +282,7 @@ export class ContentManager {
 
     renderContentCards(contentType) {
         const contentTypeConfig = this.contentTypes[contentType];
+
         if (!contentTypeConfig) {
             console.error(`Tipo de contenido "${contentType}" no encontrado.`);
             return;

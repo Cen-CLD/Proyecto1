@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Noticias | Usuario</title>
+        <title>Servicios | Usuario</title>
 
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet"/>
         <link rel="stylesheet" href="../../assets/css/user/styles.css" />
@@ -16,14 +16,14 @@
         <sidebar-component>
             <div slot="content">
 
-                <section id="news" class="content-section">
+                <section id="notices" class="content-section">
                     <div class="content-header">
-                        <h1>Noticias</h1>
-                
+                        <h1>Servicios Municipales</h1>
+
                         <div>
                             <div class="search-filter">
-                                <input type="text" placeholder="Buscar noticias..."/>
-                
+                                <input type="text" placeholder="Buscar servicios..."/>
+                                
                                 <select class="custom-select">
                                     <option>
                                         Ordenar por: Más recientes
@@ -34,45 +34,46 @@
                             </div>
                         </div>
                     </div>
-                
-                    <div id="news-container" class="content-body"></div>
-                
+                    
+                    <div id="services-container" class="content-body"></div>
+                    
                     <div class="pagination">
                         <a href="#" class="page-item active">1</a>
                         <a href="#" class="page-item">2</a>
-                        <span class="page-item">...</span>
-                        <span class="page-item">...</span>
+                        <span class="page-item disabled">...</span>
+                        <span class="page-item disabled">...</span>
                         <a href="#" class="page-item">10</a>
                     </div>
                 </section>
 
-                <section id="news-detail">
+                <section id="services-detail" style="display: none;">
                     <div class="content-header">
-                        <img id="detail-image" alt="Logo" class="detail-image"/>
-                        <span id="detail-category" class="detail-category"></span>
-                        <span id="detail-date" class="detail-date"></span>
+                        <img id="notice-detail-image" alt="Logo" class="detail-image"/>
+                        <span id="notice-detail-category" class="detail-category"></span>
+                        <span id="notice-detail-date" class="detail-date"></span>
                     </div>
 
                     <div class="page-detail-content">
-                        <h1 id="detail-title" class="detail-title"></h1>
-                        <div id="detail-body" class="detail-body"></div>
+                        <h1 id="notice-detail-title" class="detail-title"></h1>
+                        <div id="notice-detail-body" class="detail-body"></div>
 
                         <div class="page-detail-navigation">
-                            <button id="prev" class="btn-link"> ← Noticia anterior</button>
-                            <button id="back" class="btn-primary" onclick="window.location.href='news.html'"> Volver a Noticias</button>
-                            <button id="next" class="btn-link"> Siguiente noticia → </button>
+                            <button id="prev" class="btn-link"> ← Servicio anterior</button>
+                            <button id="back" class="btn-primary" onclick="window.location.href='services.html'"> Volver a Servicios</button>
+                            <button id="next" class="btn-link"> Siguiente servicio →</button>
                         </div>
-                    </div>
 
-                    <div class="comments-section">
-                        <h2>Comentarios</h2>
-
-                        <form id="comment-form" class="comment-form">
-                            <textarea name="comment-text" id="comment-text" placeholder="Escribe tu comentario..." required></textarea>
-                            <button type="submit" class="btn-primary"> Publicar comentario</button>
-                        </form>
-
-                        <div id="comments-list" class="comments-list"></div>
+                        <div class="comments-section">
+                            <h2>Comentarios</h2>
+    
+                            <form id="comment-form" class="comment-form">
+                                <textarea name="comment-text" id="comment-text" placeholder="Escribe tu comentario..." required></textarea>
+    
+                                <button type="submit" class="btn-primary"> Publicar comentario</button>
+                            </form>
+    
+                            <div id="comments-list" class="comments-list"></div>
+                        </div>
                     </div>
                 </section>
 
