@@ -4,26 +4,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Inicio | Usuario</title>
-
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
+        <title>Perfil de Usuario - Montes de Oca</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../assets/css/user/userProfile.css" />
         <link rel="stylesheet" href="../../assets/css/user/styles.css" />
     </head>
-
     <body>
         <header-component></header-component>
 
         <sidebar-component>
             <div slot="content">
 
-                <section class="home-section">
-                    <div>
-                        <img src="../../assets/img/muniLogoSmall.png" alt="Logo" class="home-logo"/>
-
-                        <h1 class="home-title">Bienvenido Usuario</h1>
-                        <p class="home-subtitle">
-                            Municipalidad de Montes de Oca - Tu espacio de información y participación
-                        </p>
+                <section id="profile" class="content-section">
+                    <div class="content-header">
+                        <h1>Mi Perfil</h1>
+                    </div>
+                
+                    <div class="content-body">
+                        
                     </div>
                 </section>
 
@@ -32,7 +33,9 @@
 
         <footer-component></footer-component>
 
+        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
         <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+        <script type="module" src="../../assets/js/main.js"></script>
         <script src="../../assets/js/components/user/header.js"></script>
         <script src="../../assets/js/components/user/sidebar.js"></script>
         <script src="../../assets/js/components/user/footer.js"></script>

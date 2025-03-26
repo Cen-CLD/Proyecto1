@@ -98,5 +98,6 @@ export class App {
         this.contentManager.renderContentCards("initiatives");
         this.contentManager.renderContentCards("news");
         this.contentManager.renderContentCards("notices");
+        this.contentManager.renderContentCards("services");
     }
 }

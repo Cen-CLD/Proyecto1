@@ -1,0 +1,256 @@
+:root {
+    --color-1: #00c0ff;
+    --color-1-rgb: 0, 192, 255;
+    --color-2: #00a8df;
+    --color-3: #0090bf;
+    --color-4: #00789f;
+    --color-5: #006080;
+    --color-6: #004860;
+    --color-7: #003040;
+    --color-8: #001820;
+    --color-9: #f5f5f5;
+    --color-10: #000000;
+}
+
+html,
+body {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    background-color: var(--color-9);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 600;
+}
+
+.logoMuni {
+    margin-left: 20px;
+    width: 100%;
+    height: 88px;
+    background-position: 0 -200px;
+}
+
+.muniSprite {
+    background-image: url(../img/logo_muni.png);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    height: 100px;
+    background-color: white;
+    border-bottom: none;
+    border-image: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.5) 30%,
+            var(--color-1) 60%) 1;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    background: -webkit-linear-gradient(315deg, white 30%, var(--color-1) 60%);
+    background: -moz-linear-gradient(315deg, white 30%, var(--color-1) 60%);
+    background: -o-linear-gradient(315deg, white 30%, var(--color-1) 60%);
+    background: -ms-linear-gradient(315deg, white 30%, var(--color-1) 60%);
+    background: linear-gradient(135deg, white 30%, var(--color-1) 60%);
+    box-shadow:
+        0 0 6px 0 rgba(0, 192, 255, 0.1),
+        0 0 4px 0 rgba(0, 192, 255, 0.06);
+}
+
+*,
+*:before,
+*:after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-9);
+}
+
+.background {
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.col-6 {
+    flex: 0 0 50%;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+
+.col-12 {
+    flex: 0 0 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    box-sizing: border-box;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-end {
+    text-align: right !important;
+}
+
+.formLogin {
+    height: 580px;
+    width: 420px;
+    background-color: var(--color-6);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 55%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+}
+
+.formPass {
+    height: 340px;
+    width: 420px;
+    background-color: var(--color-6);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 55%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+}
+
+.formRegister {
+    height: 650px;
+    width: 800px;
+    background-color: var(--color-6);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 55%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+}
+
+form * {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+}
+
+form h3 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+select {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+select option {
+    background-color: #fff;
+    color: #000000;
+    padding: 10px;
+    font-size: 16px;
+}
+
+::placeholder {
+    color: #e5e5e5;
+}
+
+button {
+    margin-top: 10px;
+    width: 100%;
+    background-color: var(--color-7);
+    color: var(--color-9);
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.social {
+    margin-top: 30px;
+    display: flex;
+}
+
+.social div {
+    background: var(--color-10);
+    width: 150px;
+    border-radius: 3px;
+    padding: 5px 10px 10px 5px;
+    background-color: rgba(255, 255, 255, 0.27);
+    color: #eaf0fb;
+    text-align: center;
+}
+
+.social div:hover {
+    background-color: rgba(255, 255, 255, 0.47);
+}
+
+.social .fb {
+    margin-left: 25px;
+}

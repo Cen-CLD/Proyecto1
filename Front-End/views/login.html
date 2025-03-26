@@ -1,158 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
 
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="../assets/css/login.css" />
-    </head>
-    <body>
-        <header>
-            <a
-                href="home.html"
-                class="logoMuni muniSprite"
-                id="logoInicio"
-                data-target="welcome"
-            ></a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
 
-            <nav>
-                <ul class="navbar">
-                    <li class="navListItem" id="home-page">
-                        <a href="../views/user/home.html" class="active">Inicio</a>
-                    </li>
-                    <li class="navListItem"><a href="#">Comunidad</a></li>
-                    
-                </ul>
-            </nav>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/css/auth.css" />
+</head>
 
-            <a href="userProfile.html" class="userPhotoContainer">
-                <img
-                    class="userProfilePhoto"
-                    src="../assets/img/user_profile.jpg"
-                />
-            </a>
-        </header>
+<body>
+    <header>
+        <a href="#" class="logoMuni muniSprite"></a>
+    </header>
 
-        <main>
-            <div class="row">
-                <div class="right">
-                    <section
-                        id="welcome"
-                        class="welcome-section"
-                        data-section="welcome"
-                    >
-                        <section class="Inicio_sesion">
-                            <div>
-                                <form id="formRegistro" action="#">
-                                    <label id="separador" for=""
-                                        >Inicio de Sesión</label
-                                    >
-                                    <label for="">Usuario</label>
-                                    <input
-                                        type="text"
-                                        placeholder="Digite su Usuario"
-                                    />
+    <form class="formLogin">
+        <div class="text-end">
+            <a href="./register.html">Registro</a>
+        </div>
+        <br>
 
-                                    <label for="">Clave</label>
-                                    <input
-                                        type="password"
-                                        placeholder="Digite su Clave"
-                                    />
-                                </form>
+        <h3>Inicio de Sesión</h3>
 
-                                <button id="btnInicio">Iniciar Sesión</button>
+        <label for="username">Usuario</label>
+        <input type="text" placeholder="Ingrese su usuario" id="username">
 
-                                <ul id="separador">
-                                    <li><a href="../views/forget_my_password.html">Olvidó su Clave</a></li>
-                                </ul>
-                                <div class="Inicio_sesion">
-                                    <label for="">Usuario Nuevo</label>
-                                    <a href="../views/user/registroUsuario.html"><button id="btnInicio">REGISTRARSE</button></a>
-                                </div>
+        <label for="password">Contraseña</label>
+        <input type="password" placeholder="Ingrese su contraseña" id="password">
 
-                                <ul id="separador">
-                                    
-                                </ul>
-                                <div class="Inicio_sesion">
-                                    <a href=""><label for="">Registrarse Con Google</label></a>
-                                </div>
-                            </div>
-                        </section>
-                    </section>
-                </div>
-            </div>
-        </main>
+        <button disabled>Iniciar Sesión</button>
 
-        <footer>
-            <div class="footerContainer">
-                <div class="footerContent">
-                    <div class="footerColumn">
-                        <a href="#" class="footerLogoMuni muniSprite"></a>
+        <div class="social">
+            <button disabled><i class="fa-brands fa-google"></i> Google</button>
+            <button class="fb" disabled><i class="fa-brands fa-facebook-f"></i> Facebook</button>
+        </div>
+        <br>
 
-                        <div class="addressBlock">
-                            <strong>Dirección</strong>
-                            <p>Costa Rica</p>
-                        </div>
-                    </div>
+        <div class="text-center">
+            <a href="./forget_password.html">Olvide mi Contraseña</a>
+        </div>
+    </form>
 
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Navegación</strong>
+    <script src="../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+</body>
 
-                        <ul class="footerNav">
-                            <li class="navListItem">
-                                <a href="home.html">Inicio</a>
-                            </li>
-                            <li class="navListItem">
-                                <a href="#">Comunidad</a>
-                            </li>
-                            <li class="navListItem">
-                                <a href="#">Opcion 2</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Nuestras Redes</strong>
-
-                        <div class="socialContainer">
-                            <i class="fa-brands fa-instagram"></i>
-                            <i class="fa-brands fa-facebook"></i>
-                            <i class="fa-solid fa-x"></i>
-                        </div>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Contacto</strong>
-
-                        <div class="contactInfo">
-                            <div class="scheduleBlock">
-                                <h4>Horario de atención</h4>
-                                <p>Lunes a viernes</p>
-                                <p>8:00 AM - 4:00 PM</p>
-                            </div>
-
-                            <div class="phoneBlock">
-                                <h4>Central telefónica</h4>
-                                <p>2222-2222 / 8888-0000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footerCopyright">
-                <p>Todos los derechos reservados © 2025</p>
-            </div>
-        </footer>
-
-        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
-        <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-        <script type="module" src="../assets/js/main.js"></script>
-    </body>
 </html>
-
