@@ -26,8 +26,20 @@ function viewStatus() {
 
 function prioritizeInitiative() {
     Swal.fire({
-        icon: "success",
-        title: "Éxito",
-        text: "La iniciativa ha sido priorizada."
-      });
-}
+        title: "¿Está seguro que desea priorizar la iniciativa?",
+        text: "La función de priorizar no se puede revertir por el momento.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sí"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Éxito",
+            text: "La iniciativa ha sido priorizada.",
+            icon: "success"
+          })
+        }
+      })
+    }
