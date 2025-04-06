@@ -16,8 +16,8 @@ app.use(passport.session());
 
 app.use(express.json());
 
-app.use('/api/auth', require('./routes/authRoute'));
-app.use('/api/products', require('./routes/productRoute'));
+app.use('/api/auth', require('./routes/AuthRoute'));
+app.use('/api/roles', require('./routes/RolRoute'));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server running in port ${PORT}`));
