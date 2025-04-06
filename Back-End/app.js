@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const session = require('express-session');
@@ -15,6 +16,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.json());
+app.use(cors());
 
 app.use('/api/auth', require('./routes/AuthRoute'));
 app.use('/api/roles', require('./routes/RolRoute'));

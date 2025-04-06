@@ -118,6 +118,10 @@ class UserSidebarComponent extends HTMLElement {
                             <li class="${currentView === 'complaints' ? 'active' : ''}">
                                 <a href="./complaints.html" data-target="denuncias">Modulo Denuncias</a>
                             </li>
+
+                             <li class="${currentView === 'roles' ? 'active' : ''}">
+                                <a href="./roles.html" data-target="roles">Modulo Roles</a>
+                            </li>
                         </ul>
                     </div>
 
@@ -138,6 +142,7 @@ class UserSidebarComponent extends HTMLElement {
         if (url.includes('notices')) return 'notices';
         if (url.includes('initiatives')) return 'initiatives';
         if (url.includes('complaints')) return 'complaints';
+        if (url.includes('roles')) return 'roles';
 
         return '';
     }
