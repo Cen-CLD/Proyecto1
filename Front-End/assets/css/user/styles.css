@@ -682,8 +682,6 @@ footer {
     font-size: 0.9em;
 }
 
-/* Swal custom styles */
-
 .swal-edit-form {
     display: flex;
     flex-direction: column;

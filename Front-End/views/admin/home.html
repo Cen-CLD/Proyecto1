@@ -1,165 +1,41 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home | Admin</title>
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="../../assets/css/admin/styles.css" />
-    </head>
 
-    <body>
-        <header>
-            <a
-                href="home.html"
-                class="logoMuni muniSprite"
-                id="logoInicio"
-                data-target="welcome"
-            ></a>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio | Admin</title>
 
-            <nav>
-                <ul class="navbar">
-                    <li class="navListItem" id="home-page">
-                        <a href="home.html" class="active">Inicio</a>
-                    </li>
-                </ul>
-            </nav>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/admin/styles.css" />
+</head>
 
-            <a href="userProfile.html" class="userPhotoContainer">
-                <img
-                    class="userProfilePhoto"
-                    src="../../assets/img/user_profile.jpg"
-                />
-            </a>
-        </header>
+<body>
+    <header-component></header-component>
 
-        <main>
-            <div class="row">
-                <div class="left">
-                    <h2>Menu de Acciones</h2>
+    <sidebar-component>
+        <div slot="content">
 
-                    <ul class="sidebar">
-                        <li>
-                            <a href="users.html" data-target="denuncias"
-                                >Modulo Usuarios</a
-                            >
-                        </li>
+            <section class="home-section">
+                <div>
+                    <img src="../../assets/img/muniLogoSmall.png" alt="Logo" class="home-logo"/>
 
-                        <li>
-                            <a href="news.html">Modulo Noticias</a>
-                        </li>
-
-                        <li>
-                            <a href="#" data-target="avisos">Modulo Avisos</a>
-                        </li>
-
-                        <li>
-                            <a href="#" data-target="iniciativas"
-                                >Modulo Iniciativas</a
-                            >
-                        </li>
-
-                        <li>
-                            <a href="complaints.html" data-target="denuncias"
-                                >Modulo Denuncias</a
-                            >
-                        </li>
-                    </ul>
+                    <h1 class="home-title">Bienvenido Admin</h1>
+                    <p class="home-subtitle">
+                        Municipalidad de Montes de Oca - Tu espacio de información y participación
+                    </p>
                 </div>
+            </section>
 
-                <div class="right">
-                    <section
-                        id="welcome"
-                        class="welcome-section"
-                        data-section="welcome"
-                    >
-                        <div class="welcome-content">
-                            <img
-                                src="../../assets/img/muniLogoSmall.png"
-                                alt="Logo"
-                                class="welcome-logo"
-                            />
+        </div>
+    </sidebar-component>
 
-                            <h1 class="welcome-title">
-                                Bienvenido Administrador
-                            </h1>
-                            <p class="welcome-subtitle">
-                                Municipalidad de Montes de Oca - Tu espacio de
-                                información y participación
-                            </p>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </main>
+    <footer-component></footer-component>
 
-        <footer>
-            <div class="footerContainer">
-                <div class="footerContent">
-                    <div class="footerColumn">
-                        <a href="#" class="footerLogoMuni muniSprite"></a>
+    <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+    <script src="../../assets/js/components/admin/header.js"></script>
+    <script src="../../assets/js/components/admin/sidebar.js"></script>
+    <script src="../../assets/js/components/admin/footer.js"></script>
+</body>
 
-                        <div class="addressBlock">
-                            <strong>Dirección</strong>
-                            <p>Costa Rica</p>
-                        </div>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Navegación</strong>
-
-                        <ul class="footerNav">
-                            <li class="navListItem">
-                                <a href="home.html">Inicio</a>
-                            </li>
-                            <li class="navListItem">
-                                <a href="#">Comunidad</a>
-                            </li>
-                            <li class="navListItem">
-                                <a href="#">Opcion 2</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Nuestras Redes</strong>
-
-                        <div class="socialContainer">
-                            <i class="fa-brands fa-instagram"></i>
-                            <i class="fa-brands fa-facebook"></i>
-                            <i class="fa-solid fa-x"></i>
-                        </div>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Contacto</strong>
-
-                        <div class="contactInfo">
-                            <div class="scheduleBlock">
-                                <h4>Horario de atención</h4>
-                                <p>Lunes a viernes</p>
-                                <p>8:00 AM - 4:00 PM</p>
-                            </div>
-
-                            <div class="phoneBlock">
-                                <h4>Central telefónica</h4>
-                                <p>2222-2222 / 8888-0000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footerCopyright">
-                <p>Todos los derechos reservados © 2025</p>
-            </div>
-        </footer>
-
-        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
-        <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-        <script src="../../assets/js/admin/main.js"></script>
-    </body>
 </html>
