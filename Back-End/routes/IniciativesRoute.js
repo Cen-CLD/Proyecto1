@@ -89,7 +89,7 @@ try {
     })
 
 } catch (error) {
-    res.json({
+    res.json({  
         mensaje:"Ha ocurrido un error. Contacte a soporte.",
         error
     })
