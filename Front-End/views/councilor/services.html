@@ -1,181 +1,72 @@
 <!doctype html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Gestión de Servicios Municipales</title>
 
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="../../assets/css/councilor/styles.css" />
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicios | Concejal</title>
 
-    <body>
-        <header>
-            <a href="home.html" class="logoMuni muniSprite"></a>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/councilor/styles.css" />
+</head>
 
-            <nav>
-                <ul class="navbar">
-                    <li
-                        class="navListItem"
-                        id="home-page"
-                        data-target="welcome"
-                    >
-                        <a href="home.html">Inicio</a>
+<body>
+    <header-component></header-component>
+
+    <sidebar-component>
+        <div slot="content">
+            <section class="services-container">
+                <div class="content-header">
+                    <h1>Administración de Noticias</h1>
+                    <div class="news-controls">
+                        <div class="search-filter">
+                            <input type="text" id="searchService" placeholder="Buscar servicio..." />
+                        </div>
+                        <button id="addServiceBtn">
+                            Agregar Nuevo Servicio
+                        </button>
+                    </div>
+                </div>
+                <ul id="serviceList">
+                    <li class="service-item">
+                        <h3>Pago de Impuestos</h3>
+                        <p>
+                            Información sobre cómo realizar el pago de
+                            impuestos municipales.
+                        </p>
+                        <button class="editService">Editar</button>
+                        <button class="deleteService">Eliminar</button>
                     </li>
-                    <li class="navListItem">
-                        <a href="community.html">Comunidad</a>
+                    <li class="service-item">
+                        <h3>Permisos de Construcción</h3>
+                        <p>
+                            Detalles sobre los requisitos y trámites para
+                            obtener permisos de construcción.
+                        </p>
+                        <button class="editService">Editar</button>
+                        <button class="deleteService">Eliminar</button>
+                    </li>
+                    <li class="service-item">
+                        <h3>Recolección de Residuos</h3>
+                        <p>
+                            Horarios y zonas de recolección de basura y
+                            desechos.
+                        </p>
+                        <button class="editService">Editar</button>
+                        <button class="deleteService">Eliminar</button>
                     </li>
                 </ul>
-            </nav>
+            </section>
+        </div>
+    </sidebar-component>
 
-            <a href="councilorProfile.html" class="userPhotoContainer">
-                <img
-                    class="userProfilePhoto"
-                    src="../../assets/img/user_profile.jpg"
-                />
-            </a>
-        </header>
+    <footer-component></footer-component>
+    <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+    <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+    <script src="../../assets/js/servicios.js"></script>
+    <script src="../../assets/js/components/councilor/header.js"></script>
+    <script src="../../assets/js/components/councilor/sidebar.js"></script>
+    <script src="../../assets/js/components/councilor/footer.js"></script>
+</body>
 
-        <main>
-            <div class="row">
-                <div class="left">
-                    <h2>Menu de Acciones</h2>
-                    <ul class="sidebar">
-                        <li>
-                            <a href="complaints.html">Denuncias</a>
-                        </li>
-
-                        <li>
-                            <a href="initiatives.html">Iniciativas</a>
-                        </li>
-                        <li>
-                            <a href="news.html">Noticias</a>
-                        </li>
-                        <li>
-                            <a href="notices.html">Avisos</a>
-                        </li>
-                        <li>
-                            <a class="active" href="services.html">Servicios</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="right">
-                    <section class="services-container">
-                        <div class="content-header">
-                            <h1>Administración de Noticias</h1>
-                            <div class="news-controls">
-                                <div class="search-filter">
-                                    <input
-                                        type="text"
-                                        id="searchService"
-                                        placeholder="Buscar servicio..."
-                                    />
-                                </div>
-                                <button id="addServiceBtn">
-                                    Agregar Nuevo Servicio
-                                </button>
-                            </div>
-                        </div>
-                        <ul id="serviceList">
-                            <li class="service-item">
-                                <h3>Pago de Impuestos</h3>
-                                <p>
-                                    Información sobre cómo realizar el pago de
-                                    impuestos municipales.
-                                </p>
-                                <button class="editService">Editar</button>
-                                <button class="deleteService">Eliminar</button>
-                            </li>
-                            <li class="service-item">
-                                <h3>Permisos de Construcción</h3>
-                                <p>
-                                    Detalles sobre los requisitos y trámites
-                                    para obtener permisos de construcción.
-                                </p>
-                                <button class="editService">Editar</button>
-                                <button class="deleteService">Eliminar</button>
-                            </li>
-                            <li class="service-item">
-                                <h3>Recolección de Residuos</h3>
-                                <p>
-                                    Horarios y zonas de recolección de basura y
-                                    desechos.
-                                </p>
-                                <button class="editService">Editar</button>
-                                <button class="deleteService">Eliminar</button>
-                            </li>
-                        </ul>
-                    </section>
-                </div>
-            </div>
-        </main>
-
-        <footer>
-            <div class="footerContainer">
-                <div class="footerContent">
-                    <div class="footerColumn">
-                        <a href="#" class="footerLogoMuni muniSprite"></a>
-
-                        <div class="addressBlock">
-                            <strong>Dirección</strong>
-                            <p>Costa Rica</p>
-                        </div>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Navegación</strong>
-
-                        <ul class="footerNav">
-                            <li class="navListItem"><a href="#">Inicio</a></li>
-                            <li class="navListItem">
-                                <a href="#">Comunidad</a>
-                            </li>
-                            <li class="navListItem">
-                                <a href="#">Opcion 2</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Nuestras Redes</strong>
-
-                        <div class="socialContainer">
-                            <i class="fa-brands fa-instagram"></i>
-                            <i class="fa-brands fa-facebook"></i>
-                            <i class="fa-solid fa-x"></i>
-                        </div>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Contacto</strong>
-
-                        <div class="contactInfo">
-                            <div class="scheduleBlock">
-                                <h4>Horario de atención</h4>
-                                <p>Lunes a viernes</p>
-                                <p>8:00 AM - 4:00 PM</p>
-                            </div>
-
-                            <div class="phoneBlock">
-                                <h4>Central telefónica</h4>
-                                <p>2222-2222 / 8888-0000</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="footerCopyright">
-                <p>Todos los derechos reservados © 2025</p>
-            </div>
-        </footer>
-
-        <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
-        <script src="../../assets/js/servicios.js"></script>
-    </body>
 </html>

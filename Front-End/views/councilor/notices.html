@@ -1,160 +1,138 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Notices | Councilor</title>
 
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="../../assets/css/councilor/styles.css" />
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notices | Councilor</title>
 
-    <body>
-        <header>
-            <a href="home.html" class="logoMuni muniSprite"></a>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
 
-            <nav>
-                <ul class="navbar">
-                    <li
-                        class="navListItem"
-                        id="home-page"
-                        data-target="welcome"
-                    >
-                        <a href="home.html">Inicio</a>
-                    </li>
-                    <li class="navListItem">
-                        <a href="community.html">Comunidad</a>
-                    </li>
-                </ul>
-            </nav>
+    <link rel="stylesheet" href="../../assets/css/councilor/styles.css" />
+</head>
 
-            <a href="councilorProfile.html" class="userPhotoContainer">
-                <img
-                    class="userProfilePhoto"
-                    src="../../assets/img/user_profile.jpg"
-                />
-            </a>
-        </header>
+<body>
+    <header-component></header-component>
 
-        <main>
-            <div class="row">
-                <div class="left">
-                    <h2>Menu de Acciones</h2>
-                    <ul class="sidebar">
-                        <li>
-                            <a href="complaints.html">Denuncias</a>
-                        </li>
+    <sidebar-component>
+        <div slot="content">
+            <section id="notices" class="content-section">
+                <div class="content-header">
+                    <h1>Avisos Recientes</h1>
 
-                        <li>
-                            <a href="initiatives.html">Iniciativas</a>
-                        </li>
-                        <li>
-                            <a href="news.html">Noticias</a>
-                        </li>
-                        <li>
-                            <a class="active" href="notices.html">Avisos</a>
-                        </li>
-                        <li>
-                            <a href="services.html">Servicios</a>
-                        </li>
-                    </ul>
-                </div>
+                    <div>
+                        <div class="search-filter">
+                            <input type="text" placeholder="Buscar avisos..." />
 
-                <div class="right">
-                    <section class="panel">
-                        <div class="content-header">
-                            <h2>Administrar Avisos Concejal de Distrito</h2>
-
-                            <form id="noticesForm">
-                                <input type="date" id="date" required />
-                                <textarea
-                                    id="textNotices"
-                                    placeholder="Escriba el Aviso"
-                                    required
-                                ></textarea>
-                                <label for="image" class="imageUpload"
-                                    >Seleccione una Imagen</label
-                                >
-                                <input
-                                    type="file"
-                                    id="image"
-                                    accept="image/*"
-                                />
-                                <button type="submit">Publicar</button>
-                            </form>
+                            <select class="custom-select">
+                                <option>Ordenar por: Más recientes</option>
+                                <option>Más populares</option>
+                                <option>Por categoría</option>
+                            </select>
                         </div>
-
-                        <div id="complaintList"></div>
-                    </section>
-                </div>
-            </div>
-        </main>
-        <footer>
-            <div class="footerContainer">
-                <div class="footerContent">
-                    <div class="footerColumn">
-                        <a href="#" class="footerLogoMuni muniSprite"></a>
-
-                        <div class="addressBlock">
-                            <strong>Dirección</strong>
-                            <p>Calle 57, San Pedro, San José</p>
-                        </div>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Navegación</strong>
-
-                        <ul class="footerNav">
-                            <li class="navListItem"><a href="#">Inicio</a></li>
-                            <li class="navListItem">
-                                <a href="#">Noticias</a>
-                            </li>
-                            <li class="navListItem">
-                                <a href="#">Denuncias</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Nuestras Redes</strong>
-
-                        <div class="socialContainer">
-                            <i class="fa-brands fa-instagram"></i>
-                            <i class="fa-brands fa-facebook"></i>
-                            <i class="fa-solid fa-x"></i>
-                        </div>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Contacto</strong>
-
-                        <div class="contactInfo">
-                            <div class="scheduleBlock">
-                                <h4>Horario de atención</h4>
-                                <p>Lunes a viernes</p>
-                                <p>8:00 AM - 4:00 PM</p>
-                            </div>
-
-                            <div class="phoneBlock">
-                                <h4>Central telefónica</h4>
-                                <p>2222-2222 / 8888-0000</p>
-                            </div>
-                        </div>
+                        <button id="btn-create-notice" class="btn-create">
+                            Crear Aviso
+                        </button>
                     </div>
                 </div>
-            </div>
 
-            <div class="footerCopyright">
-                <p>Todos los derechos reservados © 2025</p>
-            </div>
-        </footer>
+                <div id="notices-container" class="content-body"></div>
 
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-        <script src="../../assets/js/main.js"></script>
-        <script src="../../assets/js/councilor/reportsCouncilor.js"></script>
-    </body>
+                <div class="pagination"></div>
+            </section>
+
+            <section id="notices-detail" style="display: none">
+                <div class="content-header">
+                    <img id="notice-detail-image" alt="Logo" class="detail-image" />
+                    <span id="notice-detail-category" class="detail-category"></span>
+                    <span id="notice-detail-date" class="detail-date"></span>
+                </div>
+
+                <div class="page-detail-content">
+                    <h1 id="notice-detail-title" class="detail-title"></h1>
+                    <div id="notice-detail-body" class="detail-body"></div>
+
+                    <div class="page-detail-navigation">
+                        <button id="prev" class="btn-link">
+                            ← Aviso anterior
+                        </button>
+                        <button id="back" class="btn-primary" onclick="window.location.href='notices.html'">
+                            Volver a Avisos
+                        </button>
+                        <button id="next" class="btn-link">
+                            Siguiente aviso →
+                        </button>
+                    </div>
+
+                    <div class="comments-section">
+                        <h2>Comentarios</h2>
+
+                        <form id="comment-form" class="comment-form">
+                            <textarea name="comment-text" id="comment-text" placeholder="Escribe tu comentario..."
+                                required></textarea>
+
+                            <button type="submit" class="btn-primary">
+                                Publicar comentario
+                            </button>
+                        </form>
+
+                        <div id="comments-list" class="comments-list"></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="notices-form" style="display: none">
+                <div class="content-header">
+                    <button class="btn-primary" onclick="window.location.href='notices.html'">
+                        Volver a Avisos
+                    </button>
+                </div>
+
+                <div>
+                    <form class="new-content-form" id="noticeForm">
+                        <div>
+                            <input type="text" id="notice-title" name="notice-title" placeholder="Título del Aviso"
+                                required />
+                        </div>
+
+                        <div>
+                            <select class="custom-select" id="notice-category" name="notice-category" required>
+                                <option value="">
+                                    Selecciona una categoría
+                                </option>
+                                <option value="Urgente">Urgente</option>
+                                <option value="Atencion">Atención</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <textarea id="notice-content" name="notice-content" placeholder="Detalla aquí tu aviso"
+                                rows="10" required></textarea>
+                        </div>
+
+                        <div>
+                            <input type="file" id="notice-image" name="notice-image" accept="image/*"
+                                class="hidden-file-input" />
+                            <label class="btn-primary" for="notice-image">Subir Imagen</label>
+                        </div>
+
+                        <div>
+                            <button type="submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </sidebar-component>
+
+    <footer-component></footer-component>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+    <script type="module" src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/components/councilor/header.js"></script>
+    <script src="../../assets/js/components/councilor/sidebar.js"></script>
+    <script src="../../assets/js/components/councilor/footer.js"></script>
+</body>
+
 </html>

@@ -1,162 +1,139 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Notices | Councilor</title>
 
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="../../assets/css/councilor/styles.css" />
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Denuncias | Concejal</title>
 
-    <body>
-        <header>
-            <a href="home.html" class="logoMuni muniSprite"></a>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/councilor/styles.css" />
+</head>
 
-            <nav>
-                <ul class="navbar">
-                    <li
-                        class="navListItem"
-                        id="home-page"
-                        data-target="welcome"
-                    >
-                        <a href="home.html">Inicio</a>
-                    </li>
-                    <li class="navListItem">
-                        <a href="community.html">Comunidad</a>
-                    </li>
-                </ul>
-            </nav>
+<body>
+    <header-component></header-component>
 
-            <a href="councilorProfile.html" class="userPhotoContainer">
-                <img
-                    class="userProfilePhoto"
-                    src="../../assets/img/user_profile.jpg"
-                />
-            </a>
-        </header>
+    <sidebar-component>
+        <div slot="content">
+            <section id="complaints" class="content-section">
+                <div class="content-header">
+                    <h1>Mis Denuncias</h1>
 
-        <main>
-            <div class="row">
-                <div class="left">
-                    <h2>Menu de Acciones</h2>
-                    <ul class="sidebar">
-                        <li>
-                            <a class="active" href="complaints.html"
-                                >Denuncias</a
-                            >
-                        </li>
+                    <div>
+                        <div class="search-filter">
+                            <input type="text" placeholder="Buscar denuncias..." />
 
-                        <li>
-                            <a href="initiatives.html">Iniciativas</a>
-                        </li>
-                        <li>
-                            <a href="news.html">Noticias</a>
-                        </li>
-                        <li>
-                            <a href="notices.html">Avisos</a>
-                        </li>
-                        <li>
-                            <a href="services.html">Servicios</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="right">
-                    <section class="panel">
-                        <div class="content-header">
-                            <h2>Administrar Denuncias Concejal de Distrito</h2>
-
-                            <form id="complaintForm">
-                                <input type="date" id="date" required />
-                                <textarea
-                                    id="textComplaints"
-                                    placeholder="Escriba la Denuncia"
-                                    required
-                                ></textarea>
-                                <label for="image" class="imageUpload"
-                                    >Seleccione una Imagen</label
-                                >
-                                <input
-                                    type="file"
-                                    id="image"
-                                    accept="image/*"
-                                />
-                                <button type="submit">Publicar</button>
-                            </form>
+                            <select class="custom-select">
+                                <option>Ordenar por: Más recientes</option>
+                                <option>Más populares</option>
+                                <option>Por categoría</option>
+                            </select>
                         </div>
 
-                        <div id="complaintList"></div>
-                    </section>
-                </div>
-            </div>
-        </main>
-        <footer>
-            <div class="footerContainer">
-                <div class="footerContent">
-                    <div class="footerColumn">
-                        <a href="#" class="footerLogoMuni muniSprite"></a>
-
-                        <div class="addressBlock">
-                            <strong>Dirección</strong>
-                            <p>Calle 57, San Pedro, San José</p>
-                        </div>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Navegación</strong>
-
-                        <ul class="footerNav">
-                            <li class="navListItem"><a href="#">Inicio</a></li>
-                            <li class="navListItem">
-                                <a href="#">Noticias</a>
-                            </li>
-                            <li class="navListItem">
-                                <a href="#">Denuncias</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Nuestras Redes</strong>
-
-                        <div class="socialContainer">
-                            <i class="fa-brands fa-instagram"></i>
-                            <i class="fa-brands fa-facebook"></i>
-                            <i class="fa-solid fa-x"></i>
-                        </div>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Contacto</strong>
-
-                        <div class="contactInfo">
-                            <div class="scheduleBlock">
-                                <h4>Horario de atención</h4>
-                                <p>Lunes a viernes</p>
-                                <p>8:00 AM - 4:00 PM</p>
-                            </div>
-
-                            <div class="phoneBlock">
-                                <h4>Central telefónica</h4>
-                                <p>2222-2222 / 8888-0000</p>
-                            </div>
-                        </div>
+                        <button id="btn-create-complaint" class="btn-create">
+                            Crear Denuncia
+                        </button>
                     </div>
                 </div>
-            </div>
 
-            <div class="footerCopyright">
-                <p>Todos los derechos reservados © 2025</p>
-            </div>
-        </footer>
+                <div id="complaints-container" class="content-body"></div>
 
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-        <script src="../../assets/js/main.js"></script>
-        <script src="../../assets/js/councilor/Councilor.js"></script>
-    </body>
+                <div class="pagination"></div>
+            </section>
+
+            <section id="complaints-detail" style="display: none">
+                <div class="content-header">
+                    <img id="complaint-detail-image" alt="logo" class="detail-image" />
+                    <span id="complaint-detail-category" class="detail-category"></span>
+                    <span id="complaint-detail-date" class="detail-date"></span>
+                </div>
+
+                <div class="page-detail-content">
+                    <h1 id="complaint-detail-title" class="detail-title"></h1>
+                    <div id="complaint-detail-body" class="detail-body"></div>
+
+                    <div class="page-detail-navigation">
+                        <button id="prev" class="btn-link">
+                            ← Anterior
+                        </button>
+                        <button id="back" class="btn-primary" onclick="window.location.href='complaints.html'">
+                            Volver a Denuncias
+                        </button>
+                        <button id="next" class="btn-link">
+                            Siguiente Denuncia →
+                        </button>
+                    </div>
+                </div>
+
+                <div class="comments-section">
+                    <h2>Comentarios</h2>
+
+                    <form id="complaint-comment-form" class="comment-form">
+                        <textarea name="comment-text" id="complaint-comment-text" placeholder="Escribe tu comentario..."
+                            required></textarea>
+                        <button type="submit" class="btn-primary">
+                            Publicar comentario
+                        </button>
+                    </form>
+
+                    <div id="complaint-comments-list" class="comments-list"></div>
+                </div>
+            </section>
+
+            <section id="complaints-form" style="display: none">
+                <div class="content-header">
+                    <button class="btn-primary" onclick="window.location.href='complaints.html'">
+                        Volver a Denuncias
+                    </button>
+                </div>
+
+                <div>
+                    <form class="new-content-form" id="complaintForm">
+                        <div>
+                            <input type="text" id="complaint-title" name="complaint-title"
+                                placeholder="Título de la Denuncia" required />
+                        </div>
+
+                        <div>
+                            <select class="custom-select" id="complaint-category" name="complaint-category" required>
+                                <option value="">
+                                    Selecciona una categoría
+                                </option>
+                                <option value="Denuncia Ciudadana">
+                                    Denuncia Ciudadana
+                                </option>
+                                <option value="Denuncia">Denuncia</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <textarea id="complaint-content" name="complaint-content"
+                                placeholder="Detalla aquí tu denuncia" rows="10" required></textarea>
+                        </div>
+
+                        <div>
+                            <input type="file" id="complaint-image" name="complaint-image" accept="image/*"
+                                class="hidden-file-input" />
+                            <label class="btn-primary" for="complaint-image">Subir Imagen</label>
+                        </div>
+
+                        <div>
+                            <button type="submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </sidebar-component>
+
+    <footer-component></footer-component>
+
+    <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+    <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+    <script type="module" src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/components/councilor/header.js"></script>
+    <script src="../../assets/js/components/councilor/sidebar.js"></script>
+    <script src="../../assets/js/components/councilor/footer.js"></script>
+</body>
+
 </html>
