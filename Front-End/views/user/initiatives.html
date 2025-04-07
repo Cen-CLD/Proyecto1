@@ -1,201 +1,139 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Iniciativas | Usuario</title>
 
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="../../assets/css/user/styles.css" />
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciativas | Usuario</title>
 
-    <body>
-        <header-component></header-component>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/user/styles.css" />
+</head>
 
-        <sidebar-component>
-            <div slot="content">
-                <section id="initiatives" class="content-section">
-                    <div class="content-header">
-                        <h1>Iniciativas</h1>
+<body>
+    <header-component></header-component>
 
-                        <div>
-                            <div class="search-filter">
-                                <input
-                                    type="text"
-                                    placeholder="Buscar iniciativas..."
-                                />
-
-                                <select class="custom-select">
-                                    <option>Ordenar por: Más recientes</option>
-                                    <option>Más populares</option>
-                                    <option>Por categoría</option>
-                                </select>
-                            </div>
-
-                            <button
-                                id="btn-create-initiative"
-                                class="btn-create"
-                            >
-                                Crear Iniciativa
-                            </button>
-                        </div>
-                    </div>
-
-                    <div id="initiatives-container" class="content-body"></div>
-
-                    <div class="pagination"></div>
-                </section>
-
-                <section id="initiatives-detail" style="display: none">
-                    <div class="content-header">
-                        <img
-                            id="initiative-detail-image"
-                            alt="Logo"
-                            class="detail-image"
-                        />
-                        <span
-                            id="initiative-detail-category"
-                            class="detail-category"
-                        ></span>
-                        <span
-                            id="initiative-detail-date"
-                            class="detail-date"
-                        ></span>
-                    </div>
-
-                    <div class="page-detail-content">
-                        <h1
-                            id="initiative-detail-title"
-                            class="detail-title"
-                        ></h1>
-                        <div
-                            id="initiative-detail-body"
-                            class="detail-body"
-                        ></div>
-
-                        <div class="page-detail-navigation">
-                            <button id="prev" class="btn-link">
-                                ← Anterior
-                            </button>
-                            <button
-                                id="back"
-                                class="btn-primary"
-                                onclick="window.location.href='initiatives.html'"
-                            >
-                                Volver a Iniciativas
-                            </button>
-                            <button id="next" class="btn-link">
-                                Siguiente →
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="comments-section">
-                        <h2>Comentarios</h2>
-
-                        <form id="initiative-comment-form" class="comment-form">
-                            <textarea
-                                name="comment-text"
-                                id="initiative-comment-text"
-                                placeholder="Escribe tu comentario..."
-                                required
-                            ></textarea>
-                            <button type="submit" class="btn-primary">
-                                Publicar comentario
-                            </button>
-                        </form>
-
-                        <div
-                            id="initiative-comments-list"
-                            class="comments-list"
-                        ></div>
-                    </div>
-                </section>
-
-                <section id="initiatives-form" style="display: none">
-                    <div class="content-header">
-                        <button
-                            class="btn-primary"
-                            onclick="window.location.href='initiatives.html'"
-                        >
-                            Volver a Iniciativas
-                        </button>
-                    </div>
+    <sidebar-component>
+        <div slot="content">
+            <section id="initiatives" class="content-section">
+                <div class="content-header">
+                    <h1>Iniciativas</h1>
 
                     <div>
-                        <form class="new-content-form" id="initiativeForm">
-                            <div>
-                                <input
-                                    type="text"
-                                    id="initiative-title"
-                                    name="initiative-title"
-                                    placeholder="Título de la Iniciativa"
-                                    required
-                                />
-                            </div>
+                        <div class="search-filter">
+                            <input type="text" placeholder="Buscar iniciativas..." />
 
-                            <div>
-                                <select
-                                    class="custom-select"
-                                    id="initiative-category"
-                                    name="initiative-category"
-                                    required
-                                >
-                                    <option value="">
-                                        Selecciona una categoría
-                                    </option>
-                                    <option value="Iniciativa Ciudadana">
-                                        Iniciativa Ciudadana
-                                    </option>
-                                    <option value="Eventos">Eventos</option>
-                                </select>
-                            </div>
+                            <select class="custom-select">
+                                <option>Ordenar por: Más recientes</option>
+                                <option>Más populares</option>
+                                <option>Por categoría</option>
+                            </select>
+                        </div>
 
-                            <div>
-                                <textarea
-                                    id="initiative-content"
-                                    name="initiative-content"
-                                    placeholder="Detalla aquí tu iniciativa"
-                                    rows="10"
-                                    required
-                                ></textarea>
-                            </div>
-
-                            <div>
-                                <input
-                                    type="file"
-                                    id="initiative-image"
-                                    name="initiative-image"
-                                    accept="image/*"
-                                    class="hidden-file-input"
-                                />
-                                <label
-                                    class="btn-primary"
-                                    for="initiative-image"
-                                    >Subir Imagen</label
-                                >
-                            </div>
-
-                            <div>
-                                <button type="submit">Enviar</button>
-                            </div>
-                        </form>
+                        <button id="btn-create-initiative" class="btn-create">
+                            Crear Iniciativa
+                        </button>
                     </div>
-                </section>
-            </div>
-        </sidebar-component>
+                </div>
 
-        <footer-component></footer-component>
+                <div id="initiatives-container" class="content-body"></div>
 
-        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
-        <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-        <script type="module" src="../../assets/js/main.js"></script>
-        <script src="../../assets/js/components/user/header.js"></script>
-        <script src="../../assets/js/components/user/sidebar.js"></script>
-        <script src="../../assets/js/components/user/footer.js"></script>
-    </body>
+                <div class="pagination"></div>
+            </section>
+
+            <section id="initiatives-detail" style="display: none">
+                <div class="content-header">
+                    <img id="initiative-detail-image" alt="Logo" class="detail-image" />
+                    <span id="initiative-detail-category" class="detail-category"></span>
+                    <span id="initiative-detail-date" class="detail-date"></span>
+                </div>
+
+                <div class="page-detail-content">
+                    <h1 id="initiative-detail-title" class="detail-title"></h1>
+                    <div id="initiative-detail-body" class="detail-body"></div>
+
+                    <div class="page-detail-navigation">
+                        <button id="prev" class="btn-link">
+                            ← Anterior
+                        </button>
+                        <button id="back" class="btn-primary" onclick="window.location.href='initiatives.html'">
+                            Volver a Iniciativas
+                        </button>
+                        <button id="next" class="btn-link">
+                            Siguiente →
+                        </button>
+                    </div>
+                </div>
+
+                <div class="comments-section">
+                    <h2>Comentarios</h2>
+
+                    <form id="initiative-comment-form" class="comment-form">
+                        <textarea name="comment-text" id="initiative-comment-text"
+                            placeholder="Escribe tu comentario..." required></textarea>
+                        <button type="submit" class="btn-primary">
+                            Publicar comentario
+                        </button>
+                    </form>
+
+                    <div id="initiative-comments-list" class="comments-list"></div>
+                </div>
+            </section>
+
+            <section id="initiatives-form" style="display: none">
+                <div class="content-header">
+                    <button class="btn-primary" onclick="window.location.href='initiatives.html'">
+                        Volver a Iniciativas
+                    </button>
+                </div>
+
+                <div>
+                    <form class="new-content-form" id="initiativeForm">
+                        <div>
+                            <input type="text" id="initiative-title" name="initiative-title"
+                                placeholder="Título de la Iniciativa" required />
+                        </div>
+
+                        <div>
+                            <select class="custom-select" id="initiative-category" name="initiative-category" required>
+                                <option value="">
+                                    Selecciona una categoría
+                                </option>
+                                <option value="Iniciativa Ciudadana">
+                                    Iniciativa Ciudadana
+                                </option>
+                                <option value="Eventos">Eventos</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <textarea id="initiative-content" name="initiative-content"
+                                placeholder="Detalla aquí tu iniciativa" rows="10" required></textarea>
+                        </div>
+
+                        <div>
+                            <input type="file" id="initiative-image" name="initiative-image" accept="image/*"
+                                class="hidden-file-input" />
+                            <label class="btn-primary" for="initiative-image">Subir Imagen</label>
+                        </div>
+
+                        <div>
+                            <button type="submit">Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </sidebar-component>
+
+    <footer-component></footer-component>
+
+    <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+    <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+    <script type="module" src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/components/user/header.js"></script>
+    <script src="../../assets/js/components/user/sidebar.js"></script>
+    <script src="../../assets/js/components/user/footer.js"></script>
+</body>
+
 </html>
-
