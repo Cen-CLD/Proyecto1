@@ -9,238 +9,193 @@
             href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="../../assets/css/councilor/styles.css" />
+        <link rel="stylesheet" href="../../assets/css/user/styles.css" />
     </head>
 
     <body>
-        <header>
-            <a href="home.html" class="logoMuni muniSprite"></a>
+        <header-component></header-component>
 
-            <nav>
-                <ul class="navbar">
-                    <li
-                        class="navListItem"
-                        id="home-page"
-                        data-target="welcome"
-                    >
-                        <a href="home.html">Inicio</a>
-                    </li>
-                    <li class="navListItem">
-                        <a href="community.html">Comunidad</a>
-                    </li>
-                </ul>
-            </nav>
+        <sidebar-component>
+            <div slot="content">
+                <section id="initiatives" class="content-section">
+                    <div class="content-header">
+                        <h1>Iniciativas</h1>
 
-            <a href="councilorProfile.html" class="userPhotoContainer">
-                <img
-                    class="userProfilePhoto"
-                    src="../../assets/img/user_profile.jpg"
-                />
-            </a>
-        </header>
+                        <div>
+                            <div class="search-filter">
+                                <input
+                                    type="text"
+                                    placeholder="Buscar iniciativas..."
+                                />
 
-        <main>
-            <div class="row">
-                <div class="left">
-                    <h2>Menu de Acciones</h2>
-                    <ul class="sidebar">
-                        <li>
-                            <a href="complaints.html">Denuncias</a>
-                        </li>
+                                <select class="custom-select">
+                                    <option>Ordenar por: Más recientes</option>
+                                    <option>Más populares</option>
+                                    <option>Por categoría</option>
+                                </select>
+                            </div>
 
-                        <li>
-                            <a class="active" href="initiatives.html"
-                                >Iniciativas</a
+                            <button
+                                id="btn-create-initiative"
+                                class="btn-create"
                             >
-                        </li>
-                        <li>
-                            <a href="news.html">Noticias</a>
-                        </li>
-                        <li>
-                            <a href="notices.html">Avisos</a>
-                        </li>
-                        <li>
-                            <a href="services.html">Servicios</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="right">
-                    <section
-                        id="news"
-                        class="controls-section"
-                        data-section="news"
-                    >
-                        <div class="content-header">
-                            <h1>Listado de Iniciativas</h1>
-                            <div class="news-controls">
-                                <div class="search-filter">
-                                    <input
-                                        type="text"
-                                        placeholder="Buscar iniciativas..."
-                                    />
-                                    <select class="custom-select">
-                                        <option>
-                                            Ordenar por: Más recientes
-                                        </option>
-                                        <option>Más populares</option>
-                                        <option>Por categoría</option>
-                                    </select>
-                                </div>
-                            </div>
+                                Crear Iniciativa
+                            </button>
                         </div>
+                    </div>
 
-                        <hr />
-                        <br />
+                    <div id="initiatives-container" class="content-body"></div>
 
-                        <table class="table table-bordered text-center">
-                            <thead>
-                                <tr>
-                                    <th>Acciones</th>
-                                    <th>Creador</th>
-                                    <th>Iniciativa</th>
-                                    <th>Fecha de Publicación</th>
-                                </tr>
-                            </thead>
+                    <div class="pagination"></div>
+                </section>
 
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <button
-                                            class="btn-create"
-                                            onclick="openModal()"
-                                        >
-                                            <i
-                                                class="fa-solid fa-magnifying-glass"
-                                            ></i>
-                                        </button>
-                                    </td>
-                                    <td>John</td>
-                                    <td>Nuevo Reciclaje</td>
-                                    <td>2025-03-20</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <button
-                                            class="btn-create"
-                                            onclick="openModal()"
-                                        >
-                                            <i
-                                                class="fa-solid fa-magnifying-glass"
-                                            ></i>
-                                        </button>
-                                    </td>
-                                    <td>John</td>
-                                    <td>Nuevo Parque</td>
-                                    <td>2025-03-20</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </section>
-                </div>
-            </div>
+                <section id="initiatives-detail" style="display: none">
+                    <div class="content-header">
+                        <img
+                            id="initiative-detail-image"
+                            alt="Logo"
+                            class="detail-image"
+                        />
+                        <span
+                            id="initiative-detail-category"
+                            class="detail-category"
+                        ></span>
+                        <span
+                            id="initiative-detail-date"
+                            class="detail-date"
+                        ></span>
+                    </div>
 
-            <div id="modalInitiatives" class="modal">
-                <div class="modal-content">
-                    <section
-                        id="news"
-                        class="controls-section"
-                        data-section="news"
-                    >
-                        <span class="text-end close" onclick="closeModal()"
-                            >&times;</span
+                    <div class="page-detail-content">
+                        <h1
+                            id="initiative-detail-title"
+                            class="detail-title"
+                        ></h1>
+                        <div
+                            id="initiative-detail-body"
+                            class="detail-body"
+                        ></div>
+
+                        <div class="page-detail-navigation">
+                            <button id="prev" class="btn-link">
+                                ← Anterior
+                            </button>
+                            <button
+                                id="back"
+                                class="btn-primary"
+                                onclick="window.location.href='initiatives.html'"
+                            >
+                                Volver a Iniciativas
+                            </button>
+                            <button id="next" class="btn-link">
+                                Siguiente →
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="comments-section">
+                        <h2>Comentarios</h2>
+
+                        <form id="initiative-comment-form" class="comment-form">
+                            <textarea
+                                name="comment-text"
+                                id="initiative-comment-text"
+                                placeholder="Escribe tu comentario..."
+                                required
+                            ></textarea>
+                            <button type="submit" class="btn-primary">
+                                Publicar comentario
+                            </button>
+                        </form>
+
+                        <div
+                            id="initiative-comments-list"
+                            class="comments-list"
+                        ></div>
+                    </div>
+                </section>
+
+                <section id="initiatives-form" style="display: none">
+                    <div class="content-header">
+                        <button
+                            class="btn-primary"
+                            onclick="window.location.href='initiatives.html'"
                         >
-
-                        <h1>Nuevo Reciclaje</h1>
-                        <hr />
-                        <br />
-
-                        <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Labore voluptatem voluptate tenetur autem
-                            porro in praesentium consequuntur doloribus
-                            mollitia! Quisquam accusamus consequatur quas nobis.
-                            Autem similique dolore deserunt deleniti nobis!
-                        </p>
-                    </section>
-
-                    <div class="text-end">
-                        <button id="btnViewStatus" class="btn-red">
-                            Estado<i class="fa-trash"></i>
-                        </button>
-                        <button id="btnPrioritize" class="btn-create">
-                            Priorizar<i class="fa-edit"></i>
+                            Volver a Iniciativas
                         </button>
                     </div>
-                </div>
-            </div>
-        </main>
 
-        <footer>
-            <div class="footerContainer">
-                <div class="footerContent">
-                    <div class="footerColumn">
-                        <a href="#" class="footerLogoMuni muniSprite"></a>
-
-                        <div class="addressBlock">
-                            <strong>Dirección</strong>
-                            <p>Costa Rica</p>
-                        </div>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Navegación</strong>
-
-                        <ul class="footerNav">
-                            <li class="navListItem">
-                                <a href="home.html">Inicio</a>
-                            </li>
-                            <li class="navListItem">
-                                <a href="#">Comunidad</a>
-                            </li>
-                            <li class="navListItem">
-                                <a href="#">Opcion 2</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Nuestras Redes</strong>
-
-                        <div class="socialContainer">
-                            <i class="fa-brands fa-instagram"></i>
-                            <i class="fa-brands fa-facebook"></i>
-                            <i class="fa-solid fa-x"></i>
-                        </div>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Contacto</strong>
-
-                        <div class="contactInfo">
-                            <div class="scheduleBlock">
-                                <h4>Horario de atención</h4>
-                                <p>Lunes a viernes</p>
-                                <p>8:00 AM - 4:00 PM</p>
+                    <div>
+                        <form class="new-content-form" id="initiativeForm">
+                            <div>
+                                <input
+                                    type="text"
+                                    id="initiative-title"
+                                    name="initiative-title"
+                                    placeholder="Título de la Iniciativa"
+                                    required
+                                />
                             </div>
 
-                            <div class="phoneBlock">
-                                <h4>Central telefónica</h4>
-                                <p>2222-2222 / 8888-0000</p>
+                            <div>
+                                <select
+                                    class="custom-select"
+                                    id="initiative-category"
+                                    name="initiative-category"
+                                    required
+                                >
+                                    <option value="">
+                                        Selecciona una categoría
+                                    </option>
+                                    <option value="Iniciativa Ciudadana">
+                                        Iniciativa Ciudadana
+                                    </option>
+                                    <option value="Eventos">Eventos</option>
+                                </select>
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <div class="footerCopyright">
-                <p>Todos los derechos reservados © 2025</p>
+                            <div>
+                                <textarea
+                                    id="initiative-content"
+                                    name="initiative-content"
+                                    placeholder="Detalla aquí tu iniciativa"
+                                    rows="10"
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div>
+                                <input
+                                    type="file"
+                                    id="initiative-image"
+                                    name="initiative-image"
+                                    accept="image/*"
+                                    class="hidden-file-input"
+                                />
+                                <label
+                                    class="btn-primary"
+                                    for="initiative-image"
+                                    >Subir Imagen</label
+                                >
+                            </div>
+
+                            <div>
+                                <button type="submit">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
             </div>
-        </footer>
+        </sidebar-component>
+
+        <footer-component></footer-component>
 
         <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
         <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-        <script src="../../assets/js/councilor/main.js"></script>
+        <script type="module" src="../../assets/js/main.js"></script>
+
+        <script src="../../assets/js/components/councilor/header.js"></script>
+        <script src="../../assets/js/components/councilor/sidebar.js"></script>
+        <script src="../../assets/js/components/councilor/footer.js"></script>
     </body>
 </html>
-

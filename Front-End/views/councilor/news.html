@@ -1,254 +1,110 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Noticias - Montes de Oca</title>
+        <title>Noticias | Concejal</title>
+
         <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
             rel="stylesheet"
         />
-        <link rel="stylesheet" href="../../assets/css/councilor/styles.css" />
+        <link rel="stylesheet" href="../../assets/css/user/styles.css" />
     </head>
+
     <body>
-        <header>
-            <a href="home.html" class="logoMuni muniSprite"></a>
+        <header-component></header-component>
 
-            <nav>
-                <ul class="navbar">
-                    <li
-                        class="navListItem"
-                        id="home-page"
-                        data-target="welcome"
-                    >
-                        <a href="home.html">Inicio</a>
-                    </li>
-                    <li class="navListItem">
-                        <a href="community.html">Comunidad</a>
-                    </li>
-                </ul>
-            </nav>
+        <sidebar-component>
+            <div slot="content">
+                <section id="news" class="content-section">
+                    <div class="content-header">
+                        <h1>Noticias</h1>
 
-            <a href="councilorProfile.html" class="userPhotoContainer">
-                <img
-                    class="userProfilePhoto"
-                    src="../../assets/img/user_profile.jpg"
-                />
-            </a>
-        </header>
+                        <div>
+                            <div class="search-filter">
+                                <input
+                                    type="text"
+                                    placeholder="Buscar noticias..."
+                                />
 
-        <main>
-            <div class="row">
-                <div class="left">
-                    <h2>Menu de Acciones</h2>
-                    <ul class="sidebar">
-                        <li>
-                            <a href="complaints.html">Denuncias</a>
-                        </li>
-
-                        <li>
-                            <a href="initiatives.html">Iniciativas</a>
-                        </li>
-                        <li>
-                            <a class="active" href="news.html">Noticias</a>
-                        </li>
-                        <li>
-                            <a href="notices.html">Avisos</a>
-                        </li>
-                        <li>
-                            <a href="services.html">Servicios</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="right">
-                    <section class="controls-section">
-                        <div class="content-header">
-                            <h1>Administración de Noticias</h1>
-                            <div class="news-controls">
-                                <div class="search-filter">
-                                    <input
-                                        type="text"
-                                        placeholder="Buscar noticias..."
-                                    />
-                                    <select class="custom-select">
-                                        <option>
-                                            Ordenar por: Más recientes
-                                        </option>
-                                        <option>Más populares</option>
-                                        <option>Por categoría</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-grid">
-                            <article class="content-card">
-                                <div class="noticia-header">
-                                    <h3 class="noticia-titulo">
-                                        Título de la Noticia 1
-                                    </h3>
-                                    <span class="estado aprobada"
-                                        >✔ Aprobada</span
-                                    >
-                                </div>
-                                <div class="noticia-contenido">
-                                    <img
-                                        src="../../assets/img/NoticiaAprobada.jpg"
-                                        alt="Imagen Noticia 1"
-                                        class="imagen-noticia"
-                                    />
-                                    <p>
-                                        Esta es una noticia aprobada y
-                                        publicada.
-                                    </p>
-                                </div>
-                                <p class="fecha-publicacion">
-                                    Publicada el 12/03/2024
-                                </p>
-                                <div class="botones-accion">
-                                    <button class="btn modificar">
-                                        Modificar
-                                    </button>
-                                    <button class="btn eliminar">
-                                        Eliminar
-                                    </button>
-                                </div>
-                            </article>
-
-                            <article class="content-card">
-                                <div class="noticia-header">
-                                    <h3 class="noticia-titulo">
-                                        Título de la Noticia 2
-                                    </h3>
-                                    <span class="estado pendiente"
-                                        >⌛ Pendiente</span
-                                    >
-                                </div>
-                                <div class="noticia-contenido">
-                                    <img
-                                        src="../../assets/img/NoriciaPendiente.PNG"
-                                        alt="Imagen Noticia 2"
-                                        class="imagen-noticia"
-                                    />
-                                    <p>
-                                        Esta es una noticia pendiente a revisar
-                                        y valorar su publicación.
-                                    </p>
-                                </div>
-                                <p class="fecha-publicacion">
-                                    Publicada el 15/03/2024
-                                </p>
-                                <div class="botones-accion">
-                                    <button class="btn modificar">
-                                        Aceptar
-                                    </button>
-                                    <button class="btn eliminar">
-                                        Rechazar
-                                    </button>
-                                </div>
-                            </article>
-
-                            <article class="content-card">
-                                <div class="noticia-header">
-                                    <h3 class="noticia-titulo">
-                                        Título de la Noticia 3
-                                    </h3>
-                                    <span class="estado denegada"
-                                        >❌ Denegada</span
-                                    >
-                                </div>
-                                <div class="noticia-contenido">
-                                    <img
-                                        src="../../assets/img/NoticiaDenegada.PNG"
-                                        alt="Imagen Noticia 3"
-                                        class="imagen-noticia"
-                                    />
-                                    <p>
-                                        Esta es una noticia denegada y lista
-                                        para archivar.
-                                    </p>
-                                </div>
-                                <p class="fecha-publicacion">
-                                    Publicada el 18/03/2024
-                                </p>
-                            </article>
-                        </div>
-                        <div class="pagination">
-                            <a href="#" class="page-item active">1</a>
-                            <a href="#" class="page-item">2</a>
-                            <a href="#" class="page-item">3</a>
-                            <span class="page-item disabled">...</span>
-                            <a href="#" class="page-item">10</a>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </main>
-
-        <footer>
-            <div class="footerContainer">
-                <div class="footerContent">
-                    <div class="footerColumn">
-                        <a href="#" class="footerLogoMuni muniSprite"></a>
-
-                        <div class="addressBlock">
-                            <strong>Dirección</strong>
-                            <p>Costa Rica</p>
-                        </div>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Navegación</strong>
-
-                        <ul class="footerNav">
-                            <li class="navListItem"><a href="#">Inicio</a></li>
-                            <li class="navListItem">
-                                <a href="#">Comunidad</a>
-                            </li>
-                            <li class="navListItem">
-                                <a href="#">Opcion 2</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Nuestras Redes</strong>
-
-                        <div class="socialContainer">
-                            <i class="fa-brands fa-instagram"></i>
-                            <i class="fa-brands fa-facebook"></i>
-                            <i class="fa-solid fa-x"></i>
-                        </div>
-                    </div>
-
-                    <div class="footerColumn">
-                        <strong class="columnTitle">Contacto</strong>
-
-                        <div class="contactInfo">
-                            <div class="scheduleBlock">
-                                <h4>Horario de atención</h4>
-                                <p>Lunes a viernes</p>
-                                <p>8:00 AM - 4:00 PM</p>
-                            </div>
-
-                            <div class="phoneBlock">
-                                <h4>Central telefónica</h4>
-                                <p>2222-2222 / 8888-0000</p>
+                                <select class="custom-select">
+                                    <option>Ordenar por: Más recientes</option>
+                                    <option>Más populares</option>
+                                    <option>Por categoría</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="footerCopyright">
-                <p>Todos los derechos reservados © 2025</p>
+                    <div id="news-container" class="content-body"></div>
+
+                    <div class="pagination"></div>
+                </section>
+
+                <section id="news-detail" style="display: none">
+                    <div class="content-header">
+                        <img
+                            id="detail-image"
+                            alt="Logo"
+                            class="detail-image"
+                        />
+                        <span
+                            id="detail-category"
+                            class="detail-category"
+                        ></span>
+                        <span id="detail-date" class="detail-date"></span>
+                    </div>
+
+                    <div class="page-detail-content">
+                        <h1 id="detail-title" class="detail-title"></h1>
+                        <div id="detail-body" class="detail-body"></div>
+
+                        <div class="page-detail-navigation">
+                            <button id="prev" class="btn-link">
+                                ← Noticia anterior
+                            </button>
+                            <button
+                                id="back"
+                                class="btn-primary"
+                                onclick="window.location.href='news.html'"
+                            >
+                                Volver a Noticias
+                            </button>
+                            <button id="next" class="btn-link">
+                                Siguiente noticia →
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="comments-section">
+                        <h2>Comentarios</h2>
+
+                        <form id="comment-form" class="comment-form">
+                            <textarea
+                                name="comment-text"
+                                id="comment-text"
+                                placeholder="Escribe tu comentario..."
+                                required
+                            ></textarea>
+                            <button type="submit" class="btn-primary">
+                                Publicar comentario
+                            </button>
+                        </form>
+
+                        <div id="comments-list" class="comments-list"></div>
+                    </div>
+                </section>
             </div>
-        </footer>
+        </sidebar-component>
+
+        <footer-component></footer-component>
 
         <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
         <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-
         <script type="module" src="../../assets/js/main.js"></script>
+        <script src="../../assets/js/components/councilor/header.js"></script>
+        <script src="../../assets/js/components/councilor/sidebar.js"></script>
+        <script src="../../assets/js/components/councilor/footer.js"></script>
     </body>
 </html>
