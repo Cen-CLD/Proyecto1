@@ -1,77 +1,72 @@
 <!doctype html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Servicios | Concejal</title>
 
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="../../assets/css/councilor/styles.css" />
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicios | Concejal</title>
 
-    <body>
-        <header-component></header-component>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/councilor/styles.css" />
+</head>
 
-        <sidebar-component>
-            <div slot="content">
-                <section class="services-container">
-                    <div class="content-header">
-                        <h1>Administración de Noticias</h1>
-                        <div class="news-controls">
-                            <div class="search-filter">
-                                <input
-                                    type="text"
-                                    id="searchService"
-                                    placeholder="Buscar servicio..."
-                                />
-                            </div>
-                            <button id="addServiceBtn">
-                                Agregar Nuevo Servicio
-                            </button>
+<body>
+    <header-component></header-component>
+
+    <sidebar-component>
+        <div slot="content">
+            <section class="services-container">
+                <div class="content-header">
+                    <h1>Administración de Noticias</h1>
+                    <div class="news-controls">
+                        <div class="search-filter">
+                            <input type="text" id="searchService" placeholder="Buscar servicio..." />
                         </div>
+                        <button id="addServiceBtn">
+                            Agregar Nuevo Servicio
+                        </button>
                     </div>
-                    <ul id="serviceList">
-                        <li class="service-item">
-                            <h3>Pago de Impuestos</h3>
-                            <p>
-                                Información sobre cómo realizar el pago de
-                                impuestos municipales.
-                            </p>
-                            <button class="editService">Editar</button>
-                            <button class="deleteService">Eliminar</button>
-                        </li>
-                        <li class="service-item">
-                            <h3>Permisos de Construcción</h3>
-                            <p>
-                                Detalles sobre los requisitos y trámites para
-                                obtener permisos de construcción.
-                            </p>
-                            <button class="editService">Editar</button>
-                            <button class="deleteService">Eliminar</button>
-                        </li>
-                        <li class="service-item">
-                            <h3>Recolección de Residuos</h3>
-                            <p>
-                                Horarios y zonas de recolección de basura y
-                                desechos.
-                            </p>
-                            <button class="editService">Editar</button>
-                            <button class="deleteService">Eliminar</button>
-                        </li>
-                    </ul>
-                </section>
-            </div>
-        </sidebar-component>
+                </div>
+                <ul id="serviceList">
+                    <li class="service-item">
+                        <h3>Pago de Impuestos</h3>
+                        <p>
+                            Información sobre cómo realizar el pago de
+                            impuestos municipales.
+                        </p>
+                        <button class="editService">Editar</button>
+                        <button class="deleteService">Eliminar</button>
+                    </li>
+                    <li class="service-item">
+                        <h3>Permisos de Construcción</h3>
+                        <p>
+                            Detalles sobre los requisitos y trámites para
+                            obtener permisos de construcción.
+                        </p>
+                        <button class="editService">Editar</button>
+                        <button class="deleteService">Eliminar</button>
+                    </li>
+                    <li class="service-item">
+                        <h3>Recolección de Residuos</h3>
+                        <p>
+                            Horarios y zonas de recolección de basura y
+                            desechos.
+                        </p>
+                        <button class="editService">Editar</button>
+                        <button class="deleteService">Eliminar</button>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </sidebar-component>
 
-        <footer-component></footer-component>
-        <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
-        <script src="../../assets/js/servicios.js"></script>
-        <script src="../../assets/js/components/councilor/header.js"></script>
-        <script src="../../assets/js/components/councilor/sidebar.js"></script>
-        <script src="../../assets/js/components/councilor/footer.js"></script>
-    </body>
+    <footer-component></footer-component>
+    <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+    <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+    <script src="../../assets/js/servicios.js"></script>
+    <script src="../../assets/js/components/councilor/header.js"></script>
+    <script src="../../assets/js/components/councilor/sidebar.js"></script>
+    <script src="../../assets/js/components/councilor/footer.js"></script>
+</body>
+
 </html>

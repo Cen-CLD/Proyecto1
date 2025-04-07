@@ -1,110 +1,91 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Noticias | Concejal</title>
 
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="../../assets/css/user/styles.css" />
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noticias | Concejal</title>
 
-    <body>
-        <header-component></header-component>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/user/styles.css" />
+</head>
 
-        <sidebar-component>
-            <div slot="content">
-                <section id="news" class="content-section">
-                    <div class="content-header">
-                        <h1>Noticias</h1>
+<body>
+    <header-component></header-component>
 
-                        <div>
-                            <div class="search-filter">
-                                <input
-                                    type="text"
-                                    placeholder="Buscar noticias..."
-                                />
+    <sidebar-component>
+        <div slot="content">
+            <section id="news" class="content-section">
+                <div class="content-header">
+                    <h1>Noticias</h1>
 
-                                <select class="custom-select">
-                                    <option>Ordenar por: Más recientes</option>
-                                    <option>Más populares</option>
-                                    <option>Por categoría</option>
-                                </select>
-                            </div>
+                    <div>
+                        <div class="search-filter">
+                            <input type="text" placeholder="Buscar noticias..." />
+
+                            <select class="custom-select">
+                                <option>Ordenar por: Más recientes</option>
+                                <option>Más populares</option>
+                                <option>Por categoría</option>
+                            </select>
                         </div>
                     </div>
+                </div>
 
-                    <div id="news-container" class="content-body"></div>
+                <div id="news-container" class="content-body"></div>
 
-                    <div class="pagination"></div>
-                </section>
+                <div class="pagination"></div>
+            </section>
 
-                <section id="news-detail" style="display: none">
-                    <div class="content-header">
-                        <img
-                            id="detail-image"
-                            alt="Logo"
-                            class="detail-image"
-                        />
-                        <span
-                            id="detail-category"
-                            class="detail-category"
-                        ></span>
-                        <span id="detail-date" class="detail-date"></span>
+            <section id="news-detail" style="display: none">
+                <div class="content-header">
+                    <img id="detail-image" alt="Logo" class="detail-image" />
+                    <span id="detail-category" class="detail-category"></span>
+                    <span id="detail-date" class="detail-date"></span>
+                </div>
+
+                <div class="page-detail-content">
+                    <h1 id="detail-title" class="detail-title"></h1>
+                    <div id="detail-body" class="detail-body"></div>
+
+                    <div class="page-detail-navigation">
+                        <button id="prev" class="btn-link">
+                            ← Noticia anterior
+                        </button>
+                        <button id="back" class="btn-primary" onclick="window.location.href='news.html'">
+                            Volver a Noticias
+                        </button>
+                        <button id="next" class="btn-link">
+                            Siguiente noticia →
+                        </button>
                     </div>
+                </div>
 
-                    <div class="page-detail-content">
-                        <h1 id="detail-title" class="detail-title"></h1>
-                        <div id="detail-body" class="detail-body"></div>
+                <div class="comments-section">
+                    <h2>Comentarios</h2>
 
-                        <div class="page-detail-navigation">
-                            <button id="prev" class="btn-link">
-                                ← Noticia anterior
-                            </button>
-                            <button
-                                id="back"
-                                class="btn-primary"
-                                onclick="window.location.href='news.html'"
-                            >
-                                Volver a Noticias
-                            </button>
-                            <button id="next" class="btn-link">
-                                Siguiente noticia →
-                            </button>
-                        </div>
-                    </div>
+                    <form id="comment-form" class="comment-form">
+                        <textarea name="comment-text" id="comment-text" placeholder="Escribe tu comentario..."
+                            required></textarea>
+                        <button type="submit" class="btn-primary">
+                            Publicar comentario
+                        </button>
+                    </form>
 
-                    <div class="comments-section">
-                        <h2>Comentarios</h2>
+                    <div id="comments-list" class="comments-list"></div>
+                </div>
+            </section>
+        </div>
+    </sidebar-component>
 
-                        <form id="comment-form" class="comment-form">
-                            <textarea
-                                name="comment-text"
-                                id="comment-text"
-                                placeholder="Escribe tu comentario..."
-                                required
-                            ></textarea>
-                            <button type="submit" class="btn-primary">
-                                Publicar comentario
-                            </button>
-                        </form>
+    <footer-component></footer-component>
 
-                        <div id="comments-list" class="comments-list"></div>
-                    </div>
-                </section>
-            </div>
-        </sidebar-component>
+    <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+    <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+    <script type="module" src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/components/councilor/header.js"></script>
+    <script src="../../assets/js/components/councilor/sidebar.js"></script>
+    <script src="../../assets/js/components/councilor/footer.js"></script>
+</body>
 
-        <footer-component></footer-component>
-
-        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
-        <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-        <script type="module" src="../../assets/js/main.js"></script>
-        <script src="../../assets/js/components/councilor/header.js"></script>
-        <script src="../../assets/js/components/councilor/sidebar.js"></script>
-        <script src="../../assets/js/components/councilor/footer.js"></script>
-    </body>
 </html>

@@ -1,50 +1,48 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Comunidad | Concejal</title>
 
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
-            rel="stylesheet"
-        />
-        <link rel="stylesheet" href="../../assets/css/user/styles.css" />
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comunidad | Concejal</title>
 
-    <body>
-        <header-component></header-component>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/css/user/styles.css" />
+</head>
 
-        <sidebar-component>
-            <div slot="content">
-                <section id="community" class="content-section">
-                    <div class="content-header">
-                        <h1>Miembros de la Comunidad</h1>
+<body>
+    <header-component></header-component>
 
-                        <div>
-                            <div class="search-filter">
-                                <input
-                                    type="text"
-                                    placeholder="Buscar miembro..."
-                                />
-                            </div>
+    <sidebar-component>
+
+        <div slot="content">
+            <section id="community" class="content-section">
+                <div class="content-header">
+                    <h1>Miembros de la Comunidad</h1>
+
+                    <div>
+                        <div class="search-filter">
+                            <input type="text" placeholder="Buscar miembro..." />
                         </div>
                     </div>
+                </div>
 
-                    <div id="community-container" class="content-body"></div>
+                <div id="community-container" class="content-body"></div>
 
-                    <div class="pagination"></div>
-                </section>
-            </div>
-        </sidebar-component>
+                <div class="pagination"></div>
+            </section>
+        </div>
+        
+    </sidebar-component>
 
-        <footer-component></footer-component>
+    <footer-component></footer-component>
 
-        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
-        <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-        <script type="module" src="../../assets/js/main.js"></script>
-        <script src="../../assets/js/components/user/header.js"></script>
-        <script src="../../assets/js/components/user/sidebar.js"></script>
-        <script src="../../assets/js/components/user/footer.js"></script>
-    </body>
+    <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+    <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+    <script type="module" src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/components/user/header.js"></script>
+    <script src="../../assets/js/components/user/sidebar.js"></script>
+    <script src="../../assets/js/components/user/footer.js"></script>
+</body>
+
 </html>
