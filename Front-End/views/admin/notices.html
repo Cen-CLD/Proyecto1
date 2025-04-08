@@ -1,66 +1,77 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Avisos | Admin</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../assets/css/admin/styles.css" />
+    </head>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Avisos | Admin</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/admin/styles.css" />
-</head>
+    <body>
+        <header-component></header-component>
 
-<body>
-    <header-component></header-component>
+        <sidebar-component>
+            <div slot="content">
+                <section
+                    id="notices"
+                    class="controls-section"
+                    data-section="notices"
+                >
+                    <h1>Listado de Avisos</h1>
+                    <hr />
+                    <br />
 
-    <sidebar-component>
-        <div slot="content">
+                    <table class="table table-bordered text-center">
+                        <thead>
+                            <tr>
+                                <th>Acciones</th>
+                                <th>Creación</th>
+                                <th>Título</th>
+                                <th>Contenido</th>
+                                <th>Estado</th>
+                                <th>Autor</th>
+                                <th>Activa</th>
+                            </tr>
+                        </thead>
 
-            <section id="notices" class="controls-section" data-section="notices">
-                <h1>Listado de Avisos</h1>
-                <hr />
-                <br />
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <button class="btn-create">
+                                        <i class="fa fa-edit"></i>
+                                    </button>
+                                    <button class="btn-create">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                                <td>2024/04/06</td>
+                                <td>Apagon de luz</td>
+                                <td>
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit.
+                                </td>
+                                <td>Pendiente</td>
+                                <td>User</td>
+                                <td>No</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </sidebar-component>
 
-                <table class="table table-bordered text-center">
-                    <thead>
-                        <tr>
-                            <th>Acciones</th>
-                            <th>Creacion</th>
-                            <th>Titulo</th>
-                            <th>Contenido</th>
-                            <th>Estado</th>
-                            <th>Autor</th>
-                            <th>Activa</th>
-                        </tr>
-                    </thead>
+        <footer-component></footer-component>
 
-                    <tbody>
-                        <tr>
-                            <td>
-                                <button class="btn-create"><i class="fa fa-edit"></i></button>
-                                <button class="btn-create"><i class="fa fa-trash"></i></button>
-                            </td>
-                            <td>2024/04/06</td>
-                            <td>Apagon de luz</td>
-                            <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. </td>
-                            <td>Pendiente</td>
-                            <td>User</td>
-                            <td>No</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-        </div>
-    </sidebar-component>
-
-    <footer-component></footer-component>
-
-    <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
-    <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-    <script src="../../assets/js/admin/main.js"></script>
-    <script src="../../assets/js/components/admin/header.js"></script>
-    <script src="../../assets/js/components/admin/sidebar.js"></script>
-    <script src="../../assets/js/components/admin/footer.js"></script>
-</body>
-
+        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+        <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+        <script src="../../assets/js/admin/main.js"></script>
+        <script src="../../assets/js/components/admin/header.js"></script>
+        <script src="../../assets/js/components/admin/sidebar.js"></script>
+        <script src="../../assets/js/components/admin/footer.js"></script>
+    </body>
 </html>
+
