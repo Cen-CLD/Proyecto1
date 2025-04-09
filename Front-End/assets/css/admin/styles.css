@@ -762,3 +762,8 @@ footer {
 .table-bordered tbody + tbody {
     border-top: 2px solid #dee2e6;
 }
+
+.controls-section {
+    min-height: 1000px;
+}
+
