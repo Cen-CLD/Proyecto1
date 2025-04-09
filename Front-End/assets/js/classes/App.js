@@ -100,5 +100,6 @@ export class App {
         this.contentManager.renderContentCards("notices");
         this.contentManager.renderContentCards("services");
         this.contentManager.renderContentCards("community");
+        this.contentManager.renderContentCards("profile");
     }
 }

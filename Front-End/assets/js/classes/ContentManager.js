@@ -5,12 +5,14 @@ import {
     noticesData,
     servicesData,
     communityData,
+    profileData,
     newsSelectors,
     initiativeSelectors,
     complaintSelectors,
     noticeSelectors,
-    servicesSelectors
+    servicesSelectors,
 } from "../constants.js";
+import { ProfileEditor } from "./ProfileEditor.js";
 import { prettifyText } from "../utils/prettify.js";
 
 export class ContentManager {
@@ -47,12 +49,16 @@ export class ContentManager {
                 data: servicesData,
                 containerId: "services-container",
                 detailSectionId: "services-detail",
-                selectors: servicesSelectors
+                selectors: servicesSelectors,
             },
             community: {
                 data: communityData,
-                containerId: "community-container"
-            }
+                containerId: "community-container",
+            },
+            profile: {
+                data: profileData,
+                containerId: "profile-container",
+            },
         };
 
         this.setupEventListeners();
@@ -65,6 +71,7 @@ export class ContentManager {
             const approveBtn = e.target.closest(".btn-approve");
             const denyBtn = e.target.closest(".btn-deny");
             const editBtn = e.target.closest(".btn-edit");
+            const editProfileBtn = e.target.closest(".edit-profile-btn");
             const deleteBtn = e.target.closest(".btn-delete");
 
             if (approveBtn) {
@@ -86,6 +93,11 @@ export class ContentManager {
                 const id = deleteBtn.dataset.id;
                 this.deleteContent(deleteBtn, id);
             }
+            if (editProfileBtn) {
+                e.preventDefault();
+                const id = editProfileBtn.dataset.id;
+                this.editContent(editProfileBtn, id);
+            }
         });
     }
 
@@ -100,14 +112,20 @@ export class ContentManager {
 
                 const contentType = sectionType.replace("-detail", "");
 
-                const contentId = parseInt(btnLink.dataset.newId) || parseInt(btnLink.dataset.initiativeId) || parseInt(btnLink.dataset.complaintId)
-                    || parseInt(btnLink.dataset.noticeId) || parseInt(btnLink.dataset.serviceId);
+                const contentId =
+                    parseInt(btnLink.dataset.newId) ||
+                    parseInt(btnLink.dataset.initiativeId) ||
+                    parseInt(btnLink.dataset.complaintId) ||
+                    parseInt(btnLink.dataset.noticeId) ||
+                    parseInt(btnLink.dataset.serviceId);
 
                 if (!isNaN(contentId)) {
                     if (this.contentTypes[contentType]) {
                         this.showContentDetail(contentId, contentType);
                     } else {
-                        console.error(`Tipo de contenido "${contentType}" no válido.`);
+                        console.error(
+                            `Tipo de contenido "${contentType}" no válido.`,
+                        );
                     }
                 } else {
                     console.error("ID de contenido no válido.");
@@ -119,7 +137,8 @@ export class ContentManager {
     }
 
     showContentDetail(contentId, contentType) {
-        const { data, selectors, detailSectionId } = this.contentTypes[contentType];
+        const { data, selectors, detailSectionId } =
+            this.contentTypes[contentType];
         const content = data.find((item) => item.id === contentId);
 
         if (content) {
@@ -135,6 +154,10 @@ export class ContentManager {
     }
 
     detectContentTypeFromButton(button) {
+        if (button.closest(".edit-profile-btn")) {
+            return "profile";
+        }
+
         const card = button.closest(".content-card");
         if (!card) return null;
 
@@ -181,6 +204,15 @@ export class ContentManager {
         const content = contentList.find((item) => item.id === parseInt(id));
         if (!content) return;
 
+        if (contentType === "profile") {
+            const editor = new ProfileEditor(
+                content,
+                this.renderContentCards.bind(this),
+            );
+            editor.showEditModal();
+            return;
+        }
+
         Swal.fire({
             title: "Editar contenido",
             width: "1000px",
@@ -188,28 +220,36 @@ export class ContentManager {
                 popup: "swal-wide-modal",
             },
             html: `
-                <div class="swal-edit-form">
-                    <label for="edit-title">Título:</label>
-                    <input id="edit-title" class="swal2-input" placeholder="Título" value="${content.title}">
+            <div class="swal-edit-form">
+                <label for="edit-title">Título:</label>
+                <input id="edit-title" class="swal2-input" placeholder="Título" value="${content.title}">
 
-                    <label for="edit-category">Categoría:</label>
-                    <input id="edit-category" class="swal2-input" placeholder="Categoría" value="${content.category}">
+                <label for="edit-category">Categoría:</label>
+                <input id="edit-category" class="swal2-input" placeholder="Categoría" value="${content.category}">
 
-                    <label for="edit-content">Contenido:</label>
-                    <textarea id="edit-content" class="swal2-textarea" placeholder="Contenido completo">${content.content}</textarea>
-                </div>
-            `,
+                <label for="edit-content">Contenido:</label>
+                <textarea id="edit-content" class="swal2-textarea" placeholder="Contenido completo">${content.content}</textarea>
+            </div>
+        `,
             showCancelButton: true,
             focusConfirm: false,
             confirmButtonText: "Guardar cambios",
             cancelButtonText: "Cancelar",
             preConfirm: () => {
-                const title = document.getElementById("edit-title").value.trim();
-                const category = document.getElementById("edit-category").value.trim();
-                const fullContent = document.getElementById("edit-content").value.trim();
+                const title = document
+                    .getElementById("edit-title")
+                    .value.trim();
+                const category = document
+                    .getElementById("edit-category")
+                    .value.trim();
+                const fullContent = document
+                    .getElementById("edit-content")
+                    .value.trim();
 
                 if (!title || !category || !fullContent) {
-                    Swal.showValidationMessage("Todos los campos son obligatorios");
+                    Swal.showValidationMessage(
+                        "Todos los campos son obligatorios",
+                    );
                     return false;
                 }
 
@@ -236,8 +276,6 @@ export class ContentManager {
     }
 
     getAdminActionsHTML(content) {
-        if (this.role !== "admin") return "";
-
         return `
             <div class="content">
             <h1 class="status">
@@ -296,6 +334,69 @@ export class ContentManager {
         const { data, containerId } = contentTypeConfig;
         const container = document.getElementById(containerId);
         if (!container) {
+            return;
+        }
+
+        if (contentType === "profile") {
+            const user = data[0];
+            container.innerHTML = `
+            <div class="profile-wrapper">
+
+                <div class="edit-button-container">
+                    <button class="edit-profile-btn" title="Editar Perfil" data-section="profile" data-id="${user.id}">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                </div>
+
+                <div class="profile-photo text-center">
+                    <img id="profile-photo" src="${user.photo}" alt="Profile Picture" />
+                    <h2 id="profile-fullname" class="user-name">${user.name} ${user.last_name}</h2>
+                    <div class="user-description">
+                        <p id="profile-bio">${user.bibliography}</p>
+                    </div>
+                </div>
+
+                <div class="profile-info-grid">
+                    <div class="profile-field">
+                        <i class="fas fa-id-card"></i>
+                        <div>
+                            <h4>Cédula</h4>
+                            <p id="profile-id-card">${user.id_card}</p>
+                        </div>
+                    </div>
+                    <div class="profile-field">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Correo</h4>
+                            <p id="profile-email">${user.email}</p>
+                        </div>
+                    </div>
+                    <div class="profile-field">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p id="profile-phone">${user.phone}</p>
+                        </div>
+                    </div>
+                    <div class="profile-field">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p id="profile-address">${user.address}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-field centered-district">
+                    <i class="fas fa-location-arrow"></i>
+                    <div>
+                        <h4>Distrito</h4>
+                        <p id="profile-district">${user.district}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+
             return;
         }
 

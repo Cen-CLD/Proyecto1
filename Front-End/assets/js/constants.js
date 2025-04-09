@@ -149,6 +149,25 @@ export const noticesData = [
     },
 ];
 
+export const profileData = [
+    {
+        id: 1,
+        id_card: "1-2345-6789",
+        name: "John",
+        last_name: "Smith",
+        address: "Casa gris, frente al árbol grande",
+        bibliography:
+            "Apasionado por el servicio público. Siempre dispuesto a ayudar y seguir aprendiendo.",
+        district: "San Pedro",
+        email: "johnsmith@email.com",
+        google_id: "johnsmith123googleid",
+        password: "****",
+        phone: "8888 9999",
+        photo: "../../assets/img/user_profile.jpg",
+        id_rol: [],
+    },
+];
+
 export const noticeSelectors = {
     get image() {
         return document.getElementById("notice-detail-image");
@@ -228,8 +247,9 @@ export const servicesData = [
         date: "24 Mar 2025",
         category: "Limpieza",
         image: "../../assets/img/services/trash.jpg",
-        content: "El servicio de recolección se realiza los lunes y jueves en las zonas residenciales.",
-        comments: []
+        content:
+            "El servicio de recolección se realiza los lunes y jueves en las zonas residenciales.",
+        comments: [],
     },
     {
         id: 2,
@@ -237,8 +257,9 @@ export const servicesData = [
         date: "15 Mar 2025",
         category: "Infraestructura",
         image: "../../assets/img/services/alumbrado.jpg",
-        content: "Mantenimiento y reparación de luminarias en zonas públicas para su seguridad nocturna.",
-        comments: []
+        content:
+            "Mantenimiento y reparación de luminarias en zonas públicas para su seguridad nocturna.",
+        comments: [],
     },
     {
         id: 3,
@@ -246,9 +267,10 @@ export const servicesData = [
         date: "10 Mar 2025",
         category: "Espacios públicos",
         image: "../../assets/img/services/mantenimiento.jpg",
-        content: "Brindamos mantenimiento regular a parques y zonas verdes del cantón.",
-        comments: []
-    }
+        content:
+            "Brindamos mantenimiento regular a parques y zonas verdes del cantón.",
+        comments: [],
+    },
 ];
 
 export const servicesSelectors = {
@@ -266,7 +288,7 @@ export const servicesSelectors = {
     },
     get body() {
         return document.getElementById("service-detail-body");
-    }
+    },
 };
 
 export const communityData = [
@@ -276,8 +298,9 @@ export const communityData = [
         title: "Dan",
         image: "../../assets/img/users/dan.jpg",
         category: "Usuario",
-        content: "Amante de la naturaleza, el deporte y la música. Me gusta mantenerme activo y probar nuevas actividades que me permitan desconectar del día a día. Soy un hombre tranquilo, pero con un buen sentido del humor, siempre buscando hacer que los demás se sientan cómodos a mi alrededor. La honestidad y la lealtad son fundamentales para mí, y siempre trato de ser la mejor versión de mí mismo.",
-        comments: []
+        content:
+            "Amante de la naturaleza, el deporte y la música. Me gusta mantenerme activo y probar nuevas actividades que me permitan desconectar del día a día. Soy un hombre tranquilo, pero con un buen sentido del humor, siempre buscando hacer que los demás se sientan cómodos a mi alrededor. La honestidad y la lealtad son fundamentales para mí, y siempre trato de ser la mejor versión de mí mismo.",
+        comments: [],
     },
     {
         id: 2,
@@ -285,8 +308,9 @@ export const communityData = [
         title: "Oscar",
         image: "../../assets/img/users/oscar.jpg",
         category: "Usuario",
-        content: "Apasionado por la tecnología y el cine, siempre en busca de nuevos desafíos. Me encanta disfrutar de una tarde tranquila leyendo un buen libro, pero también soy de los que disfrutan de una noche de risas con amigos. Soy extrovertido, me gusta compartir momentos con personas positivas y aprender de cada experiencia. Creo que la vida es demasiado corta para no disfrutarla al máximo y siempre estoy dispuesto a emprender nuevas aventuras.",
-        comments: []
+        content:
+            "Apasionado por la tecnología y el cine, siempre en busca de nuevos desafíos. Me encanta disfrutar de una tarde tranquila leyendo un buen libro, pero también soy de los que disfrutan de una noche de risas con amigos. Soy extrovertido, me gusta compartir momentos con personas positivas y aprender de cada experiencia. Creo que la vida es demasiado corta para no disfrutarla al máximo y siempre estoy dispuesto a emprender nuevas aventuras.",
+        comments: [],
     },
     {
         id: 3,
@@ -294,7 +318,8 @@ export const communityData = [
         title: "Maria",
         image: "../../assets/img/users/maria.webp",
         category: "Usuario",
-        content: " Soy una persona apasionada por la vida, siempre en busca de nuevas experiencias y aventuras. Me encanta la lectura, el cine y disfrutar de una buena conversación. Me considero optimista, empática y fiel a mis valores. Creo en la importancia de crecer cada día, tanto personal como profesionalmente, y siempre busco rodearme de personas que me inspiren a ser mejor. Me encanta viajar y aprender sobre otras culturas, ¡y siempre estoy lista para un buen café!",
-        comments: []
-    }
+        content:
+            " Soy una persona apasionada por la vida, siempre en busca de nuevas experiencias y aventuras. Me encanta la lectura, el cine y disfrutar de una buena conversación. Me considero optimista, empática y fiel a mis valores. Creo en la importancia de crecer cada día, tanto personal como profesionalmente, y siempre busco rodearme de personas que me inspiren a ser mejor. Me encanta viajar y aprender sobre otras culturas, ¡y siempre estoy lista para un buen café!",
+        comments: [],
+    },
 ];
