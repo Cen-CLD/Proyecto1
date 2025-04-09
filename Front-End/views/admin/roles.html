@@ -1,52 +1,61 @@
 <!doctype html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Roles | Admin</title>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Roles | Admin</title>
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="../../assets/css/admin/styles.css" />
+    </head>
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600|Titillium+Web:400,600" rel="stylesheet" />
-    <link rel="stylesheet" href="../../assets/css/admin/styles.css" />
-</head>
+    <body>
+        <header-component></header-component>
 
-<body>
-    <header-component></header-component>
+        <sidebar-component>
+            <div slot="content">
+                <section
+                    id="roles"
+                    class="controls-section"
+                    data-section="roles"
+                >
+                    <h1>Listado de Roles</h1>
+                    <hr />
+                    <br />
+                    <div class="margin">
+                        <button class="btn-create">
+                            <i class="fa fa-add"></i>
+                        </button>
+                    </div>
+                    <table
+                        id="table-roles"
+                        class="table table-bordered text-center"
+                    >
+                        <thead>
+                            <tr>
+                                <th>Acciones</th>
+                                <th>Rol</th>
+                            </tr>
+                        </thead>
 
-    <sidebar-component>
-        <div slot="content">
+                        <tbody></tbody>
+                    </table>
+                </section>
+            </div>
+        </sidebar-component>
 
-            <section id="roles" class="controls-section" data-section="roles">
-                <h1>Listado de Roles</h1>
-                <hr />
-                <br />
+        <footer-component></footer-component>
 
-                <table id="table-roles" class="table table-bordered text-center">
-                    <thead>
-                        <tr>
-                            <th>Acciones</th>
-                            <th>Rol</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                    </tbody>
-                </table>
-            </section>
-
-        </div>
-    </sidebar-component>
-
-    <footer-component></footer-component>
-
-    <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
-    <script src="../../assets/vendor/axios-1.8.4/package/dist/axios.min.js"></script>
-    <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
-    <script src="../../assets/js/admin/main.js"></script>
-    <script src="../../assets/js/components/admin/header.js"></script>
-    <script src="../../assets/js/components/admin/sidebar.js"></script>
-    <script src="../../assets/js/components/admin/footer.js"></script>
-</body>
-
+        <script src="../../assets/vendor/sweetalert2-11.17.2/package/dist/sweetalert2.all.min.js"></script>
+        <script src="../../assets/vendor/axios-1.8.4/package/dist/axios.min.js"></script>
+        <script src="../../assets/vendor/fontawesome-free-6.7.2-web/js/all.min.js"></script>
+        <script type="module" src="../../assets/js/admin/main.js"></script>
+        <script src="../../assets/js/components/admin/header.js"></script>
+        <script src="../../assets/js/components/admin/sidebar.js"></script>
+        <script src="../../assets/js/components/admin/footer.js"></script>
+    </body>
 </html>
+

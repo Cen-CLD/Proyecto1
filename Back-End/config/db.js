@@ -1,12 +1,12 @@
-const mongoose = require('mongoose');
-const dotenv = require('dotenv');
-const { logError } = require('../utils/logger');
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const { logError } = require("../utils/Logger");
 
 dotenv.config();
 
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGO_URI, {dbName: 'project1'});
+        await mongoose.connect(process.env.MONGO_URI, { dbName: "project1" });
     } catch (error) {
         logError(error);
         console.error(error);
