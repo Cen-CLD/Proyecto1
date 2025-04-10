@@ -1,5 +1,5 @@
-const { OAuth2Client } = require('google-auth-library');
-const { logError } = require('../utils/logger');
+const { OAuth2Client } = require("google-auth-library");
+const { logError } = require("../utils/Logger");
 const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 const googleSignIn = async (req, res) => {
@@ -25,6 +25,6 @@ const googleSignIn = async (req, res) => {
         res.json({ user, token });
     } catch (err) {
         logError(err);
-        res.status(401).json({ msg: 'Token de Google no válido' });
+        res.status(401).json({ msg: "Token de Google no válido" });
     }
 };

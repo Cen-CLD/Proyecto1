@@ -311,6 +311,54 @@ section {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+.btn-edit {
+    background: var(--color-3);
+    color: white;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition:
+        transform 0.2s ease,
+        background 0.3s ease;
+}
+
+.btn-edit:hover {
+    background: var(--color-4);
+    transform: translateY(-2px);
+}
+
+.btn-edit:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-delete {
+    background: #ff4d4f;
+    color: white;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition:
+        transform 0.2s ease,
+        background 0.3s ease;
+}
+
+.btn-delete:hover {
+    background: #e63946;
+    transform: translateY(-2px);
+}
+
+.btn-delete:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
 .content-body {
     flex: 1;
     display: grid;
@@ -544,7 +592,10 @@ section {
 .hidden-file-input {
     display: none;
 }
-
+.margin {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
 footer {
     width: 100%;
     margin-top: auto;
